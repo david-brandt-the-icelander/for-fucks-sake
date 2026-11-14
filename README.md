@@ -22,4 +22,6 @@ and out-brag rival sysadmins in the war-room — before you inevitably lose it.
 | [docs/05-milestones.md](docs/05-milestones.md) | Build order, acceptance criteria, balance targets |
 | [docs/decisions.md](docs/decisions.md) | Decisions log and open questions |
 
+Project paperwork (business plan, risks, deployment, ops, contacts): [Documentation/](Documentation/README.md).
+
 Implementation agents: start with [AGENTS.md](AGENTS.md).
