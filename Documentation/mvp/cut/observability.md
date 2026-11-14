@@ -1,5 +1,7 @@
 # Observability
 
+> **Cut from the MVP** (no server, nothing to run). Kept as the plan for when multiplayer returns. See README.md in this folder.
+
 **Source of truth:** here. Indie scale: logs and a health check; add more only when something hurts.
 
 ## Health

@@ -1,5 +1,7 @@
 # Operations
 
+> **Cut from the MVP** (no server, nothing to run). Kept as the plan for when multiplayer returns. See README.md in this folder.
+
 **Source of truth:** here. Mostly future tense: single-player is a static site (nothing to operate); multiplayer is where operations begin.
 
 ## Routine

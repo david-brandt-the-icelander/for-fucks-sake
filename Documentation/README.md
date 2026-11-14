@@ -1,6 +1,7 @@
 # Documentation
 
-The twelve project documents, indie-sized. Based on the templates in
+The project documents, indie-sized. Start with [mvp/](mvp/README.md) for what we build first; the
+files below describe the full game. `operations.md` and `observability.md` moved to `mvp/cut/` (no server in the MVP). Based on the templates in
 [processes/project-management/deployable-documentation](https://github.com/david-brandt-the-icelander/processes/tree/main/project-management/deployable-documentation),
 but deliberately loose: a few honest lines beat a perfect table nobody updates.
 
@@ -22,8 +23,7 @@ says what is *decided* versus *planned*. Where something is simply not known yet
 | [deployment.md](deployment.md) | Where it runs, how it ships, rollback |
 | [cicd.md](cicd.md) | What CI checks |
 | [development.md](development.md) | Getting it running, how changes get in |
-| [operations.md](operations.md) | Day-to-day running (mostly for multiplayer) |
-| [observability.md](observability.md) | What it tells us about itself |
+| [mvp/](mvp/README.md) | **The cut-down first game, and what was cut** |
 | [contacts.md](contacts.md) | Who to poke |
 
 ## Ground rules (loose on purpose)
