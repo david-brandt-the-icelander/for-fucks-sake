@@ -38,6 +38,16 @@ in `docs/`. Read it in this order before writing code:
 - Work milestone by milestone (05-milestones). Don't start M(n+1) until M(n)'s
   acceptance list passes in CI.
 
+## Documentation
+
+Project paperwork (business plan, risks, deployment, ops, contacts...) lives in
+`Documentation/`, based on the twelve-file layout at
+https://github.com/david-brandt-the-icelander/processes/tree/main/project-management/deployable-documentation,
+kept deliberately loose for an indie project. `docs/` is the game spec; `Documentation/`
+is everything around it. Update the relevant file in the same commit as the change.
+A change that adds a dependency, port, secret, alert or external service is not finished until
+the file that lists those says so.
+
 ## Commands (once scaffolded)
 
 ```
