@@ -1,8 +1,9 @@
 # MVP
 
-**Status:** proposal. The full spec in `../../docs/` is unchanged and still the long-term vision.
-This folder is the cut-down game to build *first*. If we adopt it, add one line to
-`docs/decisions.md` ("build the MVP in `Documentation/mvp/` before M3+") so the spec and plan agree.
+**Status:** implemented (v0.1, MV0-MV3 in one pass). The full spec in `../../docs/` is unchanged and still the
+long-term vision. Adopted in `docs/decisions.md` ("MVP adopted"), which also lists the numbers and rules that
+were decided while building it. Still to do before a public release: human playtests against the fun test below,
+a content curation pass (the 40 incidents are AI-drafted, not yet human-curated), Firefox/Safari checks, a static deploy.
 
 **Rule of thumb:** if a cut makes the game unplayable or unfunny, un-cut it. Otherwise it stays cut.
 
@@ -55,10 +56,10 @@ a hand-curation pass; full balance harness.
 
 | # | Goal | Done when |
 | --- | --- | --- |
-| MV0 | Spike: text-grid renderer + key capture on Chrome/Safari/Firefox | Helpdesk mockup renders; F-keys, 1-4, Enter reliably captured; fallback bindings noted |
-| MV1 | Core + tiny headless CLI with starter content (1 corp, ~15 incidents, 2 rivals) | A full run plays in a terminal; meltdown, fired and retire all reachable; replay hash verifies |
-| MV2 | Web UI, 2 desktops, autosave | Playable start to finish by keyboard only; Playwright covers the happy path |
-| MV3 | Full MVP content (~40 incidents, 4 rivals, 3 schemes, scenes) + small bot for balance | Playtest checklist below passes; static deploy |
+| MV0 | (done, Chromium only) Spike: text-grid renderer + key capture on Chrome/Safari/Firefox | Helpdesk mockup renders; F-keys, 1-4, Enter reliably captured; fallback bindings noted |
+| MV1 | (done) Core + tiny headless CLI with starter content (1 corp, ~15 incidents, 2 rivals) | A full run plays in a terminal; meltdown, fired and retire all reachable; replay hash verifies |
+| MV2 | (done) Web UI, 2 desktops, autosave | Playable start to finish by keyboard only; Playwright covers the happy path |
+| MV3 | (done except playtest and deploy) Full MVP content (~40 incidents, 4 rivals, 3 schemes, scenes) + small bot for balance | Playtest checklist below passes; static deploy |
 
 Estimates deliberately not given; each is "as long as it takes to be fun". Don't start MV(n+1) until MV(n) is done.
 

@@ -1,0 +1,502 @@
+# Tier 1: trivial users. Passwords, monitors, caps lock, printers, wifi.
+
+[[incident]]
+id = "ceo_attach_file_0"
+title = "CAN'T ATTACH A FILE"
+tier = 1
+who = "arthur"
+quote = "Morning! Quick one. I need to send a document to the board and the email won't let me put it IN the email. Can you pop over and do the thing? I'm in a meeting. I'm always in a meeting."
+details = "Sent from my phone. Ticket opened by his assistant's assistant."
+cause = "Arthur had spent an hour looking for the attach button, which was the paperclip he kept calling 'the staple'."
+chain = "ceo_attach_file"
+step = 0
+
+  [[incident.option]]
+  id = "walk"
+  text = "Walk him through the paperclip icon"
+  kind = "professional"
+  minutes = 60
+  result = "It takes forty minutes. He thanks you for 'fixing the cloud' and asks if the staple will be billed."
+  effects = [ { fucks = -3 } ]
+
+  [[incident.option]]
+  id = "paste"
+  text = "Help him paste all 80 pages into the email body"
+  kind = "malicious"
+  result = "The board receives one email, eighty pages long. Three reply 'received'. One asks for a summary."
+  story = "made the CEO email the board eighty pages inline"
+  story_value = 2
+  effects = [ { fucks = 5 }, { susp = 3 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "weather"
+  text = "Blame the cloud, it's raining"
+  kind = "dodge"
+  minutes = 20
+  result = "'Ah, weather.' He wanders off, satisfied. It will be back, and it will be wetter."
+  effects = [ { fucks = -1 } ]
+
+[[incident]]
+id = "richard_email_0"
+title = "KEYBOARD SHOUTING"
+tier = 1
+who = "richard"
+quote = "MY KEYBOARD IS STUCK IN CAPITALS AND THE CLIENT MEETING IS AT TEN. THIS IS URGENT. I AM ON THE BOAT SO IT NEEDS FIXING REMOTELY. THE BOAT IS CALLED THE SEA-EASE BY THE WAY."
+cause = "Richard had leaned on the caps lock key with his elbow while photographing his boat, then blamed the keyboard, the vendor and the tide."
+chain = "richard_email"
+step = 0
+
+  [[incident.option]]
+  id = "press"
+  text = "Tell him to press Caps Lock"
+  kind = "professional"
+  minutes = 20
+  result = "'I KNOW WHAT CAPS LOCK IS.' He did not. It's fixed. You get a photo of the boat as thanks."
+  effects = [ { fucks = -3 } ]
+
+  [[incident.option]]
+  id = "lower"
+  text = "Auto-lowercase everything he types, 'for clarity'"
+  kind = "malicious"
+  result = "His threats arrive in a soft lowercase hush. Clients find him 'refreshingly calm'. He is baffled by the raise."
+  story = "made Richard's rage arrive in lowercase"
+  story_value = 2
+  effects = [ { fucks = 4 }, { susp = 3 }, { np = 2 } ]
+
+  [[incident.option]]
+  id = "shout"
+  text = "Suggest he shout at the keyboard instead"
+  kind = "vent"
+  temptation = true
+  minutes = 20
+  result = "'I'LL HAVE YOU REPLACED.' You mention the boat needs maintenance. He retreats, vibrating gently."
+  effects = [ { fucks = 5 }, { susp = 5 }, { chance = 20, then = [ { spawn = "sys_hr_meeting" } ] } ]
+
+[[incident]]
+id = "pip_delete_0"
+title = "DESKTOP TIDIED"
+tier = 1
+who = "pip"
+quote = "Hi! Sorry, I tidied the desktop like you said? You said 'clear it out' last week, so I cleared it. All the icons are gone! Also the folder where the invoices were. Is that bad? It felt bad."
+cause = "Pip had taken 'clear it out' literally and emptied the desktop, the recycle bin and, accidentally, the invoices folder."
+chain = "pip_delete"
+step = 0
+
+  [[incident.option]]
+  id = "restore"
+  text = "Restore from backup, gently, no blame"
+  kind = "professional"
+  result = "The invoices return. Pip writes you a thank-you card. He has spelled 'backup' as 'backdown'."
+  effects = [ { fucks = -3 } ]
+
+  [[incident.option]]
+  id = "filing"
+  text = "Tell him an empty desktop is now the filing system"
+  kind = "malicious"
+  result = "Pip reorders the empty desktop with great ceremony. Finance later praises its 'minimalist clarity'."
+  effects = [ { fucks = 4 }, { susp = 2 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "maintenance"
+  text = "Log it as scheduled maintenance"
+  kind = "dodge"
+  minutes = 30
+  result = "Pip logs it as 'maintenance'. Finance logs it as 'where are my invoices'. You log off early."
+  effects = [ { fucks = -1 }, { chance = 30, then = [ { fucks = -4 } ] } ]
+
+[[incident]]
+id = "kevin_brand_0"
+title = "MONITOR OFF-BRAND"
+tier = 1
+who = "kevin"
+quote = "The monitor bezel is, like, SO off-brand. Can IT disrupt the default desktop colours? I need the whole floor on-brand by EOD, synergy-wise. Also I want the cursor to be the logo."
+cause = "Kevin had re-skinned his own display profile to brand teal and filed a ticket demanding the whole floor 'match the vibe'."
+chain = "kevin_brand"
+step = 0
+
+  [[incident.option]]
+  id = "wallpaper"
+  text = "Set the wallpaper, decline the cursor"
+  kind = "professional"
+  result = "The wallpaper is teal. The cursor is an arrow. Kevin calls it 'an MVP of brand'. You call it Tuesday."
+  effects = [ { fucks = -3 } ]
+
+  [[incident.option]]
+  id = "cursor"
+  text = "Make the cursor the logo, 400 pixels wide"
+  kind = "malicious"
+  result = "The logo now follows every click like a large teal pet. Kevin cannot find Save. He calls it 'engagement'."
+  story = "gave Kevin a 400-pixel logo for a cursor"
+  story_value = 2
+  effects = [ { fucks = 5 }, { susp = 4 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "bezel"
+  text = "Say the bezel is the only honest part of the brand"
+  kind = "vent"
+  temptation = true
+  minutes = 20
+  result = "He goes very quiet, then asks if that's 'on message'. You say yes. He writes it down."
+  effects = [ { fucks = 5 }, { susp = 5 }, { chance = 20, then = [ { spawn = "sys_hr_meeting" } ] } ]
+
+[[incident]]
+id = "margaret_cost_0"
+title = "MOUSE NEEDS COST CENTRE"
+tier = 1
+who = "margaret"
+quote = "My mouse has failed. I require a replacement, costed against Finance, cost centre 4410, delivered with a receipt signed by you. I will count the old one back. I will count the cable."
+cause = "Margaret's mouse had died, and she refused to accept a replacement that had not been approved, costed, signed and counted."
+chain = "margaret_cost"
+step = 0
+
+  [[incident.option]]
+  id = "form"
+  text = "Fill in the form, hand-deliver, get a signature"
+  kind = "professional"
+  minutes = 60
+  result = "She counts the mouse, counts the cable, then counts you. You leave with a receipt and a faint sense of audit."
+  effects = [ { fucks = -3 } ]
+
+  [[incident.option]]
+  id = "ceremonial"
+  text = "Bill Finance's own cost centre, 'mouse, ceremonial'"
+  kind = "malicious"
+  result = "Finance pays Finance for a mouse. Margaret approves her own invoice and feels, visibly, nothing at all."
+  effects = [ { fucks = 4 }, { susp = 3 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "kit"
+  text = "Invoice it as a 'precision rodent kit' at triple"
+  kind = "profitable"
+  result = "The mouse costs forty dollars. The invoice says 'precision rodent kit'. Margaret signs, hungry for rigour."
+  story = "invoiced the CFO triple for a mouse and she signed it"
+  story_value = 2
+  effects = [ { cash = 400 }, { susp = 4 }, { fucks = -1 }, { chance = 15, then = [ { spawn = "sys_audit_scare" } ] } ]
+
+[[incident]]
+id = "dana_learning_0"
+title = "PASSWORD RESET, WARMLY"
+tier = 1
+who = "dana"
+quote = "Hi hon! I've locked myself out again, which is a real learning opportunity for both of us! Could you pop my password back, and maybe we can unpack why I keep forgetting? No pressure!"
+cause = "Dana had changed her password to an affirmation, then 'unlearned' it somewhere around lunch."
+chain = "dana_learning"
+step = 0
+
+  [[incident.option]]
+  id = "reset"
+  text = "Reset it, say nothing, die inside"
+  kind = "professional"
+  minutes = 30
+  result = "She says 'Thanks, champ.' The reset email addresses her as 'valued colleague'. Nobody feels valued."
+  effects = [ { fucks = -3 } ]
+
+  [[incident.option]]
+  id = "policy"
+  text = "Enforce her own 'Wellbeing Passphrase Policy'"
+  kind = "malicious"
+  result = "Her login now needs eighteen characters, three emotions and no regrets. She calls it growth. It's her policy."
+  story = "locked HR out under HR's own passphrase policy"
+  story_value = 2
+  effects = [ { fucks = 4 }, { susp = 3 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "sticky"
+  text = "Point at the sticky note on her monitor"
+  kind = "vent"
+  temptation = true
+  minutes = 20
+  result = "She smiles the smile of a woman writing things down. The sticky note is yellow. Her notes are long."
+  effects = [ { fucks = 5 }, { susp = 6 }, { chance = 25, then = [ { spawn = "sys_hr_meeting" } ] } ]
+
+[[incident]]
+id = "tomas_ladder_0"
+title = "LADDER MISSING"
+tier = 1
+who = "tomas"
+quote = "Ladder. Server room. Gone. You lot."
+details = "Ticket text: 'Ladder.' (sic)"
+cause = "A technician had borrowed Tomas's ladder to hang a cable from the server room ceiling and had never returned it."
+chain = "tomas_ladder"
+step = 0
+
+  [[incident.option]]
+  id = "return"
+  text = "Find it, return it, say sorry"
+  kind = "professional"
+  minutes = 45
+  result = "It was under a cable tray. He takes it back and sighs the long sigh of a man vindicated by nobody."
+  effects = [ { fucks = -2 } ]
+
+  [[incident.option]]
+  id = "asset"
+  text = "Tag it as 'IT asset 0042' and lend it by ticket"
+  kind = "malicious"
+  result = "Tomas now needs a change request to climb. He files seven. All are approved. The ladder is never lent again."
+  story = "made Facilities raise a change request for their own ladder"
+  story_value = 1
+  effects = [ { fucks = 4 }, { susp = 2 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "point"
+  text = "Grunt back and point at the ceiling"
+  kind = "dodge"
+  minutes = 10
+  result = "He looks up. The ladder is not there. He looks at you for a very long time."
+  effects = [ { fucks = -1 }, { chance = 30, then = [ { fucks = -2 } ] } ]
+
+[[incident]]
+id = "agnes_nda_0"
+title = "EMAIL BOUNCED, LEGAL"
+tier = 1
+who = "agnes"
+quote = "Did my email to opposing counsel go through? Why did it bounce? Why would you not know? Did you read it? Please do not read it. I will bill you for reading it."
+cause = "Agnes had addressed a sensitive email to a draft folder called 'Opposing Counsel (Do Not Send)', and it had obeyed."
+chain = "agnes_nda"
+step = 0
+
+  [[incident.option]]
+  id = "resend"
+  text = "Re-send it and swear you didn't read it"
+  kind = "professional"
+  result = "It goes. She asks what you thought of paragraph three. You say nothing. She writes that down too."
+  effects = [ { fucks = -3 } ]
+
+  [[incident.option]]
+  id = "bill"
+  text = "Bill her twelve minutes for 'review'"
+  kind = "malicious"
+  result = "She disputes the invoice, then pays it, then bills you for the dispute. Everyone keeps meticulous notes."
+  story = "billed Legal for reading her own email"
+  story_value = 2
+  effects = [ { fucks = 5 }, { susp = 4 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "para3"
+  text = "Read paragraph three, then forget nothing"
+  kind = "leverage"
+  result = "Paragraph three is a confession, with footnotes. You say nothing. You remember everything."
+  effects = [ { dirt = true }, { fucks = 2 } ]
+
+[[incident]]
+id = "brynja_kettle_0"
+title = "PRINTER EATING PAPER"
+tier = 1
+who = "brynja"
+quote = "Sorry sorry sorry, the printer's eating the paper again and I've got the fire drill sheets to print and Kevin's flyers and the kettle's making a noise. Can you look? You're my favourite. Don't tell the others."
+cause = "Brynja's printer had jammed on fire drill sheets stapled to a tea-stained takeaway menu."
+chain = "brynja_kettle"
+step = 0
+
+  [[incident.option]]
+  id = "clear"
+  text = "Clear the jam, fix the tray, accept biscuits"
+  kind = "professional"
+  minutes = 45
+  result = "A staple the size of a bad decision. She gives you a custard cream and a sunset smile."
+  effects = [ { fucks = -2 } ]
+
+  [[incident.option]]
+  id = "draft"
+  text = "Set it to grey draft mode for 'sustainability'"
+  kind = "malicious"
+  result = "The fire drill sheets are now a pale grey rumour. Everyone evacuates to wherever looks least grey."
+  effects = [ { fucks = 4 }, { susp = 2 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "part"
+  text = "Say it needs a part, which is you, later"
+  kind = "dodge"
+  minutes = 10
+  result = "She says 'Of course, of course' in the voice of someone who will print everything by hand tonight."
+  effects = [ { fucks = -1 } ]
+
+[[incident]]
+id = "pip_wifi"
+title = "WIFI HAS A NAME"
+tier = 1
+who = "pip"
+quote = "Hi! The wifi isn't working. I'm on the one called 'Free Guest Network' but it doesn't have the intranet. Is the intranet on a different wifi? Does it have a free one?"
+cause = "Pip had joined a neighbour's guest wifi called 'Free Guest Network' and could not reach anything inside the building."
+
+  [[incident.option]]
+  id = "point"
+  text = "Point him at the corporate network"
+  kind = "professional"
+  minutes = 20
+  result = "He connects, wiggles with joy, and bids the neighbour's wifi a tender farewell."
+  effects = [ { fucks = -2 } ]
+
+  [[incident.option]]
+  id = "premium"
+  text = "Tell him the free one is 'premium'; stay on it"
+  kind = "malicious"
+  result = "Pip stays on it for a week, bravely reaching nothing. He reports it as 'a quiet, focused period'."
+  effects = [ { fucks = 4 }, { susp = 2 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "off"
+  text = "Tell him to turn himself off and on again"
+  kind = "dodge"
+  minutes = 10
+  result = "Pip holds the power button on himself and nothing happens. He assumes it's a firmware thing."
+  effects = [ { fucks = -1 } ]
+
+[[incident]]
+id = "tomas_phone"
+title = "PHONE BEEPING"
+tier = 1
+who = "tomas"
+quote = "Phone. Desk four. Beeps. Won't stop. Little man in it. Wants out."
+cause = "The desk phone on desk four was beeping because of a voicemail from 2019 that nobody had ever deleted."
+
+  [[incident.option]]
+  id = "delete"
+  text = "Delete the voicemail and hang it up"
+  kind = "professional"
+  minutes = 20
+  result = "The little man was Kevin, asking for a 'sync'. Tomas nods, satisfied the man is out."
+  effects = [ { fucks = -2 } ]
+
+  [[incident.option]]
+  id = "forward"
+  text = "Forward the beep to Tomas's own extension"
+  kind = "malicious"
+  result = "The beep now follows him up ladders. He glares at the ceiling. The ceiling does not apologise."
+  effects = [ { fucks = 4 }, { susp = 2 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "yeah"
+  text = "Say 'yeah' and leave"
+  kind = "dodge"
+  minutes = 5
+  result = "'Yeah.' He holds the phone in both hands like a small, loud animal."
+  effects = [ { fucks = -1 } ]
+
+[[incident]]
+id = "kevin_camera"
+title = "CAMERA SHOWS CEILING"
+tier = 1
+who = "kevin"
+quote = "My camera's showing me as, like, a ceiling? I'm on a client sync in five and I need to look dynamic. Can IT do something about my angle? Maybe a filter. Make me thought-leader-y."
+cause = "Kevin's laptop camera pointed at the ceiling because he'd been using the lid as a tray for his flat white."
+
+  [[incident.option]]
+  id = "tilt"
+  text = "Tilt the screen back and say nothing"
+  kind = "professional"
+  minutes = 10
+  result = "He appears. He looks dynamic. A coffee ring on the keyboard says otherwise."
+  effects = [ { fucks = -2 } ]
+
+  [[incident.option]]
+  id = "library"
+  text = "Enable the 'thought leader' filter: library, lamp"
+  kind = "malicious"
+  result = "Kevin joins from a mahogany library he doesn't own. The client asks what he's reading. He has to look."
+  story = "put Kevin in a fake library and he closed a deal"
+  story_value = 2
+  effects = [ { fucks = 5 }, { susp = 3 }, { np = 2 } ]
+
+  [[incident.option]]
+  id = "ceiling"
+  text = "Say he looks like a ceiling already"
+  kind = "vent"
+  temptation = true
+  minutes = 10
+  result = "He says 'ha', writes 'ceiling' in his notebook and underlines it twice."
+  effects = [ { fucks = 5 }, { susp = 5 }, { chance = 20, then = [ { spawn = "sys_hr_meeting" } ] } ]
+
+[[incident]]
+id = "richard_password"
+title = "PASSWORD EXPIRED, BOAT"
+tier = 1
+who = "richard"
+quote = "MY PASSWORD EXPIRED AND IT WON'T LET ME REUSE THE BOAT'S NAME. I'VE HAD THAT PASSWORD NINE YEARS. THE BOAT IS CALLED THE SEA-EASE. DO SOMETHING. I HAVE A MEETING ON IT."
+cause = "Richard's nine-year password expired, and the policy refused to let him use the name of his own boat again."
+
+  [[incident.option]]
+  id = "reset"
+  text = "Reset it; suggest the boat's other name"
+  kind = "professional"
+  minutes = 30
+  result = "'SeaEase2!' He is thrilled. You are now the second person to know his password."
+  effects = [ { fucks = -2 } ]
+
+  [[incident.option]]
+  id = "ban"
+  text = "Ban every nautical word from passwords"
+  kind = "malicious"
+  result = "'ANCHOR' denied. 'TIDE' denied. 'WATERLINE' denied. He ends with a password and a shrunken mood."
+  story = "banned the entire sea from Richard's password"
+  story_value = 2
+  effects = [ { fucks = 5 }, { susp = 4 }, { np = 2 } ]
+
+  [[incident.option]]
+  id = "memorise"
+  text = "Memorise the password he just shouted"
+  kind = "leverage"
+  minutes = 20
+  result = "He bellows it across the open plan. Twelve people know the boat. You know what else it opens."
+  effects = [ { dirt = true }, { fucks = 2 } ]
+
+[[incident]]
+id = "dana_monitor"
+title = "MONITOR GONE BLANK"
+tier = 1
+who = "dana"
+quote = "My screen's gone black, hon, and I've done everything right. I mindfully took a breath, I checked in with the monitor, and still nothing. Would you mind having a little look? Warmest, Dana"
+cause = "Dana's monitor was dark because her desk plant had nudged the plug out over the weekend."
+
+  [[incident.option]]
+  id = "plug"
+  text = "Push the plug in, don't mention the plant"
+  kind = "professional"
+  minutes = 10
+  result = "The screen blinks to life. 'You're a lifesaver!' She says that to everyone, which is how you know."
+  effects = [ { fucks = -2 } ]
+
+  [[incident.option]]
+  id = "health"
+  text = "Suggest the monitor take a mental health day"
+  kind = "malicious"
+  result = "Dana books it three days off and files a wellbeing form for it. The form comes to you. It asks how it 'feels'."
+  effects = [ { fucks = 5 }, { susp = 4 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "hands"
+  text = "Say 'it's in your hands now' and leave"
+  kind = "dodge"
+  minutes = 5
+  result = "She looks at her hands for a long, brave moment. The monitor stays dark. So does the floor."
+  effects = [ { fucks = -1 } ]
+
+[[incident]]
+id = "brynja_tin"
+title = "PASSWORD TIN MISSING"
+tier = 1
+who = "brynja"
+quote = "I've lost the password tin. It was a biscuit tin, a nice one, with a robin on it. It had everyone's passwords in it. Is that bad? It felt convenient. Please don't tell Margaret."
+cause = "Brynja had kept every staff password in a robin-themed biscuit tin, and the tin vanished during the fire drill."
+
+  [[incident.option]]
+  id = "reset"
+  text = "Force a company-wide reset"
+  kind = "professional"
+  minutes = 120
+  result = "Four hundred resets. Brynja bakes you a lemon drizzle. Nobody is safe, but everyone is fed."
+  effects = [ { fucks = -4 } ]
+
+  [[incident.option]]
+  id = "robin"
+  text = "Set every password to 'Robin' 'for ease'"
+  kind = "malicious"
+  result = "Security gasps. Brynja says the tin was never the problem, it was the lid. Nobody argues with Brynja."
+  effects = [ { fucks = 5 }, { susp = 5 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "finder"
+  text = "Offer to 'find' the tin for a finder's fee"
+  kind = "profitable"
+  result = "The tin is behind the kettle. You find it with great drama. Brynja tips you, which you call a fee."
+  effects = [ { cash = 300 }, { susp = 4 }, { fucks = -1 }, { chance = 20, then = [ { spawn = "sys_audit_scare" } ] } ]

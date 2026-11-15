@@ -5,10 +5,15 @@ Replaces `../development.md`, `../cicd.md` and `../deployment.md` for the MVP. T
 ## Dev
 
 ```bash
-make dev        # wasm-pack watch + Vite
-make test       # cargo test + vitest + Playwright (Chromium)
+make dev        # build wasm, then the Vite dev server
+make test       # fmt, clippy, cargo test, web typecheck + vitest
+make e2e        # Playwright, keyboard only
+make balance    # bot report + assertions
 cargo run -p ffs-cli -- play --seed 42
 ```
+
+Needs Rust stable with the `wasm32-unknown-unknown` target, `wasm-bindgen-cli` 0.2.130 (pinned to match the crate),
+and Node 22. CI: `.github/workflows/ci.yml`.
 
 Crates in the MVP: `ffs-core`, `ffs-content`, `ffs-wasm`, `ffs-cli` (play + replay verify + tiny bot). No `ffs-server`.
 Branch, small commits, PR (draft first). Rule or content change on purpose = regenerate replay corpus in the same commit.

@@ -1,0 +1,399 @@
+# Tier 3: management and corporate absurdity. Reorgs, consultants, AI strategy, uptime, budget cuts.
+
+[[incident]]
+id = "ceo_attach_file_2"
+title = "PRINT THE INTERNET"
+tier = 3
+who = "arthur"
+quote = "Right. The board wants it all on paper, so I'm told. Can you just print the internet? All of it. Double-sided, we're green. On my desk by Friday. I'd like it in a nice folder."
+cause = "Arthur had promised the board a printed copy of 'the internet' and expected delivery in a ring binder."
+chain = "ceo_attach_file"
+step = 2
+
+  [[incident.option]]
+  id = "front"
+  text = "Print a search engine's front page, bound nicely"
+  kind = "professional"
+  minutes = 60
+  result = "He turns the page over looking for the rest. 'It's shorter than I thought.' Nobody corrects him."
+  effects = [ { fucks = -5 } ]
+
+  [[incident.option]]
+  id = "queue"
+  text = "Queue the whole thing on the department printer"
+  kind = "malicious"
+  result = "Page one of the internet begins. Facilities orders a pallet of paper. Brynja cries quietly into the toner."
+  story = "queued the entire internet on the CEO's printer"
+  story_value = 3
+  effects = [ { fucks = 7 }, { susp = 6 }, { np = 2 }, { chance = 30, then = [ { susp = 8 }, { spawn = "sys_audit_scare" } ] } ]
+
+  [[incident.option]]
+  id = "document"
+  text = "Tell him the internet is not a document"
+  kind = "vent"
+  temptation = true
+  minutes = 20
+  result = "'Not a document?' He looks hurt. 'Then why does it have pages?' You do not have a good answer."
+  effects = [ { fucks = 8 }, { susp = 7 }, { chance = 25, then = [ { spawn = "sys_hr_meeting" } ] } ]
+
+  [[incident.option]]
+  id = "signed"
+  text = "Get 'print the internet' in writing, signed"
+  kind = "leverage"
+  minutes = 30
+  result = "He signs with a flourish. It is, legally and spiritually, a memo you will treasure forever."
+  effects = [ { dirt = true }, { fucks = 3 } ]
+
+[[incident]]
+id = "richard_email_2"
+title = "REPLY-ALL, RECALL IT"
+tier = 3
+who = "richard"
+quote = "I SENT THE BOAT PHOTOS TO ALL-STAFF. ALL OF THEM. THE BOARD TOO. RECALL IT. RECALL IT NOW. THE BOAT IS IN A COMPROMISING POSITION IN PHOTO SEVEN. MAKE IT UNSENT."
+cause = "Richard had replied to all-staff with 3,100 boat photos, one showing the boat in what he called 'a compromising position' (aground)."
+chain = "richard_email"
+step = 2
+
+  [[incident.option]]
+  id = "recall"
+  text = "Recall it; explain recall is a wish, not a spell"
+  kind = "professional"
+  minutes = 90
+  result = "Recall works on 4%. The other 96% have already named photo seven 'Boat Aground, The Sequel'."
+  effects = [ { fucks = -5 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "recallrecall"
+  text = "Send a follow-up recalling the recall"
+  kind = "malicious"
+  result = "Everyone has the boat twice, plus a note about the recall of the recall. His inbox hits a record."
+  effects = [ { fucks = 6 }, { susp = 5 }, { np = 2 } ]
+
+  [[incident.option]]
+  id = "seven"
+  text = "Keep a copy of photo seven, 'for the archive'"
+  kind = "leverage"
+  minutes = 30
+  result = "You quietly archive the aground boat. Not for any reason. For the archive. Forever."
+  effects = [ { dirt = true }, { fucks = 3 } ]
+
+  [[incident.option]]
+  id = "honest"
+  text = "Tell him photo seven is the first honest thing he's sent"
+  kind = "vent"
+  temptation = true
+  minutes = 20
+  result = "The boat is aground, Richard, and so is your credibility. He drafts a reply in capitals. You mute him."
+  effects = [ { fucks = 10 }, { susp = 8 }, { chance = 30, then = [ { susp = 8 }, { spawn = "sys_hr_meeting" } ] } ]
+
+[[incident]]
+id = "pip_delete_2"
+title = "SERVER OPTIMISED"
+tier = 3
+who = "pip"
+quote = "Good news! I optimised the server. It was at 91% and now it's at 2%! I deleted the big folder called 'Database'. It had a lot of tables. It felt heavy. Do you want a screenshot?"
+cause = "Pip optimised the production server by deleting a folder called 'Database', which was, regrettably, the database."
+chain = "pip_delete"
+step = 2
+
+  [[incident.option]]
+  id = "restore"
+  text = "Restore everything; call it a resilience drill"
+  kind = "professional"
+  minutes = 240
+  result = "Four hours of restores, two of lying. The board is told it was 'a planned exercise'. They applaud."
+  effects = [ { fucks = -8 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "promote"
+  text = "Restore it, then promote Pip to Head of Efficiency"
+  kind = "malicious"
+  result = "Pip gets a lanyard, an office and a mandate. Margaret funds the role. The database stays restored. Barely."
+  story = "promoted the intern who deleted the database"
+  story_value = 3
+  effects = [ { fucks = 7 }, { susp = 6 }, { np = 2 } ]
+
+  [[incident.option]]
+  id = "screenshot"
+  text = "Restore it, keep the screenshot as insurance"
+  kind = "leverage"
+  minutes = 180
+  result = "The screenshot goes in your drawer. Pip is now a very good reason for you to be allowed to lock things."
+  effects = [ { dirt = true }, { fucks = 2 } ]
+
+[[incident]]
+id = "kevin_brand_2"
+title = "AI STRATEGY BY EOD"
+tier = 3
+who = "kevin"
+quote = "The board wants an AI strategy by EOD. Just a deck. We're going to leverage AI to AI our AI. Can you give me a one-pager that says we already did it? Don't over-index on accuracy. Disrupt the truth."
+cause = "Kevin had promised the board an AI strategy that did not exist and wanted IT to supply one, ideally retroactively."
+chain = "kevin_brand"
+step = 2
+
+  [[incident.option]]
+  id = "sober"
+  text = "Write a sober one-pager: 'We use autocomplete'"
+  kind = "professional"
+  minutes = 90
+  result = "The board is disappointed to learn the AI is a spell checker. Kevin takes credit for the honesty."
+  effects = [ { fucks = -6 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "gloria"
+  text = "Rebrand a spreadsheet macro as 'Gloria, our AI'"
+  kind = "malicious"
+  result = "Gloria gets a smiling eagle logo. Kevin pitches her to investors. Gloria replies 'Please wait'."
+  story = "rebranded a spreadsheet macro as the company's AI"
+  story_value = 3
+  effects = [ { fucks = 8 }, { susp = 6 }, { np = 3 } ]
+
+  [[incident.option]]
+  id = "workshop"
+  text = "Sell Marketing a $4k AI workshop about the macro"
+  kind = "profitable"
+  result = "Kevin attends your workshop on 'the future of autocomplete'. Finance sees four thousand dollars and a lanyard."
+  effects = [ { cash = 4000 }, { susp = 12 }, { fucks = -4 }, { chance = 40, then = [ { susp = 12 }, { spawn = "sys_audit_scare" } ] } ]
+
+  [[incident.option]]
+  id = "spreadsheet"
+  text = "Tell him the only intelligence here is a spreadsheet"
+  kind = "vent"
+  temptation = true
+  minutes = 20
+  result = "He nods, writes 'spreadsheet-first' on a whiteboard and circles it. It is now a pillar."
+  effects = [ { fucks = 9 }, { susp = 8 }, { chance = 25, then = [ { spawn = "sys_hr_meeting" } ] } ]
+
+[[incident]]
+id = "margaret_cost_2"
+title = "BUDGET CUTS, ALL OF IT"
+tier = 3
+who = "margaret"
+quote = "Efficiency measures. IT's budget is reduced by 40%. Redundant items: UPS, backups, the second door and the item called 'monitoring'. You may keep 'hope'. It is free. Please acknowledge in writing."
+cause = "Margaret cut IT's budget by 40%, removing UPS, backups and monitoring in favour of 'free alternatives', such as hope."
+chain = "margaret_cost"
+step = 2
+
+  [[incident.option]]
+  id = "acknowledge"
+  text = "Acknowledge in writing, keep the paper trail"
+  kind = "professional"
+  minutes = 60
+  result = "She files it. When everything falls over, you will have a paper trail the length of a boat."
+  effects = [ { fucks = -6 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "comply"
+  text = "Comply exactly: switch off UPS, backups, monitoring"
+  kind = "malicious"
+  result = "Everything is now free and silent. A sneeze in the datacentre is the first outage report anyone reads."
+  effects = [ { fucks = 8 }, { susp = 7 }, { np = 3 }, { chance = 35, then = [ { susp = 10 }, { spawn = "sys_audit_scare" } ] } ]
+
+  [[incident.option]]
+  id = "arthur"
+  text = "Ask Arthur to sign off the cuts personally"
+  kind = "leverage"
+  minutes = 45
+  result = "Arthur signs. 'Is this the one about the cloud?' he asks. You keep the page, in a very safe place."
+  effects = [ { dirt = true }, { fucks = 3 } ]
+
+  [[incident.option]]
+  id = "hope"
+  text = "Tell her hope has no SLA"
+  kind = "vent"
+  temptation = true
+  minutes = 20
+  result = "She writes 'hope: unmonitored, uninsured' in the margin and underlines it. It is the warmest thing she's said."
+  effects = [ { fucks = 9 }, { susp = 8 }, { chance = 25, then = [ { spawn = "sys_audit_scare" } ] } ]
+
+[[incident]]
+id = "dana_learning_2"
+title = "REORG, WITH CONSULTANTS"
+tier = 3
+who = "dana"
+quote = "Big news! We're partnering with a consultancy to reimagine our structure! Some roles may be 'evolved'. Could you give them access to 'everything' for 'discovery'? They're lovely. They brought lanyards."
+cause = "Dana gave an outside consultancy access to everything, including the HR system, the CEO's calendar and the boat budget."
+chain = "dana_learning"
+step = 2
+
+  [[incident.option]]
+  id = "sandbox"
+  text = "Give them read-only access to a sandbox"
+  kind = "professional"
+  minutes = 90
+  result = "The consultants reorganise the sandbox and recommend you for 'evolving'. They are not wrong."
+  effects = [ { fucks = -6 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "everything"
+  text = "Give them everything, as instructed"
+  kind = "malicious"
+  result = "They redraw the org chart so Arthur reports to the kettle. It tests well with focus groups."
+  story = "let the consultants put the CEO under the kettle"
+  story_value = 3
+  effects = [ { fucks = 7 }, { susp = 7 }, { np = 2 }, { chance = 30, then = [ { susp = 10 }, { spawn = "sys_audit_scare" } ] } ]
+
+  [[incident.option]]
+  id = "deck"
+  text = "Obtain the consultants' slide deck 'by accident'"
+  kind = "leverage"
+  minutes = 45
+  result = "The deck lists who they've been told to cut. Three are in your department. You smile like a closing door."
+  effects = [ { dirt = true }, { fucks = 3 } ]
+
+  [[incident.option]]
+  id = "evolved"
+  text = "Say 'evolved' is 'fired' wearing a lanyard"
+  kind = "vent"
+  temptation = true
+  minutes = 20
+  result = "Dana says, warmly, that she hears you. She writes it in the folder with your name on it."
+  effects = [ { fucks = 10 }, { susp = 9 }, { chance = 30, then = [ { spawn = "sys_hr_meeting" } ] } ]
+
+[[incident]]
+id = "tomas_ladder_2"
+title = "SERVERS TO THE BOILER ROOM"
+tier = 3
+who = "tomas"
+quote = "Servers. Moving them. Basement. Next to the boiler. Warm. Quiet. Nobody bothers. Got a trolley."
+cause = "Tomas had decided to relocate the servers to the boiler room, 'for warmth', and had already ordered a trolley."
+chain = "tomas_ladder"
+step = 2
+
+  [[incident.option]]
+  id = "block"
+  text = "Block it with a change ticket and three signatures"
+  kind = "professional"
+  minutes = 60
+  result = "Tomas must sign, Margaret must sign, a notary must sign. He stares at the form for an hour. The trolley rusts."
+  effects = [ { fucks = -5 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "approve"
+  text = "Approve it, for synergy; supply the trolley"
+  kind = "malicious"
+  result = "The servers run at 41 degrees and thrive. The uptime graph looks like a sunrise. A sunrise for a boiler."
+  effects = [ { fucks = 7 }, { susp = 7 }, { np = 2 }, { chance = 30, then = [ { susp = 8 }, { spawn = "sys_audit_scare" } ] } ]
+
+  [[incident.option]]
+  id = "photos"
+  text = "Photograph the boiler room as a hazard; keep copies"
+  kind = "leverage"
+  minutes = 45
+  result = "The photos show a damp calendar from 1998 and a very serious cat. You keep them for when the lights go."
+  effects = [ { dirt = true }, { fucks = 3 } ]
+
+  [[incident.option]]
+  id = "lovely"
+  text = "Grunt 'lovely', then lock the cage"
+  kind = "dodge"
+  minutes = 10
+  result = "He nods. He tries the door. He tries it again. He will be back with a bigger trolley."
+  effects = [ { fucks = -2 }, { chance = 40, then = [ { fucks = -4 } ] } ]
+
+[[incident]]
+id = "agnes_nda_2"
+title = "LITIGATION HOLD, TOTAL"
+tier = 3
+who = "agnes"
+quote = "Effective immediately: litigation hold on everything. Do not delete, rename, overwrite or look at anything. Do you understand? Have you written that down? Why not? Also, the hold applies to the hold."
+cause = "Agnes had imposed a litigation hold on everything, including the hold, freezing every system, backup and spreadsheet in the company."
+chain = "agnes_nda"
+step = 2
+
+  [[incident.option]]
+  id = "freeze"
+  text = "Freeze the company and document it carefully"
+  kind = "professional"
+  minutes = 120
+  result = "Nothing can change. Payroll can't run. Margaret sues the hold. Agnes bills both sides."
+  effects = [ { fucks = -6 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "everything"
+  text = "Hold literally everything, including the coffee rota"
+  kind = "malicious"
+  result = "The kettle rota and Pip's lunch order are now evidence. Brynja asks what to do. 'Nothing,' you say, softly."
+  story = "put the coffee rota under litigation hold"
+  story_value = 2
+  effects = [ { fucks = 7 }, { susp = 6 }, { np = 2 } ]
+
+  [[incident.option]]
+  id = "writing"
+  text = "Ask her to confirm the hold in writing, in full"
+  kind = "leverage"
+  minutes = 45
+  result = "She does, in a clipped email you'll treasure. It says 'everything'. You mean to quote it forever."
+  effects = [ { dirt = true }, { fucks = 3 } ]
+
+[[incident]]
+id = "brynja_kettle_2"
+title = "FIRE ALARM ON KETTLE NET"
+tier = 3
+who = "brynja"
+quote = "Um. The fire alarm. It's connected to the kettle's network? And the kettle just told it there's a kettle fire? And the sprinklers think the kettle is Kevin. Everyone's in the car park. Don't tell the others."
+cause = "The fire alarm shared a network with the smart kettle, and the kettle had reported a 'steam-related inferno' with great confidence."
+chain = "brynja_kettle"
+step = 2
+
+  [[incident.option]]
+  id = "isolate"
+  text = "Isolate the alarm and evacuate in good order"
+  kind = "professional"
+  minutes = 90
+  result = "Everyone files to the car park. Kevin live-posts it. The kettle is unharmed, and proud."
+  effects = [ { fucks = -6 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "drill"
+  text = "Let it run: a ninety-minute 'drill'"
+  kind = "malicious"
+  result = "Nobody works. Arthur finds it 'bracing'. Margaret counts the time as unpaid. The kettle takes a bow."
+  effects = [ { fucks = 8 }, { susp = 7 }, { np = 2 }, { chance = 30, then = [ { susp = 8 }, { spawn = "sys_audit_scare" } ] } ]
+
+  [[incident.option]]
+  id = "walk"
+  text = "Pretend it's planned; go for a walk"
+  kind = "dodge"
+  minutes = 30
+  result = "You enjoy an unplanned walk. Arthur sees you, assumes it's a team-building exercise, and calls a meeting."
+  effects = [ { fucks = -2 }, { spawn = "sys_all_hands" } ]
+
+[[incident]]
+id = "uptime_report"
+title = "UPTIME REPORT, 100%"
+tier = 3
+who = "arthur"
+quote = "The board wants uptime. I told them one hundred percent. They've asked for a graph. Make it go up and to the right. If it dips, label it 'strategic'. And please don't say 'downtime'. Say 'unplanned excellence'."
+cause = "Arthur had promised the board 100% uptime and ordered a graph that never dipped, despite three outages last quarter."
+
+  [[incident.option]]
+  id = "truth"
+  text = "Report the truth, 97.3%, with a footnote"
+  kind = "professional"
+  minutes = 60
+  result = "The board asks what happened to the other 2.7. Arthur says 'weather'. Nobody pushes."
+  effects = [ { fucks = -7 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "plugged"
+  text = "Redefine 'up' as 'plugged in'"
+  kind = "malicious"
+  result = "The graph is perfect. Everything plugged in has been 'up' since 2019. The kettle is your best performer."
+  effects = [ { fucks = 8 }, { susp = 8 }, { np = 3 }, { chance = 30, then = [ { susp = 10 }, { spawn = "sys_audit_scare" } ] } ]
+
+  [[incident.option]]
+  id = "sla"
+  text = "Sell clients a '100% uptime' SLA premium"
+  kind = "profitable"
+  result = "Clients pay extra for what Arthur has already promised. The word 'premium' does a great deal of lifting."
+  effects = [ { cash = 4000 }, { susp = 12 }, { fucks = -4 }, { chance = 40, then = [ { susp = 12 }, { spawn = "sys_audit_scare" } ] } ]
+
+  [[incident.option]]
+  id = "haircut"
+  text = "Say unplanned excellence is an outage with a haircut"
+  kind = "vent"
+  temptation = true
+  minutes = 20
+  result = "Arthur loves it. He asks you to put it on a slide. The haircut is the CEO's own. He does not notice."
+  effects = [ { fucks = 10 }, { susp = 8 }, { chance = 30, then = [ { spawn = "sys_hr_meeting" } ] } ]

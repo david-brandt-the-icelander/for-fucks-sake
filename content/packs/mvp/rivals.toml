@@ -1,0 +1,245 @@
+# Scripted rival sysadmins in the chat room. Original, fictional.
+
+[[rival]]
+id = "kernel_kate"
+nick = "kernel_kate"
+corp = "Hollins & Pratt Insurance"
+ego = 2
+np_start = [10, 25]
+np_per_day = [3, 8]
+idle = [
+  "Another outage postmortem with no actual root cause. Lovely.",
+  "Someone asked me to 'just quickly' migrate a database. Quickly. Sure.",
+  "My change request was rejected for a typo in the change request template.",
+  "I have documented this process eleven times. Nobody reads it. Eleven.",
+  "Our monitoring is flawless. Our users are the flaw.",
+  "Reminder that 'works on my machine' is a confession, not a defence.",
+  "Spent the morning explaining DNS to a VP. He nodded like a bobblehead.",
+  "I like my pager silent and my runbooks current. Is that so much?",
+  "Patch Tuesday again. I schedule it. They still act surprised.",
+  "Please stop calling the server room 'the IT cupboard'. It has a name.",
+]
+boast = [
+  { text = "I rebuilt our entire mail routing over a weekend and nobody noticed. That is the dream.", np = 7 },
+  { text = "I caught a certificate expiring in 3 days when the vendor said 3 years. I was right, obviously.", np = 5 },
+  { text = "I wrote a failover script so clean the auditors asked if it was cheating.", np = 6 },
+  { text = "I found a rogue cron job from 2009 that had been emailing a dead man's mailbox. Fixed it.", np = 4 },
+  { text = "I got our backup restore time from nine hours to forty minutes. With a spreadsheet.", np = 8 },
+  { text = "I rejected a vendor demo after spotting the database password in a screenshot.", np = 4 },
+  { text = "I migrated 4,000 mailboxes with zero tickets. Zero. I checked twice.", np = 9 },
+  { text = "I traced a phantom outage to one mislabelled patch cable. Label maker, finally vindicated.", np = 5 },
+  { text = "I made the CFO sign off on a DR test by showing her the cost of not having one.", np = 6 },
+  { text = "I once diagnosed a broken switch by the pitch of its fan. Entirely by ear.", np = 7 },
+  { text = "I automated onboarding so thoroughly that new hires get accounts before they get desks.", np = 6 },
+  { text = "I turned down a promotion to stay hands-on. They offered a second promotion. I declined that too.", np = 10 },
+]
+react_high = [
+  "Hm. That is... actually well executed. Noted.",
+  "Fine. I will concede that was tidy. Do not get used to it.",
+  "Genuinely competent. I hate that I am impressed.",
+  "That is the first thing you have said that I would put in a runbook.",
+  "Respect. Reluctant, documented, and time-stamped.",
+]
+react_even = [
+  "Adequate. We are, apparently, on the same tier. Unfortunate for us both.",
+  "Roughly equivalent to my Tuesday. Solid, if unremarkable.",
+  "Not bad. Not good. Correct, which is the best I offer.",
+  "We have both clearly suffered at a comparable level. Cheers.",
+  "Acceptable. I would have used fewer steps, but acceptable.",
+]
+react_low = [
+  "That is not a war story, that is a ticket. Next.",
+  "I once did that before breakfast as a warm-up. Try again.",
+  "Is that the whole story? There was supposed to be a punchline.",
+  "Your process has gaps you could drive a forklift through. Document it.",
+  "Cute. Send me the post-incident review. I will wait. Forever.",
+]
+mock_help = [
+  "You opened the help screen? RTFM is not a feature request, friend.",
+  "Help screen already. I read the manual once, before I was born.",
+  "F1? Bold. The documentation is also, famously, accurate. Unlike you.",
+  "Imagine needing a help screen. Anyway, the keys are on the keyboard.",
+]
+
+[[rival]]
+id = "sudo_sven"
+nick = "sudo_sven"
+corp = "Fjordline Wholesale Sweaters"
+ego = 1
+np_start = [10, 25]
+np_per_day = [3, 8]
+idle = [
+  "Server is down. I am having coffee. Both things are fine.",
+  "Boss wants it faster. I told him it is already fast. He is happy.",
+  "It rained again. The roof leaks onto the router. We call it cooling.",
+  "A user asked if the internet is broken. I said maybe. Peace.",
+  "Lunch was herring. Ticket queue was longer. Both survivable.",
+  "I have a standing desk. I sit at it.",
+  "Someone cc'd the whole company on a typo. I will let it unfold.",
+  "Our backups run on Fridays. Mostly. In spirit.",
+  "Meeting could have been an email. Email could have been silence.",
+  "The firewall is fine. The firewall is always fine. Never ask.",
+]
+boast = [
+  { text = "I fixed a payroll outage by sitting very still until the vendor called back. It worked.", np = 4 },
+  { text = "I let the CEO reset his own password forty times. On the forty-first he read the instructions.", np = 5 },
+  { text = "I replaced a failing disk during a fire drill. Nobody noticed. Including the fire.", np = 6 },
+  { text = "I moved the whole office to a new VPN on a Sunday. Silent as a sweater.", np = 7 },
+  { text = "I restored a deleted spreadsheet from a backup I forgot I had. Legend, they said.", np = 4 },
+  { text = "I once automated my own job and then did nothing for six months. Reviews were excellent.", np = 9 },
+  { text = "I found the root cause of a network loop. It was a cat on a power strip. Not a metaphor.", np = 5 },
+  { text = "I upgraded the mail server while the director watched. He asked when I would start.", np = 6 },
+  { text = "I stopped a ransom email by unplugging a printer. Printers are wise.", np = 3 },
+  { text = "I solved a license audit by renaming a folder. The auditor wrote 'resourceful'.", np = 7 },
+  { text = "I got a new laptop approved by saying 'hm' in the budget meeting. Just 'hm'.", np = 5 },
+  { text = "I rebuilt a dead file server from memory and a bag of cables. Took four hours. Nap included.", np = 8 },
+]
+react_high = [
+  "Oh. That is quite good. I may stand up.",
+  "Impressive. Very Nordic of you. Quiet, efficient, slightly sinister.",
+  "Well. I will need to write that one down. On a napkin. Later.",
+  "That is a nice trick. I would have taken a nap first.",
+  "Hm. Yes. That is good. This is my 'hm' of respect.",
+]
+react_even = [
+  "Yes. Same here. The server also hated me on Thursday.",
+  "Sounds familiar. Fish for dinner and a quiet resentment.",
+  "Equal. We shall share a brooding silence.",
+  "It is what it is. And it was. Hm.",
+  "Fair. I would have had a snack in the middle, but fair.",
+]
+react_low = [
+  "Hm. A good start. Maybe next time, also a middle.",
+  "That is... something. The cat story was better. No offence.",
+  "Mm. I once did that by accident while eating a sandwich.",
+  "Nice try. In Norway we would call that Tuesday.",
+  "Is that all? Do not worry. Some people peak at lunch.",
+]
+mock_help = [
+  "A help screen. Hm. I have sat next to the manual for years. We are not close.",
+  "You pressed F1. The manual is calm. You should try it.",
+  "Help is on the way. It is a very slow ferry.",
+  "Ja, F1. There is also a window. Both are available.",
+]
+
+[[rival]]
+id = "null_nina"
+nick = "null_nina"
+corp = "Bluewater Municipal Waste Authority"
+ego = 3
+np_start = [10, 25]
+np_per_day = [3, 8]
+idle = [
+  "ticket closed. user reopened. user is a pest.",
+  "my manager says 'circle back'. i circled. nothing there.",
+  "no sleep. no patience. one working pager.",
+  "someone reset the printer by throwing it. not me. this time.",
+  "the vpn dropped again. so did my will to be nice.",
+  "all hands at 3pm. i will be at 3pm in spirit.",
+  "can we not call it 'synergy' again. i have a limit.",
+  "found a server nobody owns. adopting it. naming it kevin.",
+  "9 tickets. 0 thanks. average day.",
+  "dear users: no. love, nina.",
+]
+boast = [
+  { text = "i killed a 14-hour outage with a single line of sed. no, i will not share it.", np = 8 },
+  { text = "i found out who was mining coins on our network. it was the vending machine. i unplugged it.", np = 6 },
+  { text = "i locked a vendor out of their own backdoor. they sent a thank-you card. weird.", np = 7 },
+  { text = "i wrote a 3-line script that replaced a team of four. they were reassigned. to what, who knows.", np = 9 },
+  { text = "i fixed the mainframe by turning it off. then on. then lying about it.", np = 4 },
+  { text = "i traced a data leak to a sticky note on a monitor. password: password1. yes, really.", np = 5 },
+  { text = "i got a manager to cancel a meeting by scheduling a longer one.", np = 6 },
+  { text = "i read the entire audit log, found the bug, fixed it, and sent a one-word ticket reply. 'done.'", np = 7 },
+  { text = "i moved 12tb overnight with a thumbdrive and a bad attitude.", np = 5 },
+  { text = "i rate-limited the ceo. he thinks the internet is slow in general. it is not.", np = 8 },
+  { text = "i rebuilt the domain controller while on hold with a vendor. the hold music was louder.", np = 6 },
+  { text = "i was told 'it cannot be done'. did it. wrote 'can' on the ticket. closed.", np = 10 },
+]
+react_high = [
+  "...ok. that was actually good. do not make it weird.",
+  "hm. fine. respect. file it under 'rare'.",
+  "huh. i was not expecting that. noted.",
+  "acceptable. high praise. do not frame it.",
+  "that is better than my last three. do not repeat that.",
+]
+react_even = [
+  "same. so what.",
+  "sure. tuesday-grade. next.",
+  "fine. matches mine. we move on.",
+  "ok. nothing to see. continue.",
+  "equal. do not get excited.",
+]
+react_low = [
+  "no.",
+  "that was a ticket, not a story. try again.",
+  "weak. next.",
+  "i have lost interest in this sentence. and that story.",
+  "meh. my cat does more on a keyboard.",
+]
+mock_help = [
+  "f1. wow. the manual is right there. just type like a person.",
+  "help screen. again. it still says 'rtfm'.",
+  "you needed a help screen. sure. i needed coffee. we all suffer.",
+  "f1 is for the hopeless. enjoy.",
+]
+
+[[rival]]
+id = "chmod_carl"
+nick = "chmod_carl"
+corp = "Brant & Sons Civil Engineering"
+ego = 2
+np_start = [10, 25]
+np_per_day = [3, 8]
+idle = [
+  "Back in my day we had a tape drive and a bad temper. Still do.",
+  "Somebody put a cloud in the budget again. I put it back in the sky.",
+  "These kids and their 'containers'. Put it in a box. Label the box. Done.",
+  "Nobody reads logs anymore. Logs are the only honest thing in the building.",
+  "Printer jammed. Told it, nicely. Now it is jammed AND offended.",
+  "You know what is wrong with this industry? Everything. I have a list.",
+  "Three meetings today. I attended zero in spirit and one in person.",
+  "Upgrade? We have been running this since '98. It likes us.",
+  "My manager asked for 'agile'. I gave him a Gantt chart. He cried.",
+  "Fax machine broke. Everyone panicked. I smiled. First time this year.",
+]
+boast = [
+  { text = "I once restored a payroll tape from a flooded basement with a hair dryer and spite.", np = 8 },
+  { text = "I ran our entire network on a single serial cable and a stern look for three weeks.", np = 7 },
+  { text = "I fixed a mainframe printer by hitting it. In the right place. Forty years of practice.", np = 5 },
+  { text = "I kept a 1996 server alive until the day the vendor went bankrupt. Then six more years.", np = 6 },
+  { text = "I diagnosed a failed power supply by smell. Burnt toast and regret. Nailed it.", np = 4 },
+  { text = "I wrote a backup script in a taxi. It is still running. The taxi is not.", np = 6 },
+  { text = "I told the board 'no' and then showed them exactly why. In pen. On the whiteboard.", np = 7 },
+  { text = "I rebuilt a RAID array blindfolded for a bet. Won a sandwich. Worth it.", np = 5 },
+  { text = "I once got a vendor to refund us by reading their own contract back to them. Slowly.", np = 6 },
+  { text = "I trained three interns who now run Fortune 500 data centres. They still call me for help.", np = 9 },
+  { text = "I outlasted four CIOs and a reorg that named me 'Synergy Lead'. I ignored the title.", np = 10 },
+  { text = "I got a server running with a coat hanger and half a screwdriver. Do not ask.", np = 3 },
+]
+react_high = [
+  "Well, damn. That is real work. Haven't heard real work in years.",
+  "Hmph. Kid, that is not terrible. That is almost good.",
+  "I would not have thought of that. Do not tell anyone I said so.",
+  "Right. That is how you do it. Proper. Old school.",
+  "Heh. Grudging nod. You have earned a whole nod.",
+]
+react_even = [
+  "Same old song. Same old pain. Pass the aspirin.",
+  "Sounds about right. Nobody ever says thank you, do they?",
+  "Yeah, been there, rebooted that. Keep going.",
+  "Eh. That is the job. Still, solid.",
+  "Fair. Not a record, but solid. Like a good chair.",
+]
+react_low = [
+  "That is nothing. In my day we did that and then did a real job.",
+  "Pfft. I have had worse before my second coffee.",
+  "Kid, I have toner stains older than that story.",
+  "Is that it? I have seen more drama in a server fan.",
+  "Come back when you have actually broken something. Properly.",
+]
+mock_help = [
+  "A help screen? In my day the manual was a binder and you read it WITH A PEN.",
+  "F1. Hah. Back then we had a man named Gerald. He was the help screen.",
+  "Read the manual. It is the thing with words. They are in order.",
+  "Help, he says. We had wrenches. Figure it out.",
+]
