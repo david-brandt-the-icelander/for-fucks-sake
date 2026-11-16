@@ -1,0 +1,147 @@
+{
+  "hash": "bf84d4177c19297da076c5fb276ca91eab50add0202e9b8ba858c35112137b81",
+  "log": [
+    {
+      "option": 2,
+      "ticket": 3,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
+      "ticket": 2,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 1,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
+      "ticket": 4,
+      "type": "Resolve"
+    },
+    {
+      "type": "EndDay"
+    },
+    {
+      "option": 1,
+      "ticket": 5,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 6,
+      "type": "Resolve"
+    },
+    {
+      "type": "EndDay"
+    },
+    {
+      "option": 1,
+      "ticket": 9,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 10,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 8,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 11,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 7,
+      "type": "Resolve"
+    },
+    {
+      "send": false,
+      "type": "Rant"
+    },
+    {
+      "type": "EndDay"
+    },
+    {
+      "option": 1,
+      "ticket": 14,
+      "type": "Resolve"
+    },
+    {
+      "send": false,
+      "type": "Rant"
+    },
+    {
+      "option": 1,
+      "ticket": 13,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 12,
+      "type": "Resolve"
+    },
+    {
+      "type": "Coffee"
+    },
+    {
+      "option": 0,
+      "ticket": 15,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
+      "ticket": 16,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
+      "ticket": 18,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
+      "ticket": 19,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
+      "ticket": 17,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 20,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 24,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
+      "ticket": 23,
+      "type": "Resolve"
+    },
+    {
+      "type": "EndDay"
+    },
+    {
+      "option": 0,
+      "ticket": 21,
+      "type": "Resolve"
+    },
+    {
+      "type": "EndDay"
+    }
+  ],
+  "seed": 11
+}

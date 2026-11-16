@@ -1,0 +1,218 @@
+{
+  "hash": "17152470aedadecca470991328d24fe12aeabb8e853bec9740f8e874eb6c871a",
+  "log": [
+    {
+      "option": 1,
+      "ticket": 1,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 3,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 2,
+      "type": "Resolve"
+    },
+    {
+      "send": true,
+      "type": "Rant"
+    },
+    {
+      "send": true,
+      "type": "Rant"
+    },
+    {
+      "type": "Coffee"
+    },
+    {
+      "type": "EndDay"
+    },
+    {
+      "option": 1,
+      "ticket": 6,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 4,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 5,
+      "type": "Resolve"
+    },
+    {
+      "type": "Coffee"
+    },
+    {
+      "option": 2,
+      "ticket": 7,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 9,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 8,
+      "type": "Resolve"
+    },
+    {
+      "type": "Coffee"
+    },
+    {
+      "option": 0,
+      "ticket": 12,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 10,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 13,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
+      "ticket": 15,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 17,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 16,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 11,
+      "type": "Resolve"
+    },
+    {
+      "type": "EndDay"
+    },
+    {
+      "option": 2,
+      "ticket": 18,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
+      "ticket": 21,
+      "type": "Resolve"
+    },
+    {
+      "type": "Coffee"
+    },
+    {
+      "option": 0,
+      "ticket": 14,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 23,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 22,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
+      "ticket": 25,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 26,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 24,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 29,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 30,
+      "type": "Resolve"
+    },
+    {
+      "option": 3,
+      "ticket": 28,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 31,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
+      "ticket": 20,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 33,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 27,
+      "type": "Resolve"
+    },
+    {
+      "send": false,
+      "type": "Rant"
+    },
+    {
+      "send": true,
+      "type": "Rant"
+    },
+    {
+      "option": 2,
+      "ticket": 32,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
+      "ticket": 34,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 37,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 35,
+      "type": "Resolve"
+    },
+    {
+      "type": "EndDay"
+    }
+  ],
+  "seed": 13
+}

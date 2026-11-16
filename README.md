@@ -22,4 +22,16 @@ and out-brag rival sysadmins in the war-room — before you inevitably lose it.
 | [docs/05-milestones.md](docs/05-milestones.md) | Build order, acceptance criteria, balance targets |
 | [docs/decisions.md](docs/decisions.md) | Decisions log and open questions |
 
+Project paperwork (business plan, risks, deployment, ops, contacts): [Documentation/](Documentation/README.md).
+
+## Play it
+
+```
+make wasm                 # build the engine to WASM (needs wasm-bindgen-cli 0.2.130)
+cd web && npm install && npm run dev
+```
+
+Or in a terminal: `cargo run -p ffs-cli -- play --seed 42`. Status: the MVP in
+[Documentation/mvp/](Documentation/mvp/README.md) is built; the rest of `docs/` is the long-term vision.
+
 Implementation agents: start with [AGENTS.md](AGENTS.md).

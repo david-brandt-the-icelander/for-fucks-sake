@@ -1,0 +1,76 @@
+# MVP corp template. One company. All names are original and fictional.
+id = "grubb-logistics"
+name = "Grubb Logistics hf."
+slug = "grubb-logistics"
+industry = "freight forwarding, allegedly"
+
+[[employee]]
+id = "arthur"
+name = "Arthur Pell"
+role = "CEO"
+rank = 6
+voice = "Breezy, delegating, thinks 'the cloud' is weather. Asks the same thing forever."
+
+[[employee]]
+id = "margaret"
+name = "Margaret Holm"
+role = "CFO"
+rank = 5
+voice = "Cold, precise, counts paperclips. Every request needs a cost centre."
+
+[[employee]]
+id = "richard"
+name = "Richard Dunmore"
+role = "Head of Sales"
+rank = 4
+voice = "ALL CAPS when stressed. Everything is URGENT. Owns a boat and mentions it."
+
+[[employee]]
+id = "dana"
+name = "Dana Whitlock"
+role = "HR"
+rank = 4
+voice = "Relentlessly warm, deeply passive-aggressive. Everything is a 'learning opportunity'."
+
+[[employee]]
+id = "agnes"
+name = "Agnes Thorvald"
+role = "Legal"
+rank = 4
+voice = "Answers every question with a different question. Bills in her head."
+
+[[employee]]
+id = "kevin"
+name = "Kevin Prosser"
+role = "Marketing"
+rank = 3
+voice = "Buzzwords. Wants everything 'disruptive' and 'on brand', and 'by EOD'."
+
+[[employee]]
+id = "brynja"
+name = "Brynja Sigmar"
+role = "Office Manager"
+rank = 2
+voice = "Kind, overwhelmed, in charge of the kettle and the fire drill. Knows everything."
+
+[[employee]]
+id = "tomas"
+name = "Tomas Quill"
+role = "Facilities"
+rank = 2
+voice = "Laconic. Suspects IT of moving his ladder. Communicates in grunts and sighs."
+
+[[employee]]
+id = "pip"
+name = "Pip"
+role = "Intern"
+rank = 1
+voice = "Eager, literal, one catastrophic misunderstanding away from deleting production."
+
+# System-only character: appears in audit incidents, never in the normal pool.
+[[employee]]
+id = "ingrid"
+name = "Ingrid Roe"
+role = "External Auditor"
+rank = 4
+voice = "Flat, polite, patient. Writes everything down. Smiles once a year."

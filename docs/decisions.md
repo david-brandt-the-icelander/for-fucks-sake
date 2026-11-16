@@ -58,3 +58,32 @@ proves wrong.
 - Whether single-player runs may be submitted to a separate "unverified" global
   board.
 - Language(s) beyond English (an Icelandic pack would be on-brand).
+
+## MVP adopted (2026-11-15)
+
+Build the cut-down game described in `Documentation/mvp/` before M3+ of the full plan.
+The full spec in `docs/` stays the long-term vision; `Documentation/mvp/cut/README.md` lists what was
+deferred and when to bring it back.
+
+MVP implementation decisions (all easy to change):
+
+- **Crates:** `ffs-content`, `ffs-core`, `ffs-wasm`, `ffs-cli`. No server, no GM. Content is TOML embedded in the
+  binary (`content/packs/mvp/`, format in its README).
+- **Clock:** 480-minute day (09:00-17:00). Incident 120 min, rant/coffee/boast/dirt 60, schemes 60-120. Tuned by `ffs bot`.
+- **Pressure:** per-day erosion is `3 + max(day-2,0) + day^2/4` fucks; suspicion decays 8/day; unresolved tickets cost
+  2 fucks each overnight (cap 8). Meltdown at fucks <= 0, fired at suspicion 100.
+- **Retire goal:** $25,000 clean cash with suspicion < 60 (the spec's $10M does not fit MVP scale).
+- **Dirt, stories, boasts:** options may carry a `story` (boastable); schemes always create one. Boast value vs rival
+  `ego` decides reaction and NP (v > ego: +2v, v == ego: +v, v < ego: +0 and the rival gains 1). Risky stories cost +6
+  suspicion when bragged. The 3rd boast of a day is worth 1 less. Dirt on a requester is a free one-shot win (+10 fucks, +2 NP).
+- **Rivals** are scripted: NP grows by a per-day range and by their posted boasts; they never interact beyond chat.
+- **NP floors at 0** but the NP log still records a -1 for each F1 open (so the log proves it).
+- **Rant text** is never part of the command log or sent anywhere; the engine only sees `send: true|false`.
+- **Save format:** `{seed, log, hash}` in `localStorage`; a hash mismatch (new game version) discards the save.
+- **WASM seed** is a `u32` (JS-friendly); the CLI takes `u64`.
+- **UI:** one 160x45 character grid rendered into a `<pre>`; 2 desktops (F3 Helpdesk, F4 War-room); one binding per action
+  (the spec's second slot is cut); the game renders at 9x18 px cells and scales to fit; below 0.75 scale it shows a size message.
+- **TS types** are generated from Rust by `ts-rs` into `web/src/gen/` (`cargo test` regenerates; CI checks they are committed).
+- **E2E tests** live in `web/e2e/` (not top-level `e2e/`) so they resolve the web package's Playwright.
+- **Balance targets (MVP, asserted by `ffs bot --assert`):** lazy bot median <= 6 days, clever bot median 8-16 days and
+  >= 70% meltdowns, random bot essentially never retires. Humans land between the lazy and clever bots.

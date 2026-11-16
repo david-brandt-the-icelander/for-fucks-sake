@@ -1,0 +1,33 @@
+# Schemes: each can be run once per day. cash is a range (inclusive); it grows with the day.
+[[scheme]]
+id = "phantom_licences"
+name = "Phantom software licences"
+desc = "Invoice the company for licences of software that doesn't exist."
+minutes = 120
+cash = [900, 2400]
+susp = 7
+audit_chance = 18
+story = "invoiced the company for 400 licences of software that doesn't exist"
+story_value = 3
+
+[[scheme]]
+id = "consulting"
+name = "Consulting on the side"
+desc = "Bill the company, via your own consultancy, for advising yourself."
+minutes = 90
+cash = [500, 1400]
+susp = 4
+audit_chance = 10
+story = "billed the company, via my own consultancy, for advising myself"
+story_value = 2
+
+[[scheme]]
+id = "creative_expenses"
+name = "Creative expenses"
+desc = "Reclassify the pub as 'team infrastructure review'."
+minutes = 60
+cash = [250, 800]
+susp = 2
+audit_chance = 6
+story = "expensed a pub crawl as a 'distributed systems offsite'"
+story_value = 1

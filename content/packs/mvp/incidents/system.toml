@@ -1,0 +1,192 @@
+# System incidents: never drawn randomly, only reached via spawn.
+
+[[incident]]
+id = "sys_audit_scare"
+title = "INTERNAL AUDIT SCARE"
+tier = 2
+who = "margaret"
+system = true
+quote = "An anomaly has appeared on the ledger. A small one. A thing that should not be. I shall look at it, then at you, then at the logs. Do you know what a 'material variance' is? I'll wait. I'll count while I wait."
+cause = "Margaret had spotted a small ledger anomaly and begun an internal audit that made every expense report twitch."
+
+  [[incident.option]]
+  id = "cooperate"
+  text = "Co-operate fully; sit, smile, sweat, show receipts"
+  kind = "professional"
+  minutes = 90
+  result = "You produce every receipt, in order. She writes 'adequate'. It is the nicest word she owns."
+  effects = [ { fucks = -6 }, { susp = -6 } ]
+
+  [[incident.option]]
+  id = "logs"
+  text = "Hand over every log since 2011, printed"
+  kind = "malicious"
+  result = "Margaret receives forty thousand pages, says 'thank you' and starts counting. She'll be there until spring."
+  story = "buried the CFO in her own audit logs"
+  story_value = 2
+  effects = [ { fucks = 5 }, { susp = -2 }, { np = 2 } ]
+
+  [[incident.option]]
+  id = "pip"
+  text = "Mention it was probably Pip's"
+  kind = "dodge"
+  minutes = 20
+  result = "She writes 'Pip' in the margin and circles it. Pip is, regrettably, innocent and unemployable."
+  effects = [ { fucks = -2 }, { susp = -3 }, { chance = 30, then = [ { susp = 8 } ] } ]
+
+  [[incident.option]]
+  id = "anomaly"
+  text = "Say anomalies are what she's made of"
+  kind = "vent"
+  temptation = true
+  minutes = 20
+  result = "She writes 'anomaly: you' in the margin. She does not look up. The audit becomes personal."
+  effects = [ { fucks = 8 }, { susp = 8 } ]
+
+[[incident]]
+id = "sys_hr_meeting"
+title = "A LITTLE CHAT, HR"
+tier = 2
+who = "dana"
+system = true
+quote = "Hi! Do you have a moment? It's nothing, just a little chat about 'your style'. Bring a coffee. Bring a witness. Bring nothing! Whatever feels right! It's now. And at four. And then Thursday."
+cause = "Dana had called an informal meeting about the sysadmin's 'tone', following several complaints from people whose passwords were fine."
+
+  [[incident.option]]
+  id = "sign"
+  text = "Attend, nod, sign the 'Growth Plan'"
+  kind = "professional"
+  minutes = 90
+  result = "You sign a Growth Plan with six goals, three of them 'smile'. You may be reviewed on your smile."
+  effects = [ { fucks = -6 }, { susp = -5 } ]
+
+  [[incident.option]]
+  id = "binder"
+  text = "Bring a tabbed binder of her own passive-aggressive emails"
+  kind = "malicious"
+  result = "Dana reads her own emails aloud in a rising voice. The meeting ends with an apology. Hers, not yours."
+  story = "made HR read her own passive-aggressive emails aloud"
+  story_value = 3
+  effects = [ { fucks = 6 }, { susp = -3 }, { np = 2 } ]
+
+  [[incident.option]]
+  id = "ticket"
+  text = "Say you're 'in a ticket' and can't attend"
+  kind = "dodge"
+  minutes = 10
+  result = "She says 'Of course!' and books you again at the same time. Tomorrow. And the day after."
+  effects = [ { fucks = -2 }, { chance = 50, then = [ { susp = 8 } ] } ]
+
+  [[incident.option]]
+  id = "complaints"
+  text = "Say the complaints are why people need IT"
+  kind = "vent"
+  temptation = true
+  minutes = 20
+  result = "She says 'I hear that.' She writes it down. She doesn't write it anywhere that will help you."
+  effects = [ { fucks = 9 }, { susp = 9 } ]
+
+[[incident]]
+id = "sys_auditor_visit"
+title = "EXTERNAL AUDITOR ARRIVES"
+tier = 3
+who = "ingrid"
+system = true
+quote = "Good morning. I am Ingrid Roe. I will be here six days. Please do not clean anything. I will be writing everything down. Please explain your access controls. Do not explain them too well."
+cause = "The external auditor had arrived to examine access controls, expense claims and the colour of the toner."
+
+  [[incident.option]]
+  id = "show"
+  text = "Show her everything; apologise in advance for the kettle"
+  kind = "professional"
+  minutes = 180
+  result = "She writes for three hours. At the end she says 'Thank you' and very nearly smiles."
+  effects = [ { fucks = -7 }, { susp = -8 } ]
+
+  [[incident.option]]
+  id = "tidy"
+  text = "Serve her a very tidy, very boring paper trail"
+  kind = "malicious"
+  result = "Ingrid finds nothing, and notes that finding nothing is suspicious. She is, as always, correct."
+  effects = [ { fucks = 5 }, { susp = -3 }, { np = 3 }, { chance = 30, then = [ { susp = 10 } ] } ]
+
+  [[incident.option]]
+  id = "bill"
+  text = "Offer to bill her for your time"
+  kind = "vent"
+  temptation = true
+  minutes = 20
+  result = "Ingrid writes it down. She writes everything down. The invoice becomes Exhibit B."
+  effects = [ { fucks = 9 }, { susp = 10 } ]
+
+[[incident]]
+id = "sys_all_hands"
+title = "ALL HANDS, CAR PARK"
+tier = 2
+who = "arthur"
+system = true
+quote = "ALL HANDS! Gather round, everyone, in the car park, because the big room is a yoga class. Big news: I've read an article. We're going 'AI-first, cloud-first, people... somewhere'. Questions? Not you, Richard."
+cause = "Arthur had called an all-hands in the car park to announce a strategy he'd read in an in-flight magazine."
+
+  [[incident.option]]
+  id = "notes"
+  text = "Attend and take notes for the actual plan"
+  kind = "professional"
+  minutes = 60
+  result = "You write 'ask Arthur what he read'. It was the in-flight safety card. It was a good card."
+  effects = [ { fucks = -4 }, { susp = -2 } ]
+
+  [[incident.option]]
+  id = "question"
+  text = "Ask a question that needs a ninety-minute answer"
+  kind = "malicious"
+  result = "Arthur answers for ninety minutes. Nobody asks a second question. You have never been so proud."
+  effects = [ { fucks = 6 }, { susp = 3 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "skip"
+  text = "Skip it; say you're monitoring the cloud"
+  kind = "dodge"
+  minutes = 10
+  result = "Arthur approves. 'Keep an eye on it. Look up.' You look up. It is a ceiling."
+  effects = [ { fucks = -1 }, { chance = 30, then = [ { fucks = -3 }, { susp = 3 } ] } ]
+
+  [[incident.option]]
+  id = "weather"
+  text = "Heckle softly: 'It's weather, Arthur'"
+  kind = "vent"
+  temptation = true
+  minutes = 10
+  result = "Arthur laughs, then frowns, then asks whether it is. The car park falls silent. Richard sails past."
+  effects = [ { fucks = 7 }, { susp = 5 }, { chance = 20, then = [ { spawn = "sys_hr_meeting" } ] } ]
+
+[[incident]]
+id = "sys_coffee_machine"
+title = "COFFEE MACHINE DOWN"
+tier = 2
+who = "brynja"
+system = true
+quote = "The coffee machine's gone down and people are... turning. Kevin said 'circle back' to a wall. Tomas is staring at it. Please? It's the only thing keeping us from anarchy. And it's yours now. Everything's yours now."
+cause = "The office coffee machine had died on a Monday, and the whole building began to unravel in sympathy."
+
+  [[incident.option]]
+  id = "descale"
+  text = "Descale it, resurrect it, receive worship"
+  kind = "professional"
+  minutes = 60
+  result = "The machine hisses to life. Grown adults cry. Brynja slips you a flapjack like a bribe in a spy film."
+  effects = [ { fucks = -3 }, { susp = -2 } ]
+
+  [[incident.option]]
+  id = "decaf"
+  text = "Re-flash it: every drink is 'decaf (premium)'"
+  kind = "malicious"
+  result = "The office goes calm. Richard, on his third, feels 'mysteriously mellow'. The quietest Monday on record."
+  effects = [ { fucks = 6 }, { susp = 5 }, { np = 2 } ]
+
+  [[incident.option]]
+  id = "barista"
+  text = "Charge 50c a cup for 'technical barista services'"
+  kind = "profitable"
+  result = "The office pays gladly. A tip jar appears, then a loyalty card, then a union. You collect $400."
+  effects = [ { cash = 400 }, { susp = 6 }, { fucks = -2 }, { chance = 25, then = [ { spawn = "sys_audit_scare" } ] } ]

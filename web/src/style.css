@@ -1,0 +1,36 @@
+:root {
+  --bg: #030a04; --fg: #33ff66; --bright: #b8ffc9; --art: #7dffa0;
+  --dim: #1fae4a; --rule: #1d7a35; --alert: #ff5555; --barbg: #071a0b;
+}
+:root[data-contrast="high"] {
+  --bg: #000; --fg: #fff; --bright: #fff; --art: #fff; --dim: #c8c8c8; --rule: #8a8a8a; --alert: #ff6b6b; --barbg: #111;
+}
+html, body { margin: 0; height: 100%; background: var(--bg); overflow: hidden; }
+#stage { position: absolute; left: 0; top: 0; transform-origin: 0 0; width: 1440px; height: 810px; }
+#screen {
+  margin: 0; width: 1440px; height: 810px; overflow: hidden; outline: none;
+  font: 15px/18px "VT323", "IBM Plex Mono", "DejaVu Sans Mono", Menlo, Consolas, monospace;
+  letter-spacing: 0; color: var(--fg); background: var(--bg);
+  text-shadow: 0 0 4px rgb(51 255 102 / 0.35);
+  font-variant-ligatures: none;
+}
+#screen span { display: inline-block; height: 18px; white-space: pre; }
+#screen .b { color: var(--bright); }
+#screen .d { color: var(--dim); }
+#screen .a { color: var(--art); }
+#screen .r { color: var(--rule); }
+#screen .x { color: var(--alert); }
+#screen .i { color: var(--bg); background: var(--fg); text-shadow: none; }
+#screen .j { color: var(--bg); background: var(--dim); text-shadow: none; }
+#screen .s { color: var(--bg); background: var(--bright); text-shadow: none; }
+#screen .k { color: var(--bg); background: var(--alert); text-shadow: none; }
+#screen .f { background: var(--barbg); }
+#crt { position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(to bottom, rgb(0 0 0 / 0) 0, rgb(0 0 0 / 0) 2px, rgb(0 0 0 / .2) 3px);
+  box-shadow: inset 0 0 120px rgb(0 0 0 / .6); }
+:root[data-crt="off"] #crt { display: none; }
+:root[data-crt="off"] #screen { text-shadow: none; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-rect: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+#small { position: fixed; inset: 0; background: var(--bg); color: var(--fg); font: 18px monospace; padding: 40px; z-index: 5; }
+#small[hidden] { display: none; }
+@media (prefers-reduced-motion: reduce) { #crt { background: none; } }

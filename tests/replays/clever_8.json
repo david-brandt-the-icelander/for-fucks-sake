@@ -1,0 +1,359 @@
+{
+  "hash": "5807e5d29c1fced7b3fc497eaa6fd3d05fc2a5835ecc8657f1dec376a90237df",
+  "log": [
+    {
+      "id": "phantom_licences",
+      "type": "Scheme"
+    },
+    {
+      "id": "consulting",
+      "type": "Scheme"
+    },
+    {
+      "id": "creative_expenses",
+      "type": "Scheme"
+    },
+    {
+      "option": 2,
+      "ticket": 4,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 1,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 3,
+      "type": "Resolve"
+    },
+    {
+      "id": "phantom_licences",
+      "type": "Scheme"
+    },
+    {
+      "id": "consulting",
+      "type": "Scheme"
+    },
+    {
+      "option": 2,
+      "ticket": 6,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 2,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 5,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 8,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 10,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 7,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 12,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 9,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 14,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 15,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 11,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 17,
+      "type": "Resolve"
+    },
+    {
+      "option": 3,
+      "ticket": 18,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 16,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 21,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 20,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 19,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
+      "ticket": 13,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
+      "ticket": 22,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 24,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 25,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 28,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 29,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 26,
+      "type": "Resolve"
+    },
+    {
+      "ticket": 23,
+      "type": "UseDirt"
+    },
+    {
+      "option": 3,
+      "ticket": 30,
+      "type": "Resolve"
+    },
+    {
+      "option": 3,
+      "ticket": 31,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 33,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 27,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 32,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 34,
+      "type": "Resolve"
+    },
+    {
+      "type": "EndDay"
+    },
+    {
+      "ticket": 36,
+      "type": "UseDirt"
+    },
+    {
+      "option": 1,
+      "ticket": 39,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 35,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 41,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
+      "ticket": 37,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 40,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 42,
+      "type": "Resolve"
+    },
+    {
+      "ticket": 38,
+      "type": "UseDirt"
+    },
+    {
+      "ticket": 43,
+      "type": "UseDirt"
+    },
+    {
+      "option": 2,
+      "ticket": 46,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 45,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 44,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 48,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 49,
+      "type": "Resolve"
+    },
+    {
+      "ticket": 50,
+      "type": "UseDirt"
+    },
+    {
+      "ticket": 52,
+      "type": "UseDirt"
+    },
+    {
+      "option": 1,
+      "ticket": 54,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 55,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 56,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 57,
+      "type": "Resolve"
+    },
+    {
+      "type": "Coffee"
+    },
+    {
+      "ticket": 53,
+      "type": "UseDirt"
+    },
+    {
+      "ticket": 59,
+      "type": "UseDirt"
+    },
+    {
+      "option": 1,
+      "ticket": 60,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 47,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 58,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
+      "ticket": 61,
+      "type": "Resolve"
+    },
+    {
+      "send": false,
+      "type": "Rant"
+    },
+    {
+      "send": false,
+      "type": "Rant"
+    },
+    {
+      "type": "Coffee"
+    },
+    {
+      "option": 2,
+      "ticket": 62,
+      "type": "Resolve"
+    },
+    {
+      "ticket": 67,
+      "type": "UseDirt"
+    },
+    {
+      "option": 2,
+      "ticket": 64,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 63,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 65,
+      "type": "Resolve"
+    }
+  ],
+  "seed": 8
+}

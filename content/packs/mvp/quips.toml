@@ -1,0 +1,61 @@
+# One-liners. Titles by nerd power.
+
+day_end = [
+  "Another day survived. The servers are still on fire, but quietly.",
+  "You clock out. Somewhere, a printer gloats.",
+  "Home time. The tickets will breed overnight.",
+  "A productive day, by the standards of a collapsing civilisation.",
+  "Nobody died. A user cried. Call it even.",
+  "Day over. The inbox is a hydra, so you leave it hungry.",
+  "You leave with your dignity at 40%. Better than yesterday.",
+  "Another day, another password reset. The circle of life.",
+  "The kettle is empty. The ticket queue is not. Home.",
+  "Today you were helpful. Tomorrow you will be too, unfortunately.",
+  "The building empties. The servers hum a threatening lullaby.",
+  "You fixed three things and broke zero. Practically a miracle.",
+  "Closing time. Brynja turns off the lights. The cactus judges you.",
+  "A small victory today: nobody asked you to 'jump on a quick call'.",
+  "You go home and dream of a world with no reply-all.",
+  "Five o'clock. The sun sets on another preventable disaster.",
+  "The office smells of burnt coffee and quiet desperation. Cheers.",
+  "You made it. The ticket counter resets at dawn. Sleep fast.",
+  "Day done. You are, technically, still employed. Technically.",
+  "Fucks given: few. Fucks remaining: also few. Balance is key.",
+]
+mood_serene = [
+  "Inner peace. Suspicious, but nice.",
+  "The kettle is hot. All is well.",
+  "A calm like the eye of a hurricane.",
+  "Breathing slowly. Mostly in.",
+  "You hum. The servers hum back.",
+  "Zen. A very fragile zen.",
+  "Not a care in the queue.",
+  "Smiling. Do not ask why.",
+]
+mood_twitchy = [
+  "Left eye: twitching. Right eye: judging.",
+  "The tea is not helping any more.",
+  "Jaw clenched. Teeth negotiating.",
+  "You say 'fine' like a threat.",
+  "Every ping sounds like a taunt.",
+  "Smiling with the lower half only.",
+  "Pen clicking. Do not look at the pen.",
+  "Patience: a rumour, increasingly.",
+]
+mood_critical = [
+  "One more 'quick question' and it ends.",
+  "Eyes glazed. Keyboard trembling.",
+  "You are running on spite and caffeine.",
+  "Nothing left but a very polite scream.",
+  "Humming an alarm tone. Nobody else can hear it.",
+  "The kettle looks at you. You look at the kettle.",
+  "Fuses: short. Fuse box: also short.",
+  "Do not ask how it is going. Please.",
+]
+titles = [
+  { np = 0, name = "Helpdesk Peasant" },
+  { np = 15, name = "Ticket Slayer" },
+  { np = 40, name = "Terminal Wizard" },
+  { np = 80, name = "Nerd Lord" },
+  { np = 150, name = "God of IT" },
+]

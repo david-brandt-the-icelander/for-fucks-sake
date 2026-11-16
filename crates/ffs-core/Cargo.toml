@@ -1,0 +1,15 @@
+[package]
+name = "ffs-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+ffs-content = { path = "../ffs-content" }
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+blake3.workspace = true
+rand_chacha.workspace = true
+rand_core.workspace = true
+ts-rs.workspace = true

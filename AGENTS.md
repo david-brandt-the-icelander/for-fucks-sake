@@ -38,14 +38,31 @@ in `docs/`. Read it in this order before writing code:
 - Work milestone by milestone (05-milestones). Don't start M(n+1) until M(n)'s
   acceptance list passes in CI.
 
+## MVP status
+
+The MVP (`Documentation/mvp/`) is what is built: no server, no LLM, scripted rivals. Build against
+`Documentation/mvp/README.md` first; `docs/` is the long-term vision. Content format: `content/packs/mvp/README.md`.
+
+## Documentation
+
+Project paperwork (business plan, risks, deployment, ops, contacts...) lives in
+`Documentation/`, based on the twelve-file layout at
+https://github.com/david-brandt-the-icelander/processes/tree/main/project-management/deployable-documentation,
+kept deliberately loose for an indie project. `docs/` is the game spec; `Documentation/`
+is everything around it. Update the relevant file in the same commit as the change.
+A change that adds a dependency, port, secret, alert or external service is not finished until
+the file that lists those says so.
+
 ## Commands (once scaffolded)
 
 ```
-make dev        # wasm-pack watch + Vite dev server
-make test       # cargo test + vitest + Playwright
-make wasm       # build crates/ffs-wasm into web/src/wasm
+make dev        # build wasm, then Vite dev server (web/)
+make test       # fmt, clippy, cargo test, web typecheck + vitest
+make e2e        # Playwright (keyboard-only), needs `make wasm` first
+make wasm       # build crates/ffs-wasm into web/src/wasm (cargo + wasm-bindgen-cli 0.2.130)
 make content    # ffs content validate
 make balance    # ffs bot report + assertions
+make replays    # regenerate tests/replays after an intentional rules/content change
 cargo run -p ffs-cli -- play --seed 42
 cargo run -p ffs-cli -- jsonl --seed 42 --gm mock
 ```

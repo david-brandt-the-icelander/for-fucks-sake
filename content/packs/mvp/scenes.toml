@@ -1,0 +1,177 @@
+# Ending screens. Placeholders: {cause} {days} {corp} {cash} {np}
+
+[[ending]]
+id = "reply_all"
+kind = "meltdown"
+title = "THE REPLY-ALL"
+lines = [
+  "It was a perfectly ordinary email. Subject: 'Quick favour'.",
+  "Cause of breakdown: {cause}",
+  "",
+  "You hit Reply All. All 1,412 of them.",
+  "Four thousand words. Footnotes. A chart.",
+  "Subject line: 'A MODEST PROPOSAL (RE: RE: RE: QUICK FAVOUR)'.",
+  "",
+  "You sent it at 16:58. It was fully read by 17:03.",
+  "By 17:10 the mail server was weeping.",
+  "{days} days at {corp}. {np} nerd power. All spent in one send.",
+  "",
+  "You close the laptop. The silence is almost warm.",
+]
+
+[[ending]]
+id = "all_hands"
+kind = "meltdown"
+title = "THE ALL-HANDS"
+lines = [
+  "The all-hands. Slide 47 of 112: 'Synergy Roadmap Q4'.",
+  "You stand. Nobody asked you to.",
+  "Cause of breakdown: {cause}",
+  "",
+  "'I would like to say a few words,' you say, and you say them.",
+  "All of them. Alphabetically.",
+  "",
+  "Arthur nods throughout. He thinks it is a toast.",
+  "Dana takes notes for a 'learning opportunity'.",
+  "Someone near the back starts clapping. It catches on.",
+  "",
+  "You leave through the fire door. The alarm is, for once,",
+  "entirely appropriate.",
+]
+
+[[ending]]
+id = "pa_system"
+kind = "meltdown"
+title = "RESIGNATION VIA PA"
+lines = [
+  "The PA system has not been used since 2011.",
+  "Brynja keeps the key under a plant. You know which plant.",
+  "",
+  "Cause of breakdown: {cause}",
+  "",
+  "  *click*  'Good afternoon, Grubb Logistics.'",
+  "  'This is IT. I quit. Effective immediately.'",
+  "  'The admin password is on the whiteboard in HR.'",
+  "  'Also the kettle is not broken. It has never been plugged in.'",
+  "",
+  "You walk out to the sound of nine hundred people not working.",
+  "{days} days. {np} nerd power. Zero fucks remaining.",
+]
+
+[[ending]]
+id = "kettle_bunker"
+kind = "meltdown"
+title = "THE KETTLE BUNKER"
+lines = [
+  "     _____________________",
+  "    |  SERVER ROOM  A/C 17C |",
+  "    |_______________________|",
+  "",
+  "You are inside. The door is locked. The kettle is on.",
+  "Cause of breakdown: {cause}",
+  "",
+  "You have a spreadsheet, a biscuit tin and no regrets.",
+  "Outside, Tomas knocks politely. Then less politely.",
+  "Dana slides a note under the door: 'Let's talk, warmly.'",
+  "",
+  "You brew a perfect cup of tea. The servers hum approvingly.",
+  "It is the first quiet hour in {days} days.",
+]
+
+[[ending]]
+id = "security_escort"
+kind = "fired"
+title = "ESCORTED OUT"
+lines = [
+  "Two security guards. One cardboard box. A very short walk.",
+  "",
+  "Cause of breakdown: {cause}",
+  "",
+  "They are polite. Silent. One of them is eating a sandwich.",
+  "You carry the box: a mug, a cactus, a stress ball in the shape",
+  "of Arthur's head.",
+  "",
+  "The lift is slow. The farewell is slower.",
+  "Brynja slips a biscuit into the box. It is the nicest thing",
+  "that has happened at {corp} in {days} days.",
+  "",
+  "The door shuts behind you. You exhale. The sky is very large.",
+]
+
+[[ending]]
+id = "exit_interview"
+kind = "fired"
+title = "THE EXIT INTERVIEW"
+lines = [
+  "Dana's office. Two chairs, a box of tissues and a fern.",
+  "'This is a growth moment,' she says.",
+  "",
+  "Cause of breakdown: {cause}",
+  "",
+  "'We value your contributions,' says Dana.",
+  "'Please sign this form acknowledging your contributions.'",
+  "'Also this form acknowledging that you have no further claim.'",
+  "'And this one is just a drawing of a sun.'",
+  "",
+  "You sign all three. The sun gets a smiley face.",
+  "{days} days at {corp}. Final nerd power: {np}.",
+  "Dana hugs you. You are very much not ready.",
+]
+
+[[ending]]
+id = "manure_dawn"
+kind = "retire"
+title = "THE PERFECT RETIREMENT"
+lines = [
+  "Dawn. A cold, golden light. A deck chair. A flask of coffee.",
+  "",
+  "Across the road, a very large dump truck reverses slowly",
+  "onto Arthur Pell's manicured lawn.",
+  "",
+  "         ____          ",
+  "        /____\\_____    ",
+  "       |_[]___[]___|   ",
+  "        (o)     (o)    ",
+  "",
+  "The tipper rises. A mountain of manure arrives with dignity.",
+  "Somewhere inside, a light comes on. Then a scream.",
+  "You sip. {days} days of {corp}, {cash} dollars, {np} nerd power.",
+  "It was all worth it. Cheers.",
+]
+
+[[ending]]
+id = "ran_modest"
+kind = "ran"
+title = "TOOK THE MONEY AND RAN"
+lines = [
+  "A small envelope. A smaller conscience.",
+  "You walk out of {corp} with exactly {cash} dollars.",
+  "",
+  "Cause of departure: {cause}",
+  "",
+  "It is not a fortune. It is a bus ticket, a hot meal",
+  "and a very nice pair of socks.",
+  "",
+  "Nobody calls. Nobody checks the logs. Not today.",
+  "You change your phone number and your haircut.",
+  "{days} days. {np} nerd power. A modest kind of freedom.",
+]
+
+[[ending]]
+id = "ran_decent"
+kind = "ran"
+title = "THE GREAT EXIT"
+lines = [
+  "A duffel bag. A one-way flight. A very understanding beach.",
+  "{cash} dollars, neatly rounded, quite nearly legal.",
+  "",
+  "Cause of departure: {cause}",
+  "",
+  "On the plane you order a drink and refuse to check email.",
+  "Margaret will find the missing line item by Tuesday.",
+  "Ingrid will find it by Monday. She is very good.",
+  "",
+  "By then you are in a hammock, listening to waves.",
+  "{days} days at {corp}. {np} nerd power. A decent getaway.",
+  "Somewhere, a phone rings. You let it.",
+]

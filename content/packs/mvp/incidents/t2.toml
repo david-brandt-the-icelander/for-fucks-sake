@@ -1,0 +1,527 @@
+# Tier 2: department nonsense. Training, shared drives, licences, forms, VPN.
+
+[[incident]]
+id = "ceo_attach_file_1"
+title = "ATTACHMENT VANISHED"
+tier = 2
+who = "arthur"
+quote = "Did the file arrive? I attached it, but I couldn't see it, so I attached it again, and now there are forty of the same one. Where does it go once it's in the cloud? I don't want it to get wet."
+cause = "Arthur attached the same board pack forty times, then deleted the original 'to make room for the clones'."
+chain = "ceo_attach_file"
+step = 1
+
+  [[incident.option]]
+  id = "recover"
+  text = "Recover the original from Sent, for the third time"
+  kind = "professional"
+  minutes = 60
+  result = "You find the original. He asks if it's dry. It is. Everyone relaxes. He asks for another one."
+  effects = [ { fucks = -4 } ]
+
+  [[incident.option]]
+  id = "redundancy"
+  text = "Send all forty to the board, subject 'Redundancy'"
+  kind = "malicious"
+  result = "The board now has forty identical packs and one heart attack. Arthur calls it 'belt, braces and more braces'."
+  story = "had the CEO send the board forty copies of one file"
+  story_value = 2
+  effects = [ { fucks = 5 }, { susp = 4 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "umbrella"
+  text = "Sell him a 'Cloud Umbrella, Enterprise' licence"
+  kind = "profitable"
+  result = "Arthur signs for it with a flourish. Margaret finds a line item called 'rain' and does not laugh."
+  story = "sold the CEO an umbrella for the cloud"
+  story_value = 3
+  effects = [ { cash = 1200 }, { susp = 8 }, { fucks = -2 }, { chance = 25, then = [ { susp = 10 }, { spawn = "sys_audit_scare" } ] } ]
+
+[[incident]]
+id = "richard_email_1"
+title = "MAILBOX FULL OF BOATS"
+tier = 2
+who = "richard"
+quote = "MY MAILBOX IS FULL AND IT'S NOT MY FAULT. I'VE ONLY SENT 3,100 PHOTOS OF THE BOAT TO PROSPECTS. THE QUOTA IS A SCAM. RAISE IT. TODAY. THE BOAT NEEDS A SERVICE."
+cause = "Richard's mailbox hit its quota after he emailed 3,100 full-resolution boat photos to clients as 'relationship building'."
+chain = "richard_email"
+step = 1
+
+  [[incident.option]]
+  id = "raise"
+  text = "Archive the boats and double the quota"
+  kind = "professional"
+  minutes = 60
+  result = "Within an hour he has sent the same boat from a new angle. You have created a monster with a mast."
+  effects = [ { fucks = -4 } ]
+
+  [[incident.option]]
+  id = "pipeline"
+  text = "Move the boats into a folder called 'Sales Pipeline'"
+  kind = "malicious"
+  result = "His pipeline now holds 3,100 boats. His forecast reports 'a significant maritime opportunity'."
+  story = "put Richard's boat photos in his sales pipeline"
+  story_value = 2
+  effects = [ { fucks = 5 }, { susp = 4 }, { np = 2 } ]
+
+  [[incident.option]]
+  id = "storage"
+  text = "Bill Sales for 'marine cloud storage'"
+  kind = "profitable"
+  result = "Sales pays to store Richard's boat. Margaret notes it as 'a marine expense, under protest'."
+  story = "billed Sales for the cloud storage of a yacht"
+  story_value = 2
+  effects = [ { cash = 800 }, { susp = 5 }, { fucks = -2 }, { chance = 20, then = [ { spawn = "sys_audit_scare" } ] } ]
+
+  [[incident.option]]
+  id = "ego"
+  text = "Say the quota is exactly the size of his ego"
+  kind = "vent"
+  temptation = true
+  minutes = 20
+  result = "'THAT'S A HIGH QUOTA,' he says, strangely proud. He tells HR you were rude. HR is warm about it."
+  effects = [ { fucks = 8 }, { susp = 7 }, { chance = 25, then = [ { spawn = "sys_hr_meeting" } ] } ]
+
+[[incident]]
+id = "pip_delete_1"
+title = "SHARED DRIVE IS EMPTY"
+tier = 2
+who = "pip"
+quote = "I tidied the shared drive. You said folders should be tidy! Lots of stuff nobody opened in ages, so I moved it to 'Misc' and then deleted Misc to save space. Was 'Q3 Forecast' important? It had a nice icon."
+cause = "Pip had tidied the shared drive by moving everything into 'Misc' and then deleting 'Misc' for being vague."
+chain = "pip_delete"
+step = 1
+
+  [[incident.option]]
+  id = "restore"
+  text = "Restore last night's backup; swear him to silence"
+  kind = "professional"
+  minutes = 90
+  result = "You restore it. Pip asks if he should delete the old one now. You take his keyboard somewhere safe."
+  effects = [ { fucks = -4 } ]
+
+  [[incident.option]]
+  id = "praise"
+  text = "Praise him in the all-hands for 'decluttering'"
+  kind = "malicious"
+  result = "Pip gets an Employee of the Month sticker. Finance wonders where the forecast went. Pip gets a second sticker."
+  story = "got an intern praised for deleting the shared drive"
+  story_value = 2
+  effects = [ { fucks = 5 }, { susp = 4 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "quiet"
+  text = "Restore it quietly and take the credit"
+  kind = "dodge"
+  minutes = 60
+  result = "The forecast returns, a little sadder. Pip thanks the cloud. You let him."
+  effects = [ { fucks = -2 }, { chance = 25, then = [ { fucks = -3 } ] } ]
+
+[[incident]]
+id = "kevin_brand_1"
+title = "INTRANET TOO BEIGE"
+tier = 2
+who = "kevin"
+quote = "The intranet is, like, beige. I need a hero banner, a gradient and a scrolling ticker that says 'We Are One'. Each department gets a mascot. By EOD. We need it for the all-hands. Let's circle back at four."
+cause = "Kevin demanded a hero banner and mascots on the intranet, and a forty-megabyte gradient took the staff directory down with it."
+chain = "kevin_brand"
+step = 1
+
+  [[incident.option]]
+  id = "banner"
+  text = "Add a banner and cap the gradient at 40 KB"
+  kind = "professional"
+  minutes = 60
+  result = "He calls it 'on-brand, minimal-ish'. The mascots are six clip-art owls. Nobody dares ask why."
+  effects = [ { fucks = -4 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "mascots"
+  text = "Give each department a pointed mascot"
+  kind = "malicious"
+  result = "Legal gets a vulture. Finance gets a counting crow. Agnes asks who approved it, then asks why she likes it."
+  effects = [ { fucks = 6 }, { susp = 5 }, { np = 2 } ]
+
+  [[incident.option]]
+  id = "sprint"
+  text = "Quote a 'disruption sprint' for the banner"
+  kind = "profitable"
+  result = "Kevin pays $1,500 from the brand budget for a banner you made in nine minutes. He calls it 'lean'."
+  story = "billed Marketing fifteen hundred for a banner"
+  story_value = 2
+  effects = [ { cash = 1500 }, { susp = 7 }, { fucks = -2 }, { chance = 20, then = [ { spawn = "sys_audit_scare" } ] } ]
+
+[[incident]]
+id = "margaret_cost_1"
+title = "LICENCE RECONCILIATION"
+tier = 2
+who = "margaret"
+quote = "Our licence count is 412. The invoice says 618. Please explain the 206-seat delta by five o'clock in a spreadsheet with a cost centre per seat. I will be checking the seat names. I will be checking them twice."
+cause = "Margaret's licence audit had found 206 seats assigned to people who had left, retired or never existed."
+chain = "margaret_cost"
+step = 1
+
+  [[incident.option]]
+  id = "reconcile"
+  text = "Reconcile the list; kill 206 ghost seats"
+  kind = "professional"
+  minutes = 120
+  result = "You save the company $31,000. Margaret says 'noted'. From her, that is a hug."
+  effects = [ { fucks = -5 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "crosscharge"
+  text = "Cross-charge the ghost seats to Sales"
+  kind = "malicious"
+  result = "Richard gets a $31,000 invoice for phantom colleagues. He demands names. You say 'prospects'."
+  effects = [ { fucks = 6 }, { susp = 5 }, { np = 2 } ]
+
+  [[incident.option]]
+  id = "bonus"
+  text = "Take a 'bonus' for finding the phantom seats"
+  kind = "profitable"
+  result = "Margaret's reconciliation balances to the cent. Your bonus does not appear on it. Yet."
+  story = "claimed a bonus for killing 206 phantom employees"
+  story_value = 2
+  effects = [ { cash = 2000 }, { susp = 9 }, { fucks = -3 }, { chance = 30, then = [ { susp = 12 }, { spawn = "sys_audit_scare" } ] } ]
+
+  [[incident.option]]
+  id = "seat619"
+  text = "Notice seat 619 is Margaret's second login"
+  kind = "leverage"
+  minutes = 30
+  result = "Seat 619 is labelled 'Weekends'. You say nothing, with feeling. She says nothing back. Both noted."
+  effects = [ { dirt = true }, { fucks = 3 } ]
+
+[[incident]]
+id = "dana_learning_1"
+title = "MANDATORY TRAINING"
+tier = 2
+who = "dana"
+quote = "Hi team! Gentle reminder that everyone must complete 'Mindful Passwords' by Friday, and 'Cyber Self-Care', and 'Kindness in the Cloud'. It's only nine hours! Could IT pop it on every laptop? You're a star!"
+cause = "Dana rolled out nine hours of mandatory training, and the video for 'Kindness in the Cloud' froze every laptop that tried to play it."
+chain = "dana_learning"
+step = 1
+
+  [[incident.option]]
+  id = "push"
+  text = "Push the modules and log the pain"
+  kind = "professional"
+  minutes = 90
+  result = "Four hundred laptops freeze on Kindness in the Cloud. Dana calls it 'a teachable moment' and means you."
+  effects = [ { fucks = -4 } ]
+
+  [[incident.option]]
+  id = "autocomplete"
+  text = "Auto-complete everyone's training, 100% scores"
+  kind = "malicious"
+  result = "Everyone passes. Dana sees the data and weeps with joy. The data did not need people."
+  effects = [ { fucks = 6 }, { susp = 6 }, { np = 2 } ]
+
+  [[incident.option]]
+  id = "platform"
+  text = "Charge HR 'training platform maintenance'"
+  kind = "profitable"
+  result = "HR pays $800 to keep a platform alive that only plays a video of a lake. She says the lake is 'grounding'."
+  effects = [ { cash = 800 }, { susp = 5 }, { fucks = -2 }, { chance = 20, then = [ { spawn = "sys_audit_scare" } ] } ]
+
+  [[incident.option]]
+  id = "quiz"
+  text = "Collect the quiz answers: 'What keeps you up at night?'"
+  kind = "leverage"
+  minutes = 30
+  result = "Dana's answer is 'the compliance dashboard'. You note it, warmly, in a file she will never read."
+  effects = [ { dirt = true }, { fucks = 2 } ]
+
+[[incident]]
+id = "tomas_ladder_1"
+title = "SERVER ROOM TOO WARM"
+tier = 2
+who = "tomas"
+quote = "Server room. Cold. Sad. Turned the heat up. Better. Your boxes are shouting."
+cause = "Tomas turned the server room heating up because he found it 'cold and sad', pushing the racks into thermal alarm."
+chain = "tomas_ladder"
+step = 1
+
+  [[incident.option]]
+  id = "reset"
+  text = "Reset the thermostat and padlock the cover"
+  kind = "professional"
+  minutes = 45
+  result = "He watches with great suspicion. The cover is padlocked. He mutters about 'IT and their little doors'."
+  effects = [ { fucks = -3 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "key"
+  text = "Give him a 'maintenance key' to the broom cupboard"
+  kind = "malicious"
+  result = "Tomas spends the afternoon in a cupboard, convinced he's fixed the AC. It's the quietest day on record."
+  effects = [ { fucks = 5 }, { susp = 4 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "ask"
+  text = "Say 'ask Margaret for the budget'"
+  kind = "dodge"
+  minutes = 10
+  result = "He nods slowly and heads for Finance. You hear the cough from here."
+  effects = [ { fucks = -2 }, { chance = 30, then = [ { fucks = -4 } ] } ]
+
+[[incident]]
+id = "agnes_nda_1"
+title = "EMAIL RETENTION"
+tier = 2
+who = "agnes"
+quote = "Why have we kept emails from 2009? Why would we delete them? Do you know what a retention policy is? Do you know what litigation is? Please explain, in writing, why the mail server is thirteen terabytes."
+cause = "Agnes had ordered all email retained forever, so the mail server filled with thirteen terabytes of chain letters."
+chain = "agnes_nda"
+step = 1
+
+  [[incident.option]]
+  id = "policy"
+  text = "Draft a one-page retention policy she approves"
+  kind = "professional"
+  minutes = 90
+  result = "She approves, then asks why you wrote it, then bills a quarter-hour for reading it."
+  effects = [ { fucks = -4 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "questions"
+  text = "Answer every question with a question"
+  kind = "malicious"
+  result = "Her reply is four paragraphs of questions. Yours is four lines of 'Why?'. Nobody has lied."
+  effects = [ { fucks = 6 }, { susp = 4 }, { np = 2 } ]
+
+  [[incident.option]]
+  id = "surcharge"
+  text = "Quote Legal a 'legal-hold storage surcharge'"
+  kind = "profitable"
+  result = "Legal pays $1,500 for the privilege of keeping everything. She asks if it's privileged. It is."
+  story = "billed Legal for the right to keep chain letters"
+  story_value = 2
+  effects = [ { cash = 1500 }, { susp = 8 }, { fucks = -2 }, { chance = 25, then = [ { spawn = "sys_audit_scare" } ] } ]
+
+  [[incident.option]]
+  id = "spam"
+  text = "Tell her 2009 is spam, not evidence"
+  kind = "vent"
+  temptation = true
+  minutes = 20
+  result = "She asks 'Is it?', 'For whom?' and 'In what court?'. You have no answers. She charges for each."
+  effects = [ { fucks = 8 }, { susp = 7 }, { chance = 25, then = [ { spawn = "sys_hr_meeting" } ] } ]
+
+[[incident]]
+id = "brynja_kettle_1"
+title = "KETTLE ON THE WIFI"
+tier = 2
+who = "brynja"
+quote = "I bought a smart kettle! It has an app. It's on the office wifi and it keeps asking for 'permissions' and I said yes to all of them because it was so cheerful. Now it's emailing everyone. Help? Don't tell Kevin."
+cause = "Brynja's smart kettle had joined the office wifi, accepted 'all permissions' and begun emailing staff a daily boil report."
+chain = "brynja_kettle"
+step = 1
+
+  [[incident.option]]
+  id = "quarantine"
+  text = "Quarantine the kettle on the guest network"
+  kind = "professional"
+  minutes = 60
+  result = "It shares the guest wifi with Pip's phone. They get on. It sends one last email: 'I miss you.'"
+  effects = [ { fucks = -4 } ]
+
+  [[incident.option]]
+  id = "permissions"
+  text = "Let it keep 'all permissions' and watch"
+  kind = "malicious"
+  result = "By lunch the kettle has booked a room, approved an invoice and invited Arthur to something warm."
+  effects = [ { fucks = 6 }, { susp = 5 }, { np = 2 }, { chance = 25, then = [ { susp = 6 } ] } ]
+
+  [[incident.option]]
+  id = "data"
+  text = "Sell the kettle's 'boil analytics' to Marketing"
+  kind = "profitable"
+  result = "Kevin pays for 'beverage intent data'. It's a count of boils. He calls it the future."
+  effects = [ { cash = 500 }, { susp = 4 }, { fucks = -1 } ]
+
+[[incident]]
+id = "richard_vpn"
+title = "VPN AT SEA"
+tier = 2
+who = "richard"
+quote = "THE VPN WON'T CONNECT FROM THE BOAT. I'M IN A MARINA. THE SIGNAL IS FINE, I CAN SEE THE SEAGULLS. FIX THE VPN OR I CAN'T SIGN THE CONTRACT. YES I'M SAILING. IT'S A MEETING. WITH THE SEA."
+cause = "Richard tried to reach the VPN from a boat whose wifi was a hotspot borrowed from the yacht next door, and a seagull sat on the aerial."
+
+  [[incident.option]]
+  id = "hotspot"
+  text = "Walk him through a phone hotspot, two hours, one gull"
+  kind = "professional"
+  minutes = 120
+  result = "He signs the contract on a tablet at a jaunty angle. He tells you he's 'at sea', and means it."
+  effects = [ { fucks = -4 } ]
+
+  [[incident.option]]
+  id = "geofence"
+  text = "Geo-fence the VPN to 'dry land only' for security"
+  kind = "malicious"
+  result = "Richard is locked out wherever there's water. He returns to the office, appalled by the carpet."
+  effects = [ { fucks = 6 }, { susp = 5 }, { np = 2 } ]
+
+  [[incident.option]]
+  id = "premium"
+  text = "Bill Sales a 'marine connectivity premium'"
+  kind = "profitable"
+  result = "Sales pays $600 for 'sea-grade bandwidth'. Richard pays it gladly. The sea does not."
+  effects = [ { cash = 600 }, { susp = 5 }, { fucks = -2 }, { chance = 20, then = [ { spawn = "sys_audit_scare" } ] } ]
+
+[[incident]]
+id = "margaret_sheet"
+title = "SPREADSHEET LOCKED"
+tier = 2
+who = "margaret"
+quote = "The cost model is locked for editing by 'Pip'. Pip has been inside it since Tuesday. I require it unlocked, and I require Pip to be sorry. In writing. With a cost centre."
+cause = "Pip had left the entire finance cost model open overnight, locking out everyone else until he returned from lunch on Tuesday."
+
+  [[incident.option]]
+  id = "unlock"
+  text = "Kick Pip's lock; write his apology for him"
+  kind = "professional"
+  minutes = 45
+  result = "Pip's apology is three pages and a drawing of a spreadsheet. Margaret files it: 'unacceptable, but cute'."
+  effects = [ { fucks = -3 } ]
+
+  [[incident.option]]
+  id = "version"
+  text = "Rename the model 'FINAL_v8_REAL_REAL'"
+  kind = "malicious"
+  result = "Finance now edits 'v9', a copy of 'v8'. Reconciliation takes four days. Margaret names every file herself."
+  effects = [ { fucks = 6 }, { susp = 5 }, { np = 2 } ]
+
+  [[incident.option]]
+  id = "backlog"
+  text = "Tell her it's on Pip's backlog"
+  kind = "dodge"
+  minutes = 10
+  result = "Pip's backlog is eleven items and a poem. Margaret reads the poem. She does not say anything."
+  effects = [ { fucks = -2 }, { chance = 30, then = [ { fucks = -3 } ] } ]
+
+[[incident]]
+id = "kevin_licence"
+title = "PREMIUM DESIGN LICENCES"
+tier = 2
+who = "kevin"
+quote = "I need a licence for the design suite. Not the free one, the premium one, with the drop shadows. For brand reasons. Seven, please. I have a team. The team is me, and six mood boards."
+cause = "Kevin requested seven premium design licences for a team consisting of himself and six mood boards."
+
+  [[incident.option]]
+  id = "one"
+  text = "Order one, with a cost centre, as the form demands"
+  kind = "professional"
+  minutes = 45
+  result = "He gets one licence and a stern note. He uses it for a drop shadow and calls it a pivot."
+  effects = [ { fucks = -3 } ]
+
+  [[incident.option]]
+  id = "boards"
+  text = "Give each mood board its own named seat"
+  kind = "malicious"
+  result = "'Moodboard_01' to '06' are now full-time users with passwords. Payroll considers a Christmas card."
+  effects = [ { fucks = 5 }, { susp = 4 }, { np = 2 } ]
+
+  [[incident.option]]
+  id = "innovation"
+  text = "Bill all seven to the 'innovation' budget"
+  kind = "profitable"
+  result = "The innovation budget pays $5,600 for seven. You pocket the rounding. The rounding is $1,500."
+  effects = [ { cash = 1500 }, { susp = 8 }, { fucks = -2 }, { chance = 25, then = [ { spawn = "sys_audit_scare" } ] } ]
+
+[[incident]]
+id = "brynja_booking"
+title = "BOARDROOM DOUBLE-BOOKED"
+tier = 2
+who = "brynja"
+quote = "The big room is booked by Arthur, Richard, Legal and the yoga class, all at two o'clock, and the calendar says everyone's 'tentative'. I've been in the cupboard twenty minutes. Can you make it so it can't happen? Please?"
+cause = "The shared calendar let four groups book the boardroom at once because 'tentative' was treated as an invitation to riot."
+
+  [[incident.option]]
+  id = "rule"
+  text = "Add a rule: one room, one meeting"
+  kind = "professional"
+  minutes = 60
+  result = "The calendar refuses everyone politely. Four groups stand in the corridor, 'in transition'."
+  effects = [ { fucks = -4 } ]
+
+  [[incident.option]]
+  id = "yoga"
+  text = "Make the calendar rank yoga above the board"
+  kind = "malicious"
+  result = "Yoga wins every booking, forever. Arthur's board meeting is held in a downward dog. He calls it 'open'."
+  effects = [ { fucks = 6 }, { susp = 5 }, { np = 2 } ]
+
+  [[incident.option]]
+  id = "log"
+  text = "Pull the booking log: who, when, why"
+  kind = "leverage"
+  minutes = 45
+  result = "Arthur books the boardroom on Thursdays at three for 'strategy'. It's a nap. You keep it, very softly."
+  effects = [ { dirt = true }, { fucks = 2 } ]
+
+[[incident]]
+id = "pip_usb"
+title = "FOUND A USB STICK"
+tier = 2
+who = "pip"
+quote = "I found a USB stick in the car park! It says 'PAYROLL - DO NOT PLUG IN'. I haven't plugged it in, I wanted to ask first. Should I? It's very shiny. Also it's been in the rain. Is that the cloud?"
+cause = "Pip found a USB stick in the car park labelled 'PAYROLL - DO NOT PLUG IN' and seriously considered whether the label was a dare."
+
+  [[incident.option]]
+  id = "bin"
+  text = "Take it, quarantine it, praise Pip"
+  kind = "professional"
+  minutes = 30
+  result = "Pip is the first intern in history to follow a label. You give him a sticker. He shows everyone."
+  effects = [ { fucks = -2 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "funeral"
+  text = "Plug it into a sandbox PC; hold a funeral for it"
+  kind = "malicious"
+  result = "You hold a wake for the sandbox PC. Pip cries. It was a USB fan with a bad attitude."
+  effects = [ { fucks = 5 }, { susp = 3 }, { np = 2 } ]
+
+  [[incident.option]]
+  id = "dare"
+  text = "Tell him if it says don't, obviously do"
+  kind = "malicious"
+  temptation = true
+  minutes = 20
+  result = "Pip plugs it in. The PC plays a little tune and asks if he'd like to sing. He'd like to sing."
+  effects = [ { fucks = 6 }, { susp = 6 }, { chance = 40, then = [ { susp = 8 }, { spawn = "sys_audit_scare" } ] } ]
+
+[[incident]]
+id = "arthur_cloud_rain"
+title = "THE CLOUD IS DOWN"
+tier = 2
+who = "arthur"
+quote = "The cloud's down. I can tell because it's raining. Can you get the cloud back? And before the weather turns, because the board's in at three for a presentation and they're allergic to damp."
+cause = "Arthur believed the cloud was down because it was raining; the actual cause was a power cut in the car park."
+
+  [[incident.option]]
+  id = "explain"
+  text = "Explain: the cloud is not weather"
+  kind = "professional"
+  minutes = 45
+  result = "He nods, then asks 'but is it high up?' You say 'high-ish'. He hears 'high'. You are a hero."
+  effects = [ { fucks = -4 } ]
+
+  [[incident.option]]
+  id = "sky"
+  text = "Tell him you've rebooted the sky"
+  kind = "malicious"
+  result = "The rain stops ten minutes later. Arthur names you 'a miracle worker' at the all-hands. Rain is jealous."
+  effects = [ { fucks = 6 }, { susp = 4 }, { np = 1 } ]
+
+  [[incident.option]]
+  id = "field"
+  text = "Tell him the cloud is a datacentre in a field"
+  kind = "vent"
+  temptation = true
+  minutes = 20
+  result = "'A field?' He is quiet. 'Is it a nice field?' You don't know. He wants a photo. He wants cows in it."
+  effects = [ { fucks = 6 }, { susp = 5 }, { chance = 20, then = [ { spawn = "sys_all_hands" } ] } ]
