@@ -1,5 +1,5 @@
 {
-  "hash": "6bde86dd58b2cdddf2e0c0b459bbf3faee9faa99e7099773374f90c686aa69c4",
+  "hash": "ab5be71c602c2fb5809707fc7a465dc7609a7d0898e296e475bd1da6c87fe842",
   "log": [
     {
       "option": 2,
@@ -42,6 +42,9 @@
       "type": "Resolve"
     },
     {
+      "type": "Coffee"
+    },
+    {
       "type": "EndDay"
     },
     {
@@ -66,32 +69,12 @@
     },
     {
       "option": 0,
-      "ticket": 10,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
       "ticket": 7,
       "type": "Resolve"
     },
     {
-      "option": 0,
-      "ticket": 11,
-      "type": "Resolve"
-    },
-    {
-      "option": 2,
-      "ticket": 8,
-      "type": "Resolve"
-    },
-    {
       "option": 1,
-      "ticket": 12,
-      "type": "Resolve"
-    },
-    {
-      "option": 0,
-      "ticket": 16,
+      "ticket": 8,
       "type": "Resolve"
     },
     {
@@ -101,12 +84,32 @@
     },
     {
       "option": 2,
+      "ticket": 11,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 10,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
       "ticket": 14,
       "type": "Resolve"
     },
     {
       "option": 0,
+      "ticket": 12,
+      "type": "Resolve"
+    },
+    {
+      "option": 3,
       "ticket": 17,
+      "type": "Resolve"
+    },
+    {
+      "option": 3,
+      "ticket": 18,
       "type": "Resolve"
     },
     {
@@ -114,16 +117,34 @@
     },
     {
       "option": 2,
-      "ticket": 19,
+      "ticket": 15,
       "type": "Resolve"
     },
     {
       "option": 2,
-      "ticket": 22,
+      "ticket": 21,
       "type": "Resolve"
     },
     {
       "type": "EndDay"
+    },
+    {
+      "type": "EndDay"
+    },
+    {
+      "option": 1,
+      "ticket": 22,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
+      "ticket": 24,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 23,
+      "type": "Resolve"
     },
     {
       "type": "EndDay"

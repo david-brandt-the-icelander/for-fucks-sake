@@ -1,12 +1,12 @@
 {
-  "hash": "f8b72743a7ec2a96a03878937c609b9b35d2de017ae30b8f10441a88fd5ab788",
+  "hash": "7472a6c0eda4b2f9e8464c9a156609b35079eab7ab7dfec3b84d49dd3deb078a",
   "log": [
     {
-      "id": "phantom_licences",
+      "id": "toner_futures",
       "type": "Scheme"
     },
     {
-      "id": "consulting",
+      "id": "cable_surplus",
       "type": "Scheme"
     },
     {
@@ -14,17 +14,15 @@
       "type": "Scheme"
     },
     {
-      "option": 1,
-      "ticket": 4,
-      "type": "Resolve"
+      "id": "overtime_daemon",
+      "type": "Scheme"
     },
     {
-      "option": 1,
-      "ticket": 1,
-      "type": "Resolve"
+      "id": "consulting",
+      "type": "Scheme"
     },
     {
-      "id": "phantom_licences",
+      "id": "training_budget",
       "type": "Scheme"
     },
     {
@@ -33,59 +31,17 @@
       "type": "Resolve"
     },
     {
-      "option": 1,
+      "id": "ghost_contractor",
+      "type": "Scheme"
+    },
+    {
+      "id": "phantom_licences",
+      "type": "Scheme"
+    },
+    {
+      "option": 2,
       "ticket": 6,
       "type": "Resolve"
-    },
-    {
-      "type": "CoverTracks"
-    },
-    {
-      "id": "phantom_licences",
-      "type": "Scheme"
-    },
-    {
-      "option": 1,
-      "ticket": 9,
-      "type": "Resolve"
-    },
-    {
-      "type": "CoverTracks"
-    },
-    {
-      "id": "consulting",
-      "type": "Scheme"
-    },
-    {
-      "option": 1,
-      "ticket": 11,
-      "type": "Resolve"
-    },
-    {
-      "id": "phantom_licences",
-      "type": "Scheme"
-    },
-    {
-      "option": 1,
-      "ticket": 12,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 10,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 13,
-      "type": "Resolve"
-    },
-    {
-      "id": "phantom_licences",
-      "type": "Scheme"
-    },
-    {
-      "type": "CoverTracks"
     },
     {
       "option": 1,
@@ -94,18 +50,71 @@
     },
     {
       "option": 1,
+      "ticket": 4,
+      "type": "Resolve"
+    },
+    {
+      "id": "warranty_loop",
+      "type": "Scheme"
+    },
+    {
+      "type": "CoverTracks"
+    },
+    {
+      "option": 2,
+      "ticket": 10,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
       "ticket": 3,
       "type": "Resolve"
     },
     {
-      "option": 2,
-      "ticket": 15,
-      "type": "Resolve"
+      "id": "cloud_migration",
+      "type": "Scheme"
+    },
+    {
+      "type": "CoverTracks"
+    },
+    {
+      "ticket": 7,
+      "type": "UseDirt"
     },
     {
       "option": 1,
       "ticket": 14,
       "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 15,
+      "type": "Resolve"
+    },
+    {
+      "id": "security_theatre",
+      "type": "Scheme"
+    },
+    {
+      "type": "CoverTracks"
+    },
+    {
+      "option": 2,
+      "ticket": 16,
+      "type": "Resolve"
+    },
+    {
+      "ticket": 8,
+      "type": "UseDirt"
+    },
+    {
+      "option": 1,
+      "ticket": 18,
+      "type": "Resolve"
+    },
+    {
+      "id": "vendor_kickback",
+      "type": "Scheme"
     },
     {
       "type": "CoverTracks"
@@ -116,26 +125,8 @@
       "type": "Resolve"
     },
     {
-      "send": false,
-      "type": "Rant"
-    },
-    {
-      "type": "Coffee"
-    },
-    {
-      "id": "phantom_licences",
-      "type": "Scheme"
-    },
-    {
-      "type": "CoverTracks"
-    },
-    {
-      "id": "consulting",
-      "type": "Scheme"
-    },
-    {
       "option": 1,
-      "ticket": 21,
+      "ticket": 13,
       "type": "Resolve"
     },
     {
@@ -150,11 +141,44 @@
       "type": "Coffee"
     },
     {
-      "id": "phantom_licences",
+      "option": 3,
+      "ticket": 21,
+      "type": "Resolve"
+    },
+    {
+      "ticket": 11,
+      "type": "UseDirt"
+    },
+    {
+      "option": 2,
+      "ticket": 22,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 20,
+      "type": "Resolve"
+    },
+    {
+      "type": "CoverTracks"
+    },
+    {
+      "send": false,
+      "type": "Rant"
+    },
+    {
+      "send": false,
+      "type": "Rant"
+    },
+    {
+      "type": "Coffee"
+    },
+    {
+      "id": "licence_audit_racket",
       "type": "Scheme"
     },
     {
-      "type": "Retire"
+      "type": "CoverTracks"
     }
   ],
   "seed": 1

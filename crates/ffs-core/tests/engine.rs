@@ -42,13 +42,11 @@ fn drive(seed: u64, steps: usize) -> Engine {
                 story: st.stories.first().map(|s| s.id).unwrap_or(999),
             },
             4 => Command::Scheme {
-                id: [
-                    "phantom_licences",
-                    "consulting",
-                    "creative_expenses",
-                    "server_sale",
-                ][(next() % 4) as usize]
-                    .to_string(),
+                id: st
+                    .scheme_offers
+                    .get((next() % 4) as usize)
+                    .cloned()
+                    .unwrap_or_else(|| "nope".to_string()),
             },
             _ => match st.queue.first() {
                 Some(t) => Command::Resolve {
@@ -130,15 +128,19 @@ fn bad_commands_are_rejected() {
         e.apply(Command::Boast { story: 1 }),
         Err(CommandError::NoSuchStory)
     );
-    e.apply(Command::Scheme {
-        id: "consulting".into(),
-    })
-    .expect("first scheme ok");
+    let first = e.state().scheme_offers[0].clone();
+    e.apply(Command::Scheme { id: first.clone() })
+        .expect("first scheme ok");
     assert_eq!(
-        e.apply(Command::Scheme {
-            id: "consulting".into()
-        }),
-        Err(CommandError::SchemeUsedToday)
+        e.apply(Command::Scheme { id: first }),
+        Err(CommandError::SchemeNotOffered),
+        "a scheme works once per run"
+    );
+    let later = e.state().scheme_ladder.last().cloned().expect("ladder");
+    assert_eq!(
+        e.apply(Command::Scheme { id: later }),
+        Err(CommandError::SchemeNotOffered),
+        "schemes further up the ladder are not on offer yet"
     );
 }
 
@@ -147,7 +149,7 @@ fn help_costs_one_np_and_is_logged() {
     let mut e = Engine::new(pack(), 3);
     // earn some NP first so the cost is visible
     e.apply(Command::Scheme {
-        id: "phantom_licences".into(),
+        id: e.state().scheme_offers[0].clone(),
     })
     .expect("scheme");
     let sid = e.state().stories[0].id;
@@ -162,7 +164,7 @@ fn help_costs_one_np_and_is_logged() {
 fn schemes_create_stories_and_boasting_spends_them() {
     let mut e = Engine::new(pack(), 5);
     e.apply(Command::Scheme {
-        id: "phantom_licences".into(),
+        id: e.state().scheme_offers[0].clone(),
     })
     .expect("scheme");
     assert!(!e.state().stories.is_empty());
@@ -179,6 +181,25 @@ fn schemes_create_stories_and_boasting_spends_them() {
 #[test]
 fn every_ending_is_reachable() {
     let mut seen = std::collections::BTreeSet::new();
+    // A greedy schemer who never covers their tracks climbs the ladder until fired.
+    for seed in 0..20 {
+        let mut e = Engine::new(pack(), seed);
+        for _ in 0..200 {
+            if e.is_over() {
+                break;
+            }
+            let cmd = match e.state().scheme_offers.first() {
+                Some(id) => Command::Scheme { id: id.clone() },
+                None => Command::EndDay,
+            };
+            if e.apply(cmd).is_err() {
+                let _ = e.apply(Command::EndDay);
+            }
+        }
+        if let Some(end) = &e.state().ended {
+            seen.insert(format!("{:?}", end.kind));
+        }
+    }
     for seed in 0..200 {
         let e = drive(seed, 600);
         if let Some(end) = &e.state().ended {
@@ -229,27 +250,25 @@ fn covering_tracks_lowers_suspicion_less_each_time() {
     use ffs_core::consts::{COVER_FUCKS, COVER_SUSP};
     let mut e = Engine::new(pack(), 4);
     e.apply(Command::Scheme {
-        id: "phantom_licences".into(),
+        id: e.state().scheme_offers[0].clone(),
     })
     .expect("scheme");
     e.apply(Command::Scheme {
-        id: "consulting".into(),
+        id: e.state().scheme_offers[0].clone(),
     })
     .expect("scheme");
     let day = e.state().day;
-    let mut gains = vec![];
-    for _ in 0..2 {
+    assert!(e.state().susp > 0);
+    for &want in &COVER_SUSP[..2] {
         let (s0, f0) = (e.state().susp, e.state().fucks);
-        assert_eq!(e.view().today.cover_gain, COVER_SUSP[gains.len()]);
+        assert_eq!(e.view().today.cover_gain, want);
         e.apply(Command::CoverTracks).expect("cover");
         assert_eq!(e.state().day, day, "still the same day");
-        gains.push(s0 - e.state().susp);
-        assert!(
-            e.state().fucks <= f0 - COVER_FUCKS + 4,
-            "covering is tedious"
-        );
+        // it takes off the full amount, or everything that was left
+        assert_eq!(s0 - e.state().susp, want.min(s0));
+        assert!(e.state().fucks <= f0 - COVER_FUCKS, "covering is tedious");
     }
-    assert_eq!(gains, vec![COVER_SUSP[0], COVER_SUSP[1]]);
+    assert!(COVER_SUSP[1] < COVER_SUSP[0], "diminishing returns");
     // a new day resets the diminishing returns
     e.apply(Command::EndDay).expect("end day");
     if !e.is_over() {
@@ -265,38 +284,121 @@ fn covering_tracks_never_goes_below_zero() {
     assert_eq!(e.state().susp, 0);
 }
 
-#[test]
-fn big_scheme_is_locked_until_its_day() {
-    let mut e = Engine::new(pack(), 9);
-    assert_eq!(
-        e.apply(Command::Scheme {
-            id: "server_sale".into()
-        }),
-        Err(CommandError::SchemeLocked)
-    );
-    assert!(!e
-        .view()
-        .schemes
+fn tier_of(p: &Pack, id: &str) -> u8 {
+    p.schemes
         .iter()
-        .any(|s| s.id == "server_sale" && s.available));
+        .find(|s| s.id == id)
+        .map(|s| s.tier)
+        .expect("scheme")
+}
+
+#[test]
+fn scheme_ladder_starts_petty_and_escalates() {
+    let p = pack();
+    let min_tier = p.schemes.iter().map(|s| s.tier).min().expect("schemes");
+    for seed in 0..30 {
+        let e = Engine::new(p.clone(), seed);
+        let st = e.state();
+        assert_eq!(st.scheme_offers.len(), ffs_core::consts::SCHEME_SLOTS);
+        for id in &st.scheme_offers {
+            assert_eq!(
+                tier_of(&p, id),
+                min_tier,
+                "seed {seed}: opens with petty schemes"
+            );
+        }
+        // the ladder never steps down a tier
+        let tiers: Vec<u8> = st.scheme_ladder.iter().map(|id| tier_of(&p, id)).collect();
+        assert!(
+            tiers.windows(2).all(|w| w[0] <= w[1]),
+            "seed {seed}: {tiers:?}"
+        );
+        // every scheme appears exactly once between the offers and the ladder
+        let mut all: Vec<String> = st
+            .scheme_offers
+            .iter()
+            .chain(st.scheme_ladder.iter())
+            .cloned()
+            .collect();
+        all.sort();
+        let mut want: Vec<String> = p.schemes.iter().map(|s| s.id.clone()).collect();
+        want.sort();
+        assert_eq!(all, want);
+    }
+}
+
+#[test]
+fn taking_a_scheme_puts_the_next_rung_in_its_slot() {
+    let mut e = Engine::new(pack(), 12);
+    let taken = e.state().scheme_offers[1].clone();
+    let next = e.state().scheme_ladder[0].clone();
+    let others = (
+        e.state().scheme_offers[0].clone(),
+        e.state().scheme_offers[2].clone(),
+    );
+    e.apply(Command::Scheme { id: taken.clone() })
+        .expect("scheme");
+    let st = e.state();
+    assert_eq!(st.scheme_offers[1], next, "same slot, next rung");
+    assert_eq!(
+        (st.scheme_offers[0].clone(), st.scheme_offers[2].clone()),
+        others
+    );
+    assert!(!st.scheme_offers.contains(&taken) && !st.scheme_ladder.contains(&taken));
+    assert_eq!(st.schemes_run, 1);
+}
+
+#[test]
+fn scheme_order_varies_between_runs() {
+    let p = pack();
+    let orders: std::collections::BTreeSet<Vec<String>> = (0..20)
+        .map(|seed| Engine::new(p.clone(), seed).state().scheme_ladder.clone())
+        .collect();
+    assert!(orders.len() > 1, "every run has the same scheme order");
+}
+
+#[test]
+fn the_ladder_runs_dry() {
+    let p = pack();
+    let mut e = Engine::new(p.clone(), 3);
+    let mut done = 0;
+    while let Some(id) = e.state().scheme_offers.first().cloned() {
+        if e.is_over() {
+            break;
+        }
+        if e.apply(Command::Scheme { id }).is_err() {
+            break;
+        }
+        done += 1;
+        // keep the run alive: cool off and go home when needed
+        let _ = e.apply(Command::CoverTracks);
+    }
+    if !e.is_over() {
+        assert_eq!(done, p.schemes.len());
+        assert!(e.state().scheme_offers.is_empty() && e.state().scheme_ladder.is_empty());
+        assert_eq!(e.view().schemes_left, 0);
+    }
 }
 
 #[test]
 fn schemes_sometimes_hit_a_jackpot() {
-    // Run creative expenses on day 1 across many seeds: base cash is at most $800,
-    // so anything above that is a jackpot, and jackpots must happen but stay rare.
+    // Run an opening (tier-1) scheme across many seeds: anything above its cash range
+    // is a jackpot, and jackpots must happen but stay rare.
+    let p = pack();
     let mut jackpots = 0;
     let runs = 400;
     for seed in 0..runs {
-        let mut e = Engine::new(pack(), seed);
+        let mut e = Engine::new(p.clone(), seed);
+        let id = e.state().scheme_offers[0].clone();
+        let sc = p.schemes.iter().find(|s| s.id == id).expect("scheme");
         let c0 = e.state().cash;
-        e.apply(Command::Scheme {
-            id: "creative_expenses".into(),
-        })
-        .expect("scheme");
-        let got = e.state().cash - c0;
-        assert!((250..=800 * 8).contains(&got), "seed {seed}: {got}");
-        if got > 800 {
+        e.apply(Command::Scheme { id: id.clone() }).expect("scheme");
+        let got = (e.state().cash - c0) as i64;
+        assert!(
+            (sc.cash[0]..=sc.cash[1] * sc.jackpot_mult[1]).contains(&got),
+            "seed {seed}: {got}"
+        );
+        if got > sc.cash[1] {
             jackpots += 1;
             assert!(e.state().toast.starts_with("JACKPOT!"));
         }

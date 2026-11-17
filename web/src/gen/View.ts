@@ -10,4 +10,12 @@ import type { StoryView } from "./StoryView";
 import type { TicketView } from "./TicketView";
 import type { Today } from "./Today";
 
-export type View = { header: Header, tickets: Array<TicketView>, schemes: Array<SchemeView>, stories: Array<StoryView>, board: Array<RankRow>, chat: Array<ChatLine>, np_log: Array<NpEntry>, dirt: Array<DirtView>, today: Today, ended: EndView | null, logo: string, hash: string, };
+export type View = { header: Header, tickets: Array<TicketView>, 
+/**
+ * Schemes on offer right now; each can be run once, then the next rung replaces it.
+ */
+schemes: Array<SchemeView>, 
+/**
+ * Schemes still waiting further up the ladder.
+ */
+schemes_left: number, stories: Array<StoryView>, board: Array<RankRow>, chat: Array<ChatLine>, np_log: Array<NpEntry>, dirt: Array<DirtView>, today: Today, ended: EndView | null, logo: string, hash: string, };

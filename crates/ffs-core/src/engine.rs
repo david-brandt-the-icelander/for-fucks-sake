@@ -21,10 +21,8 @@ pub enum CommandError {
     NoDirt,
     #[error("no such scheme")]
     NoSuchScheme,
-    #[error("you already ran that scheme today")]
-    SchemeUsedToday,
-    #[error("that scheme is not available yet")]
-    SchemeLocked,
+    #[error("that scheme is not on offer")]
+    SchemeNotOffered,
     #[error("no such story")]
     NoSuchStory,
 }
@@ -69,7 +67,9 @@ impl Engine {
             chat: vec![],
             np_log: vec![],
             fucks_history: vec![START_FUCKS],
-            schemes_today: BTreeSet::new(),
+            scheme_offers: vec![],
+            scheme_ladder: vec![],
+            schemes_run: 0,
             rants_today: 0,
             coffees_today: 0,
             covers_today: 0,
@@ -91,6 +91,7 @@ impl Engine {
             let v = e.range("rival_np_start", lo, hi) as i32;
             e.s.rivals[i].np = v;
         }
+        e.build_scheme_ladder();
         e.sys_chat("-!- you joined #war-room. 4 other sysadmins are here, drinking your coffee.");
         e.start_day();
         e.ev.clear();
@@ -264,11 +265,8 @@ impl Engine {
                 if !self.pack.schemes.iter().any(|s| s.id == *id) {
                     return Err(CommandError::NoSuchScheme);
                 }
-                if self.s.schemes_today.contains(id) {
-                    return Err(CommandError::SchemeUsedToday);
-                }
-                if !self.scheme_unlocked(id) {
-                    return Err(CommandError::SchemeLocked);
+                if !self.s.scheme_offers.contains(id) {
+                    return Err(CommandError::SchemeNotOffered);
                 }
             }
             Command::Boast { story } if !self.s.stories.iter().any(|s| s.id == *story) => {
@@ -457,13 +455,43 @@ impl Engine {
         self.after_action(COFFEE_MINUTES);
     }
 
-    /// Whether a scheme's `min_day` has been reached.
-    pub fn scheme_unlocked(&self, id: &str) -> bool {
-        self.pack
-            .schemes
-            .iter()
-            .find(|s| s.id == id)
-            .is_some_and(|s| self.s.day >= s.min_day)
+    /// Shuffle each tier, stack the tiers in order, and deal the first offers.
+    fn build_scheme_ladder(&mut self) {
+        let pack = self.pack.clone();
+        let mut tiers: Vec<u8> = pack.schemes.iter().map(|s| s.tier).collect();
+        tiers.sort_unstable();
+        tiers.dedup();
+        let mut ladder = vec![];
+        for t in tiers {
+            let mut ids: Vec<String> = pack
+                .schemes
+                .iter()
+                .filter(|s| s.tier == t)
+                .map(|s| s.id.clone())
+                .collect();
+            // Fisher-Yates with the engine's own streams
+            for i in (1..ids.len()).rev() {
+                let j = self.range("scheme_shuffle", 0, i as i64) as usize;
+                ids.swap(i, j);
+            }
+            ladder.extend(ids);
+        }
+        let n = SCHEME_SLOTS.min(ladder.len());
+        self.s.scheme_offers = ladder.drain(0..n).collect();
+        self.s.scheme_ladder = ladder;
+    }
+
+    /// Take a scheme off the table; the next one up the ladder replaces it in the same slot.
+    fn replace_offer(&mut self, id: &str) {
+        let Some(slot) = self.s.scheme_offers.iter().position(|o| o == id) else {
+            return;
+        };
+        if self.s.scheme_ladder.is_empty() {
+            self.s.scheme_offers.remove(slot);
+        } else {
+            let next = self.s.scheme_ladder.remove(0);
+            self.s.scheme_offers[slot] = next;
+        }
     }
 
     /// Suspicion the next "cover your tracks" today would remove.
@@ -495,9 +523,9 @@ impl Engine {
         let Some(sc) = pack.schemes.iter().find(|s| s.id == id) else {
             return;
         };
-        self.s.schemes_today.insert(sc.id.clone());
-        let base = self.range("scheme_cash", sc.cash[0], sc.cash[1]);
-        let mut scaled = base * (100 + SCHEME_GROWTH_PCT * (self.s.day as i64 - 1)) / 100;
+        self.replace_offer(&sc.id);
+        self.s.schemes_run += 1;
+        let mut scaled = self.range("scheme_cash", sc.cash[0], sc.cash[1]);
         let jackpot = sc.jackpot_chance > 0 && self.pct("jackpot", sc.jackpot_chance);
         let mut susp = sc.susp;
         if jackpot {
@@ -518,7 +546,8 @@ impl Engine {
             self.toast(format!("{}: +${scaled}. Suspicion +{susp}.", sc.name));
         }
         if self.pct("audit", sc.audit_chance) {
-            self.spawn_incident("sys_audit_scare");
+            let audit = sc.audit.as_deref().unwrap_or("sys_audit_scare");
+            self.spawn_incident(audit);
         }
         self.after_action(sc.minutes);
     }
@@ -674,7 +703,6 @@ impl Engine {
         let pack = self.pack.clone();
         self.s.day += 1;
         self.s.minute = 0;
-        self.s.schemes_today.clear();
         self.s.rants_today = 0;
         self.s.coffees_today = 0;
         self.s.covers_today = 0;

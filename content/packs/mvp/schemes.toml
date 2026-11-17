@@ -1,45 +1,23 @@
-# Schemes: each can be run once per day. cash is a range (inclusive); it grows with the day.
+# Schemes: a ladder. Each run shuffles the schemes within each tier, then orders the tiers
+# 1, 2, 3... Three are on offer at a time (the tier-1 ones at the start). Each scheme can be run
+# once per run; the one you take is replaced by the next scheme up the ladder, so gain and risk
+# escalate as you go. When the ladder runs out, the empty slots stay empty.
+#
+# cash is a range (inclusive). susp is added when you run it. audit_chance is the percent chance
+# that `audit` (an incident id, default sys_audit_scare) lands in your queue.
 # A scheme may hit a jackpot: jackpot_chance percent of runs multiply the cash by a roll in
 # jackpot_mult (inclusive) and add jackpot_susp on top of susp. Big money gets noticed.
-# min_day: the first day a scheme can be run.
-[[scheme]]
-id = "phantom_licences"
-name = "Phantom software licences"
-desc = "Invoice the company for licences of software that doesn't exist."
-minutes = 120
-cash = [900, 2400]
-susp = 9
-audit_chance = 18
-story = "invoiced the company for 400 licences of software that doesn't exist"
-story_value = 3
-jackpot_chance = 8
-jackpot_mult = [3, 5]
-jackpot_susp = 6
-jackpot_line = "Finance renewed the phantom licences for three years, upfront."
 
-[[scheme]]
-id = "consulting"
-name = "Consulting on the side"
-desc = "Bill the company, via your own consultancy, for advising yourself."
-minutes = 90
-cash = [500, 1400]
-susp = 6
-audit_chance = 10
-story = "billed the company, via my own consultancy, for advising myself"
-story_value = 2
-jackpot_chance = 7
-jackpot_mult = [3, 6]
-jackpot_susp = 4
-jackpot_line = "The board loved your consultancy's report and ordered the 'premium tier'."
-
+# ---------- tier 1: petty ----------
 [[scheme]]
 id = "creative_expenses"
+tier = 1
 name = "Creative expenses"
 desc = "Reclassify the pub as 'team infrastructure review'."
 minutes = 60
-cash = [250, 800]
+cash = [250, 700]
 susp = 3
-audit_chance = 6
+audit_chance = 5
 story = "expensed a pub crawl as a 'distributed systems offsite'"
 story_value = 1
 jackpot_chance = 6
@@ -48,17 +26,336 @@ jackpot_susp = 3
 jackpot_line = "Accounts approved the 'offsite' as an annual programme, backdated."
 
 [[scheme]]
+id = "toner_futures"
+tier = 1
+name = "Toner futures"
+desc = "Order toner for printers the company got rid of in 2019. Keep the toner."
+minutes = 60
+cash = [200, 650]
+susp = 2
+audit_chance = 5
+story = "ordered a year of toner for printers that no longer exist"
+story_value = 1
+jackpot_chance = 6
+jackpot_mult = [3, 6]
+jackpot_susp = 2
+jackpot_line = "Toner prices spiked. Your cupboard is now a strategic reserve."
+
+[[scheme]]
+id = "cable_surplus"
+tier = 1
+name = "Cable surplus"
+desc = "Requisition 'emergency' cables by the crate. Sell the spares at a car boot sale."
+minutes = 60
+cash = [250, 600]
+susp = 3
+audit_chance = 5
+story = "sold three crates of 'emergency' cables at a car boot sale"
+story_value = 1
+jackpot_chance = 6
+jackpot_mult = [3, 6]
+jackpot_susp = 2
+jackpot_line = "A collector bought the lot, calling them 'heritage connectors'."
+
+# ---------- tier 2: habitual ----------
+[[scheme]]
+id = "consulting"
+tier = 2
+name = "Consulting on the side"
+desc = "Bill the company, via your own consultancy, for advising yourself."
+minutes = 90
+cash = [500, 1300]
+susp = 5
+audit_chance = 8
+story = "billed the company, via my own consultancy, for advising myself"
+story_value = 1
+jackpot_chance = 8
+jackpot_mult = [3, 6]
+jackpot_susp = 4
+jackpot_line = "The board loved your consultancy's report and ordered the 'premium tier'."
+
+[[scheme]]
+id = "overtime_daemon"
+tier = 2
+name = "Overtime daemon"
+desc = "Log the weekend overtime of a background process. It worked hard. You'll take its pay."
+minutes = 90
+cash = [600, 1200]
+susp = 4
+audit_chance = 8
+story = "claimed weekend overtime on behalf of a background process"
+story_value = 1
+jackpot_chance = 7
+jackpot_mult = [3, 5]
+jackpot_susp = 3
+jackpot_line = "Payroll back-paid the daemon's overtime for eighteen months."
+
+[[scheme]]
+id = "training_budget"
+tier = 2
+name = "Training budget"
+desc = "Book a 'certification bootcamp' at a spa. Study the hot tub thoroughly."
+minutes = 90
+cash = [500, 1400]
+susp = 5
+audit_chance = 8
+story = "spent the training budget on a 'bootcamp' with a hot tub"
+story_value = 1
+jackpot_chance = 7
+jackpot_mult = [3, 5]
+jackpot_susp = 3
+jackpot_line = "HR made the spa bootcamp mandatory for all of IT. Which is you."
+
+# ---------- tier 3: organised ----------
+[[scheme]]
+id = "phantom_licences"
+tier = 3
+name = "Phantom software licences"
+desc = "Invoice the company for licences of software that doesn't exist."
+minutes = 120
+cash = [900, 2200]
+susp = 8
+audit_chance = 12
+story = "invoiced the company for 400 licences of software that doesn't exist"
+story_value = 2
+jackpot_chance = 8
+jackpot_mult = [3, 5]
+jackpot_susp = 6
+jackpot_line = "Finance renewed the phantom licences for three years, upfront."
+
+[[scheme]]
+id = "ghost_contractor"
+tier = 3
+name = "Ghost contractor"
+desc = "Hire a contractor called 'Backup Bjorn'. Bjorn is a folder on your desktop."
+minutes = 120
+cash = [1000, 2000]
+susp = 7
+audit_chance = 12
+story = "put a contractor on payroll who is actually a folder on my desktop"
+story_value = 2
+jackpot_chance = 7
+jackpot_mult = [3, 5]
+jackpot_susp = 5
+jackpot_line = "Bjorn got a performance bonus. Bjorn is still a folder."
+
+[[scheme]]
+id = "warranty_loop"
+tier = 3
+name = "Warranty loop"
+desc = "Return the same broken laptop under warranty. Keep the replacements. Repeat."
+minutes = 120
+cash = [800, 2300]
+susp = 8
+audit_chance = 12
+story = "got eleven new laptops out of one broken one and a warranty"
+story_value = 2
+jackpot_chance = 7
+jackpot_mult = [3, 5]
+jackpot_susp = 5
+jackpot_line = "The vendor sent a pallet 'for your inconvenience'. You resold the pallet too."
+
+# ---------- tier 4: ambitious ----------
+[[scheme]]
+id = "cloud_migration"
+tier = 4
+name = "Cloud migration that never ends"
+desc = "Start a cloud migration. Bill it monthly. Never finish. Nobody checks."
+minutes = 150
+cash = [1500, 3200]
+susp = 11
+audit_chance = 16
+story = "billed the company for a cloud migration that has been 'nearly done' for a year"
+story_value = 2
+jackpot_chance = 8
+jackpot_mult = [2, 4]
+jackpot_susp = 6
+jackpot_line = "The board extended 'Phase 2' indefinitely. There is no Phase 1."
+
+[[scheme]]
+id = "vendor_kickback"
+tier = 4
+name = "Preferred vendor"
+desc = "Make your cousin's 'IT solutions' firm the only approved supplier."
+minutes = 150
+cash = [1600, 3000]
+susp = 12
+audit_chance = 16
+story = "made my cousin's two-person firm the company's only approved IT supplier"
+story_value = 2
+jackpot_chance = 8
+jackpot_mult = [2, 4]
+jackpot_susp = 6
+jackpot_line = "Your cousin's firm won the five-year framework. Family dinner is on them."
+
+[[scheme]]
+id = "security_theatre"
+tier = 4
+name = "Security theatre"
+desc = "Sell management an 'AI firewall'. It is a box with a blinking light."
+minutes = 150
+cash = [1400, 3300]
+susp = 11
+audit_chance = 16
+story = "sold the board an 'AI firewall' that is a shoebox with an LED in it"
+story_value = 2
+jackpot_chance = 8
+jackpot_mult = [2, 4]
+jackpot_susp = 6
+jackpot_line = "The CEO ordered a blinking box for every office. And one for his boat."
+
+# ---------- tier 5: brazen ----------
+[[scheme]]
 id = "server_sale"
+tier = 5
 name = "Decommission sale"
 desc = "Sell the 'decommissioned' servers. Some of them were still running."
 minutes = 180
-min_day = 4
-cash = [2500, 6000]
-susp = 18
-audit_chance = 35
+cash = [2500, 5000]
+susp = 15
+audit_chance = 22
+audit = "sys_auditor_visit"
 story = "sold the 'decommissioned' servers while three of them were still serving payroll"
 story_value = 3
-jackpot_chance = 10
+jackpot_chance = 9
 jackpot_mult = [2, 4]
 jackpot_susp = 8
 jackpot_line = "A collector paid triple for the 'vintage' rack. It was from last year."
+
+[[scheme]]
+id = "data_centre_ghost"
+tier = 5
+name = "The second data centre"
+desc = "Pay rent, power and cooling for a backup data centre. It is your garage."
+minutes = 180
+cash = [2600, 4800]
+susp = 16
+audit_chance = 22
+audit = "sys_auditor_visit"
+story = "had the company rent my garage as a 'secondary data centre'"
+story_value = 3
+jackpot_chance = 8
+jackpot_mult = [2, 4]
+jackpot_susp = 8
+jackpot_line = "Facilities paid for 'redundant cooling'. Your garage now has air con."
+
+[[scheme]]
+id = "licence_audit_racket"
+tier = 5
+name = "Licence amnesty"
+desc = "Warn every department of a 'licence audit'. Collect their 'compliance fees'. Personally."
+minutes = 180
+cash = [2400, 5200]
+susp = 15
+audit_chance = 22
+audit = "sys_auditor_visit"
+story = "collected 'compliance fees' from every department for an audit I made up"
+story_value = 3
+jackpot_chance = 9
+jackpot_mult = [2, 4]
+jackpot_susp = 8
+jackpot_line = "Legal paid a 'settlement' to avoid your fictional audit. In full."
+
+# ---------- tier 6: reckless ----------
+[[scheme]]
+id = "phantom_subsidiary"
+tier = 6
+name = "Phantom subsidiary"
+desc = "Spin off 'Grubb Digital'. It has a logo, a bank account, and nothing else."
+minutes = 210
+cash = [4000, 7000]
+susp = 19
+audit_chance = 28
+audit = "sys_auditor_visit"
+story = "spun off a subsidiary that exists only as a logo and a bank account"
+story_value = 3
+jackpot_chance = 9
+jackpot_mult = [2, 3]
+jackpot_susp = 10
+jackpot_line = "An investor valued 'Grubb Digital' at eight figures. Based on the logo."
+
+[[scheme]]
+id = "insurance_flood"
+tier = 6
+name = "The great server-room flood"
+desc = "Claim the server room flooded. It was a mop bucket. A big one."
+minutes = 210
+cash = [3800, 7500]
+susp = 20
+audit_chance = 28
+audit = "sys_auditor_visit"
+story = "made an insurance claim for a server-room flood that was one mop bucket"
+story_value = 3
+jackpot_chance = 9
+jackpot_mult = [2, 3]
+jackpot_susp = 10
+jackpot_line = "The insurer paid for 'water damage to the entire floor'. It was one bucket."
+
+[[scheme]]
+id = "digital_transformation"
+tier = 6
+name = "Digital transformation"
+desc = "Run a company-wide 'transformation'. Transform the budget into your savings."
+minutes = 210
+cash = [4200, 7200]
+susp = 21
+audit_chance = 28
+audit = "sys_auditor_visit"
+story = "ran a company-wide 'digital transformation' that transformed the budget into my savings"
+story_value = 3
+jackpot_chance = 9
+jackpot_mult = [2, 3]
+jackpot_susp = 10
+jackpot_line = "The board approved 'Transformation 2.0' before 1.0 had a single deliverable."
+
+# ---------- tier 7: legendary ----------
+[[scheme]]
+id = "network_leaseback"
+tier = 7
+name = "Sell the network"
+desc = "Lease the whole company network back to the company. Through a firm you own."
+minutes = 240
+cash = [6000, 11000]
+susp = 25
+audit_chance = 35
+audit = "sys_auditor_visit"
+story = "leased the company's own network back to it through a firm I own"
+story_value = 3
+jackpot_chance = 10
+jackpot_mult = [2, 3]
+jackpot_susp = 12
+jackpot_line = "Legal signed a twenty-year lease with your firm. Without reading it."
+
+[[scheme]]
+id = "acquisition"
+tier = 7
+name = "Strategic acquisition"
+desc = "Persuade the board to buy a 'startup'. The startup is your consultancy."
+minutes = 240
+cash = [6500, 10500]
+susp = 26
+audit_chance = 35
+audit = "sys_auditor_visit"
+story = "got the company to acquire a 'startup' that was my own consultancy"
+story_value = 3
+jackpot_chance = 10
+jackpot_mult = [2, 3]
+jackpot_susp = 12
+jackpot_line = "A bidding war broke out over your consultancy. You were both bidders."
+
+[[scheme]]
+id = "pension_cloud"
+tier = 7
+name = "Pension in the cloud"
+desc = "Move the staff pension's 'records' to a cloud only you can see."
+minutes = 240
+cash = [6000, 11000]
+susp = 27
+audit_chance = 35
+audit = "sys_auditor_visit"
+story = "moved the pension 'records' to a cloud only I have the password for"
+story_value = 3
+jackpot_chance = 10
+jackpot_mult = [2, 3]
+jackpot_susp = 12
+jackpot_line = "The fund 'consolidated' into your cloud. The trustees thanked you."

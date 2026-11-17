@@ -37,7 +37,7 @@ Nerd Power and stash as flavour. Hit F10 with enough stash and you retire legend
 | UI | Thin TS, text grid, **2 desktops**: Helpdesk (F3) and War-room (F4). F1 help, F9 keymap, F10 retire. Keyboard only. |
 | Meters | Remaining Fucks (visible), Suspicion, Stash ($). Hidden stress/meltdown rules simplified to: Fucks <= 0 triggers meltdown. |
 | Incidents | 1 corp, ~40 incidents in 3 tiers, ~8 repeat chains, 3-4 options each, hints honest. |
-| Schemes | 4 (simple: pay cost in time, gain Stash, gain Suspicion, some risk of audit incident, a small chance of a jackpot; the biggest unlocks on day 4). Cover your tracks (T) brings Suspicion back down. |
+| Schemes | A ladder of 21 in 7 tiers, 3 on offer at a time. Each works once per run; the one you take is replaced by the next rung, so gain, Suspicion, audit risk and time all escalate. Small chance of a jackpot. Cover your tracks (T) brings Suspicion back down. |
 | Dirt | A tiny version of kompromat: some options give you "dirt" on a named coworker; spend it once to auto-win a later incident involving them. No sharing, no rival interaction. |
 | Rivals | 4 scripted bots with personalities, about 70 canned lines each. They post boasts on a schedule from a content table; Nerd Power rank vs them is the leaderboard. |
 | Nerd Power | Earned by clever options, bragging, F2 log. F1 still costs 1 NP (keep the joke). |

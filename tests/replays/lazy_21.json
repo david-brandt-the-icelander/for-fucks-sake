@@ -1,5 +1,5 @@
 {
-  "hash": "386cbcff4a5d054d6f5c7df9a9344a050ba56f257c086d5dd46b4fabdd964b47",
+  "hash": "285a9f754481aed69ec333571af8f868f5273670fe9d81d5f50d2e5f08ca01a8",
   "log": [
     {
       "option": 0,
@@ -68,12 +68,12 @@
       "type": "Resolve"
     },
     {
+      "type": "EndDay"
+    },
+    {
       "option": 0,
       "ticket": 13,
       "type": "Resolve"
-    },
-    {
-      "type": "EndDay"
     },
     {
       "option": 0,
@@ -109,9 +109,6 @@
       "option": 0,
       "ticket": 20,
       "type": "Resolve"
-    },
-    {
-      "type": "EndDay"
     },
     {
       "option": 0,

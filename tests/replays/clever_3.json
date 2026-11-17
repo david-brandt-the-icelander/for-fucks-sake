@@ -1,8 +1,20 @@
 {
-  "hash": "644643153fc2a02580c8ccb329835dae0b567734259124767f7711bbd6545144",
+  "hash": "741d4c5efd1659302d809b2283fe3ee8fdd0407781fd2e86a44ab0b3d1e55dc0",
   "log": [
     {
-      "id": "phantom_licences",
+      "id": "toner_futures",
+      "type": "Scheme"
+    },
+    {
+      "id": "cable_surplus",
+      "type": "Scheme"
+    },
+    {
+      "id": "creative_expenses",
+      "type": "Scheme"
+    },
+    {
+      "id": "overtime_daemon",
       "type": "Scheme"
     },
     {
@@ -10,7 +22,7 @@
       "type": "Scheme"
     },
     {
-      "id": "creative_expenses",
+      "id": "training_budget",
       "type": "Scheme"
     },
     {
@@ -20,29 +32,12 @@
     },
     {
       "option": 1,
-      "ticket": 4,
-      "type": "Resolve"
-    },
-    {
-      "id": "phantom_licences",
-      "type": "Scheme"
-    },
-    {
-      "id": "consulting",
-      "type": "Scheme"
-    },
-    {
-      "type": "CoverTracks"
-    },
-    {
-      "option": 2,
       "ticket": 5,
       "type": "Resolve"
     },
     {
-      "option": 1,
-      "ticket": 3,
-      "type": "Resolve"
+      "id": "ghost_contractor",
+      "type": "Scheme"
     },
     {
       "id": "phantom_licences",
@@ -50,15 +45,6 @@
     },
     {
       "type": "CoverTracks"
-    },
-    {
-      "id": "consulting",
-      "type": "Scheme"
-    },
-    {
-      "option": 1,
-      "ticket": 10,
-      "type": "Resolve"
     },
     {
       "option": 1,
@@ -66,20 +52,50 @@
       "type": "Resolve"
     },
     {
-      "id": "phantom_licences",
+      "id": "warranty_loop",
       "type": "Scheme"
+    },
+    {
+      "option": 1,
+      "ticket": 8,
+      "type": "Resolve"
     },
     {
       "type": "CoverTracks"
     },
     {
-      "ticket": 1,
-      "type": "UseDirt"
+      "option": 1,
+      "ticket": 10,
+      "type": "Resolve"
+    },
+    {
+      "id": "cloud_migration",
+      "type": "Scheme"
     },
     {
       "option": 1,
+      "ticket": 4,
+      "type": "Resolve"
+    },
+    {
+      "type": "CoverTracks"
+    },
+    {
+      "option": 2,
       "ticket": 11,
       "type": "Resolve"
+    },
+    {
+      "ticket": 9,
+      "type": "UseDirt"
+    },
+    {
+      "id": "security_theatre",
+      "type": "Scheme"
+    },
+    {
+      "ticket": 12,
+      "type": "UseDirt"
     },
     {
       "option": 1,
@@ -87,28 +103,36 @@
       "type": "Resolve"
     },
     {
-      "id": "phantom_licences",
+      "type": "CoverTracks"
+    },
+    {
+      "option": 1,
+      "ticket": 3,
+      "type": "Resolve"
+    },
+    {
+      "id": "vendor_kickback",
       "type": "Scheme"
-    },
-    {
-      "option": 1,
-      "ticket": 15,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 9,
-      "type": "Resolve"
     },
     {
       "type": "CoverTracks"
     },
     {
-      "type": "Coffee"
+      "option": 1,
+      "ticket": 17,
+      "type": "Resolve"
     },
     {
-      "id": "phantom_licences",
-      "type": "Scheme"
+      "option": 1,
+      "ticket": 14,
+      "type": "Resolve"
+    },
+    {
+      "send": false,
+      "type": "Rant"
+    },
+    {
+      "type": "Coffee"
     },
     {
       "option": 1,
@@ -116,36 +140,12 @@
       "type": "Resolve"
     },
     {
-      "option": 1,
-      "ticket": 16,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 21,
-      "type": "Resolve"
-    },
-    {
-      "send": false,
-      "type": "Rant"
-    },
-    {
-      "send": false,
-      "type": "Rant"
-    },
-    {
-      "type": "Coffee"
-    },
-    {
-      "id": "phantom_licences",
-      "type": "Scheme"
-    },
-    {
       "type": "CoverTracks"
     },
     {
-      "ticket": 22,
-      "type": "UseDirt"
+      "option": 1,
+      "ticket": 20,
+      "type": "Resolve"
     },
     {
       "send": false,
@@ -159,11 +159,13 @@
       "type": "Coffee"
     },
     {
-      "id": "phantom_licences",
+      "id": "licence_audit_racket",
       "type": "Scheme"
     },
     {
-      "type": "Retire"
+      "option": 1,
+      "ticket": 22,
+      "type": "Resolve"
     }
   ],
   "seed": 3
