@@ -26,7 +26,7 @@ Project paperwork (business plan, risks, deployment, ops, contacts): [Documentat
 
 ## Play it
 
-Online: <https://david-brandt-the-icelander.github.io/for-fucks-sake/> (the latest release).
+Online, signed in: <https://icelander.net/games/ffs/>.
 
 
 ```

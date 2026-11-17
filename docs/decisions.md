@@ -120,10 +120,9 @@ David: more schemes; each available once, replaced by a new one when taken; esca
 - Balance after retuning susp per tier: clever bot retires about 42% (median 8-9 days); lazy and random
   unchanged (random never retires).
 
-## Web host: GitHub Pages (2026-11-17)
+## Host: icelander.net (2026-11-17)
 
-David asked for a publishing step and a host. GitHub Pages: the repository is public, it costs nothing, and it needs
-no account, API token or secret (the workflow deploys with its own short-lived token). A `v*` tag push runs
-`.github/workflows/release.yml`, which re-runs `cargo test` and the web unit tests before publishing, and stamps the
-tag into the title bar (`FFS_VERSION`, "dev" for local builds). Manual runs can republish or roll back to any tag.
-A custom domain can be added later without changing the workflow.
+The web game is served by icelander.net at `/games/ffs/` (signed-in players), as committed static files in that
+repository (`site/ffs-game/`, runbook `docs/ffs.md` there). Not GitHub Pages. A release here is a tag; CI stamps the
+version into the build (`FFS_VERSION` from `git describe --tags`, "dev" locally) and the `ffs-web` artifact is
+copied into icelander.net by pull request.

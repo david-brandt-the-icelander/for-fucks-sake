@@ -2,14 +2,14 @@
 
 **Source of truth:** here, until real pipeline config exists; then the pipeline files win and this says what they do.
 
-The single-player web build is live on GitHub Pages (see `mvp/delivery.md`); everything else here is still the plan.
+The single-player web game is live on icelander.net (see `mvp/delivery.md`); everything else here is still the plan.
 
 ## Environments
 
 | Environment | Where | Deployed by | Data |
 | --- | --- | --- | --- |
 | Local | dev machine (`make dev`) | you | fixtures / seeds |
-| Single-player | GitHub Pages: <https://david-brandt-the-icelander.github.io/for-fucks-sake/> | `.github/workflows/release.yml` on a `v*` tag | none (browser storage only) |
+| Single-player | icelander.net, <https://icelander.net/games/ffs/> (signed-in players) | a pull request in the icelander.net repository (its `docs/ffs.md`) | none (browser storage only) |
 | Multiplayer staging | optional, a cheap VPS or just local Docker | manual | synthetic |
 | Multiplayer prod | one container (`ffs-server`) + Postgres on a small VPS (TBD) | manual `docker compose pull && up -d` at first, CI later | real handles/runs |
 
@@ -46,6 +46,6 @@ Never commit values. Missing `DATABASE_URL` = server refuses to start; missing G
 
 ## Infrastructure
 
-- **Web host:** GitHub Pages on the `david-brandt-the-icelander/for-fucks-sake` repository (owner: David). No account
-  beyond GitHub, no secrets. Pages must be set to Source "GitHub Actions" in the repository settings.
-- Domain and DNS: TBD (branding is an open question). A custom domain can be pointed at Pages later.
+- **Web host:** icelander.net (David's site, a Cloudflare Worker with static assets). It serves the built game at
+  `/games/ffs/` behind its sign-in. No secrets or accounts live in this repository for it.
+- A domain of the game's own: TBD (branding is an open question).

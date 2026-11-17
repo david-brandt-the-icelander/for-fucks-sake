@@ -31,14 +31,14 @@ Skipped: Firefox/WebKit matrix, nightly balance runs, model checks.
 
 ## Deploy
 
-Static site on **GitHub Pages**: <https://david-brandt-the-icelander.github.io/for-fucks-sake/>.
-`.github/workflows/release.yml` runs on every `v*` tag push: `cargo test` (replays included), WASM build, web tests,
-`vite build` with `FFS_VERSION` set to the tag (shown in the title bar), then publish. Local builds say `dev`.
+Hosted on **icelander.net** at <https://icelander.net/games/ffs/>, for signed-in players. icelander.net (its own
+repository, `david-brandt-the-icelander/icelander.net`) serves the built files from its `site/ffs-game/`, and its
+`docs/ffs.md` is the runbook.
 
-- **Release:** tag `main` and push the tag (`git tag -a v0.3.0 -m ... && git push origin v0.3.0`).
-- **Republish / roll back:** Actions > release > Run workflow. Leave the tag blank for the newest `v*` tag,
-  or name an older tag to put that version back up. Minutes either way.
-- **One-time setup:** repository Settings > Pages > Source: "GitHub Actions".
+- **Release:** tag `main` here (`v0.x.y`) and push the tag. CI's `web` job builds the `ffs-web` artifact with the
+  version (`git describe --tags`) in the title bar; local builds say `dev`.
+- **Publish:** copy that build into icelander.net's `site/ffs-game/` in a pull request there. Merging it deploys.
+- **Roll back:** the same, with the previous tag's build.
 Saves are keyed by content hash so a content change starts a fresh save rather than corrupting an old one.
 
-No secrets (Pages publishes with the workflow's own short-lived token), no server, no database, no on-call. If content generation needs an API key, it lives only on the developer's machine.
+No secrets, no server, no database, no on-call. If content generation needs an API key, it lives only on the developer's machine.
