@@ -1,5 +1,5 @@
 {
-  "hash": "8ec5b92823dba728659ad5182ecaed53d902c572bf6ac2e919ec0a266aa1ab8d",
+  "hash": "9c8d826c861f8bf94fd81a02e8ecdaabd1cd7d36960f81fb240f1e407ca06cf9",
   "log": [
     {
       "option": 0,
@@ -13,7 +13,7 @@
     },
     {
       "option": 2,
-      "ticket": 2,
+      "ticket": 1,
       "type": "Resolve"
     },
     {
@@ -21,7 +21,7 @@
     },
     {
       "option": 0,
-      "ticket": 1,
+      "ticket": 5,
       "type": "Resolve"
     },
     {
@@ -31,7 +31,7 @@
     },
     {
       "option": 1,
-      "ticket": 7,
+      "ticket": 2,
       "type": "Resolve"
     },
     {
@@ -41,12 +41,12 @@
     },
     {
       "option": 1,
-      "ticket": 5,
+      "ticket": 10,
       "type": "Resolve"
     },
     {
-      "option": 1,
-      "ticket": 10,
+      "option": 2,
+      "ticket": 7,
       "type": "Resolve"
     },
     {
@@ -55,45 +55,47 @@
       "type": "Resolve"
     },
     {
-      "option": 1,
-      "ticket": 11,
-      "type": "Resolve"
-    },
-    {
-      "type": "Coffee"
-    },
-    {
-      "option": 0,
-      "ticket": 15,
-      "type": "Resolve"
-    },
-    {
       "option": 2,
       "ticket": 12,
       "type": "Resolve"
     },
     {
-      "option": 2,
-      "ticket": 16,
-      "type": "Resolve"
+      "send": false,
+      "type": "Rant"
     },
     {
       "option": 0,
+      "ticket": 11,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 14,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 15,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
       "ticket": 13,
       "type": "Resolve"
     },
     {
-      "send": true,
-      "type": "Rant"
-    },
-    {
-      "option": 1,
-      "ticket": 19,
+      "option": 2,
+      "ticket": 17,
       "type": "Resolve"
     },
     {
-      "option": 1,
+      "option": 3,
       "ticket": 18,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
+      "ticket": 16,
       "type": "Resolve"
     },
     {
@@ -103,35 +105,48 @@
     },
     {
       "option": 2,
-      "ticket": 14,
+      "ticket": 19,
       "type": "Resolve"
     },
     {
-      "option": 1,
+      "option": 3,
       "ticket": 22,
       "type": "Resolve"
     },
     {
-      "option": 1,
-      "ticket": 24,
+      "option": 2,
+      "ticket": 23,
       "type": "Resolve"
     },
     {
       "option": 2,
+      "ticket": 21,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 24,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
       "ticket": 25,
       "type": "Resolve"
+    },
+    {
+      "type": "Coffee"
     },
     {
       "type": "EndDay"
     },
     {
-      "option": 0,
+      "option": 1,
       "ticket": 26,
       "type": "Resolve"
     },
     {
-      "option": 0,
-      "ticket": 23,
+      "option": 1,
+      "ticket": 28,
       "type": "Resolve"
     },
     {
@@ -141,7 +156,22 @@
     },
     {
       "option": 2,
-      "ticket": 21,
+      "ticket": 29,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
+      "ticket": 31,
+      "type": "Resolve"
+    },
+    {
+      "option": 3,
+      "ticket": 33,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 37,
       "type": "Resolve"
     },
     {
@@ -150,36 +180,6 @@
     },
     {
       "option": 0,
-      "ticket": 28,
-      "type": "Resolve"
-    },
-    {
-      "option": 2,
-      "ticket": 31,
-      "type": "Resolve"
-    },
-    {
-      "option": 0,
-      "ticket": 30,
-      "type": "Resolve"
-    },
-    {
-      "option": 2,
-      "ticket": 34,
-      "type": "Resolve"
-    },
-    {
-      "option": 0,
-      "ticket": 17,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 29,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
       "ticket": 32,
       "type": "Resolve"
     },
@@ -189,8 +189,56 @@
       "type": "Resolve"
     },
     {
+      "option": 1,
+      "ticket": 40,
+      "type": "Resolve"
+    },
+    {
       "option": 0,
-      "ticket": 37,
+      "ticket": 34,
+      "type": "Resolve"
+    },
+    {
+      "option": 3,
+      "ticket": 41,
+      "type": "Resolve"
+    },
+    {
+      "type": "Coffee"
+    },
+    {
+      "option": 1,
+      "ticket": 30,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 43,
+      "type": "Resolve"
+    },
+    {
+      "option": 2,
+      "ticket": 36,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
+      "ticket": 44,
+      "type": "Resolve"
+    },
+    {
+      "option": 0,
+      "ticket": 45,
+      "type": "Resolve"
+    },
+    {
+      "option": 3,
+      "ticket": 39,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 46,
       "type": "Resolve"
     }
   ],

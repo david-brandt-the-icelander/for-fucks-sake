@@ -137,9 +137,11 @@ pub struct Scheme {
     /// Toast shown on a jackpot.
     #[serde(default)]
     pub jackpot_line: String,
-    /// First day the scheme can be run (default 1).
+    /// Rung on the ladder (1 = petty). Schemes are offered tier by tier.
+    pub tier: u8,
+    /// Incident spawned when the audit roll hits (default `sys_audit_scare`).
     #[serde(default)]
-    pub min_day: u32,
+    pub audit: Option<String>,
 }
 
 fn one_one() -> [i64; 2] {
@@ -454,7 +456,22 @@ impl Pack {
                 errs.push(format!("dirt: unknown employee {}", d.who));
             }
         }
+        let mut scheme_ids = BTreeSet::new();
         for sc in &self.schemes {
+            if !scheme_ids.insert(sc.id.as_str()) {
+                errs.push(format!("scheme {}: duplicate id", sc.id));
+            }
+            if sc.tier == 0 {
+                errs.push(format!("scheme {}: tier starts at 1", sc.id));
+            }
+            if sc.cash[0] < 1 || sc.cash[1] < sc.cash[0] {
+                errs.push(format!("scheme {}: bad cash range", sc.id));
+            }
+            if let Some(a) = &sc.audit {
+                if !inc_ids.contains(a.as_str()) {
+                    errs.push(format!("scheme {}: audit incident {a} not found", sc.id));
+                }
+            }
             if sc.jackpot_chance > 100 {
                 errs.push(format!("scheme {}: jackpot_chance must be 0-100", sc.id));
             }

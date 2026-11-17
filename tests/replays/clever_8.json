@@ -1,12 +1,12 @@
 {
-  "hash": "f55ccd92f1af45eee346cc70d875b260b4925cddf10b522c6cf8a6d247a35ec7",
+  "hash": "09746b353b37209cfbc15576e735882bb90daf425996ead660260a5b32bc6ad4",
   "log": [
     {
-      "id": "phantom_licences",
+      "id": "toner_futures",
       "type": "Scheme"
     },
     {
-      "id": "consulting",
+      "id": "cable_surplus",
       "type": "Scheme"
     },
     {
@@ -14,9 +14,33 @@
       "type": "Scheme"
     },
     {
+      "id": "overtime_daemon",
+      "type": "Scheme"
+    },
+    {
+      "id": "consulting",
+      "type": "Scheme"
+    },
+    {
+      "id": "training_budget",
+      "type": "Scheme"
+    },
+    {
       "option": 1,
-      "ticket": 1,
+      "ticket": 2,
       "type": "Resolve"
+    },
+    {
+      "id": "ghost_contractor",
+      "type": "Scheme"
+    },
+    {
+      "option": 1,
+      "ticket": 6,
+      "type": "Resolve"
+    },
+    {
+      "type": "CoverTracks"
     },
     {
       "option": 1,
@@ -28,18 +52,16 @@
       "type": "Scheme"
     },
     {
-      "option": 1,
-      "ticket": 2,
-      "type": "Resolve"
+      "type": "CoverTracks"
     },
     {
       "option": 0,
-      "ticket": 6,
+      "ticket": 7,
       "type": "Resolve"
     },
     {
-      "option": 1,
-      "ticket": 5,
+      "option": 2,
+      "ticket": 10,
       "type": "Resolve"
     },
     {
@@ -48,72 +70,65 @@
       "type": "Resolve"
     },
     {
-      "option": 1,
-      "ticket": 8,
-      "type": "Resolve"
+      "id": "warranty_loop",
+      "type": "Scheme"
     },
     {
       "option": 1,
-      "ticket": 7,
-      "type": "Resolve"
-    },
-    {
-      "type": "CoverTracks"
-    },
-    {
-      "option": 2,
       "ticket": 11,
       "type": "Resolve"
     },
     {
-      "id": "phantom_licences",
+      "type": "CoverTracks"
+    },
+    {
+      "option": 1,
+      "ticket": 5,
+      "type": "Resolve"
+    },
+    {
+      "id": "cloud_migration",
       "type": "Scheme"
-    },
-    {
-      "option": 1,
-      "ticket": 9,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 14,
-      "type": "Resolve"
     },
     {
       "type": "CoverTracks"
     },
     {
-      "id": "phantom_licences",
-      "type": "Scheme"
+      "type": "Coffee"
     },
     {
       "option": 1,
+      "ticket": 13,
+      "type": "Resolve"
+    },
+    {
+      "ticket": 15,
+      "type": "UseDirt"
+    },
+    {
+      "type": "Coffee"
+    },
+    {
+      "id": "security_theatre",
+      "type": "Scheme"
+    },
+    {
+      "option": 3,
       "ticket": 16,
       "type": "Resolve"
     },
     {
-      "type": "CoverTracks"
+      "option": 2,
+      "ticket": 12,
+      "type": "Resolve"
     },
     {
-      "id": "consulting",
-      "type": "Scheme"
+      "ticket": 8,
+      "type": "UseDirt"
     },
     {
-      "option": 1,
       "ticket": 18,
-      "type": "Resolve"
-    },
-    {
-      "id": "phantom_licences",
-      "type": "Scheme"
-    },
-    {
-      "option": 1,
-      "ticket": 19,
-      "type": "Resolve"
-    },
-    {
-      "type": "CoverTracks"
+      "type": "UseDirt"
     },
     {
       "option": 1,
@@ -121,31 +136,23 @@
       "type": "Resolve"
     },
     {
-      "send": false,
-      "type": "Rant"
-    },
-    {
-      "send": false,
-      "type": "Rant"
-    },
-    {
-      "type": "Coffee"
-    },
-    {
-      "id": "phantom_licences",
+      "id": "vendor_kickback",
       "type": "Scheme"
     },
     {
       "type": "CoverTracks"
     },
     {
-      "option": 2,
-      "ticket": 20,
+      "type": "Coffee"
+    },
+    {
+      "option": 1,
+      "ticket": 14,
       "type": "Resolve"
     },
     {
       "option": 1,
-      "ticket": 21,
+      "ticket": 19,
       "type": "Resolve"
     },
     {
@@ -160,29 +167,19 @@
       "type": "Coffee"
     },
     {
-      "id": "phantom_licences",
-      "type": "Scheme"
-    },
-    {
-      "option": 2,
-      "ticket": 23,
+      "option": 1,
+      "ticket": 22,
       "type": "Resolve"
     },
     {
-      "ticket": 13,
-      "type": "UseDirt"
+      "type": "CoverTracks"
     },
     {
-      "option": 2,
+      "option": 1,
       "ticket": 24,
       "type": "Resolve"
     },
     {
-      "option": 1,
-      "ticket": 12,
-      "type": "Resolve"
-    },
-    {
       "send": false,
       "type": "Rant"
     },
@@ -194,7 +191,7 @@
       "type": "Coffee"
     },
     {
-      "id": "phantom_licences",
+      "id": "licence_audit_racket",
       "type": "Scheme"
     },
     {

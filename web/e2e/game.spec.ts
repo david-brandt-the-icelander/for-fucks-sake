@@ -3,7 +3,7 @@ import { expect, test, type Page } from "@playwright/test";
 // Keyboard-only: the only "interaction" besides keys is page.goto.
 declare global {
   interface Window {
-    __ffs: { text(): string; view(): { header: { np: number; fucks: number; day: number; susp: number }; today: { cover_gain: number }; tickets: unknown[]; ended: unknown; hash: string } | null; keymap(): Record<string, string> };
+    __ffs: { text(): string; view(): { header: { np: number; fucks: number; day: number; susp: number }; today: { cover_gain: number }; schemes: { id: string; name: string; tier: number }[]; schemes_left: number; tickets: unknown[]; ended: unknown; hash: string } | null; keymap(): Record<string, string> };
   }
 }
 
@@ -155,12 +155,27 @@ test("T covers your tracks: a scheme's suspicion comes back down", async ({ page
   expect(await text(page)).toContain("Suspicion -");
 });
 
-test("the scheme list numbers every scheme", async ({ page }) => {
+test("each scheme works once; the next rung up the ladder takes its slot", async ({ page }) => {
   await start(page);
+  const before = (await view(page))?.schemes ?? [];
+  const left = (await view(page))?.schemes_left ?? 0;
+  expect(before.length).toBe(3);
   await page.keyboard.press("s");
-  const t = await text(page);
-  expect(t).toContain("Decommission sale");
-  expect(t).toContain("[1-4] or [Enter] run it");
+  let t = await text(page);
+  expect(t).toContain("[1-3] or [Enter] run it");
+  expect(t).toContain(`${left} more in the pipeline`);
+  for (const sc of before) expect(t).toContain(sc.name);
+  await page.keyboard.press("2");
+  const after = (await view(page))?.schemes ?? [];
+  expect(after.map((s) => s.id)).not.toContain(before[1]?.id);
+  expect(after[0]?.id).toBe(before[0]?.id);
+  expect(after[2]?.id).toBe(before[2]?.id);
+  expect(after[1]?.tier ?? 0).toBeGreaterThanOrEqual(before[1]?.tier ?? 0);
+  await page.keyboard.press("s");
+  t = await text(page);
+  expect(t).not.toContain(before[1]?.name ?? "");
+  expect(t).toContain(after[1]?.name ?? "?");
+  expect(t).toContain(`${left - 1} more in the pipeline`);
 });
 
 test("F10 then Y ends the run; Enter starts a new one", async ({ page }) => {

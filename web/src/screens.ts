@@ -267,16 +267,19 @@ export function drawOverlay(g: Grid, v: View, ui: UI, km: Keymap): void {
       break;
     }
     case "scheme": {
-      const { x, y } = center(g, 100, 4 + v.schemes.length * 3 + 3, "SCHEMES: GET RICH AT THE COMPANY'S EXPENSE");
+      const n = Math.max(1, v.schemes.length);
+      const { x, y } = center(g, 100, 4 + n * 3 + 4, "SCHEMES: GET RICH AT THE COMPANY'S EXPENSE");
       v.schemes.forEach((s, i) => {
         const sel = i === ui.cursor;
         const yy = y + 2 + i * 3;
         if (sel) g.fill(x + 2, yy, 96, "s");
-        g.put(x + 3, yy, `[${i + 1}] ${s.name}${s.available ? "" : v.header.day < s.min_day ? `  (from day ${s.min_day})` : "  (done today)"}`, sel ? "s" : s.available ? "n" : "d");
+        g.put(x + 3, yy, `[${i + 1}] ${s.name}  ${"$".repeat(s.tier)}`, sel ? "s" : "n");
         g.put(x + 7, yy + 1, s.desc, sel ? "s" : "d");
         drawChips(g, x + 97, yy, s.hint, sel);
       });
-      g.put(x + 3, y + 3 + v.schemes.length * 3, `[1-${v.schemes.length}] or [Enter] run it   [Esc] back`, "d");
+      if (!v.schemes.length) g.put(x + 3, y + 2, "You have bled the company dry. There is nothing left to skim.", "d");
+      else g.put(x + 3, y + 3 + n * 3, `[1-${v.schemes.length}] or [Enter] run it   [Esc] back`, "d");
+      g.put(x + 3, y + 4 + n * 3, `Each scheme works once; a bigger, riskier one takes its place. ${v.schemes_left} more in the pipeline.`, "d");
       break;
     }
     case "boast": {

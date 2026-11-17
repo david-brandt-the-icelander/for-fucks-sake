@@ -106,12 +106,7 @@ fn show(e: &Engine) {
         v.schemes
             .iter()
             .enumerate()
-            .map(|(i, s)| format!(
-                "s{} {}{}",
-                i + 1,
-                s.name,
-                if s.available { "" } else { " (done)" }
-            ))
+            .map(|(i, s)| format!("s{} {} (tier {})", i + 1, s.name, s.tier))
             .collect::<Vec<_>>()
             .join(" | ")
     );

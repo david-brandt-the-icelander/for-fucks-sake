@@ -33,7 +33,7 @@ pub mod consts {
     pub const COVER_SUSP: [i32; 3] = [6, 3, 1];
     /// Fucks it costs (shredding paperwork is tedious).
     pub const COVER_FUCKS: i32 = 4;
-    /// Scheme cash grows by this many percent per day after the first.
-    pub const SCHEME_GROWTH_PCT: i64 = 8;
+    /// How many schemes are on offer at once.
+    pub const SCHEME_SLOTS: usize = 3;
     pub const START_CASH: i32 = 1_200;
 }

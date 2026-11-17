@@ -59,9 +59,8 @@ pub struct SchemeView {
     pub desc: String,
     pub minutes: u32,
     pub hint: Vec<Chip>,
-    pub available: bool,
-    /// First day it can be run (0 or 1 = from the start).
-    pub min_day: u32,
+    /// Rung on the ladder (1 = petty).
+    pub tier: u8,
 }
 
 #[derive(Debug, Clone, Serialize, TS)]
@@ -144,7 +143,10 @@ pub struct Today {
 pub struct View {
     pub header: Header,
     pub tickets: Vec<TicketView>,
+    /// Schemes on offer right now; each can be run once, then the next rung replaces it.
     pub schemes: Vec<SchemeView>,
+    /// Schemes still waiting further up the ladder.
+    pub schemes_left: u32,
     pub stories: Vec<StoryView>,
     pub board: Vec<RankRow>,
     pub chat: Vec<ChatLine>,
@@ -370,9 +372,11 @@ impl Engine {
                 })
             })
             .collect();
-        let schemes = pack
-            .schemes
+        let schemes = self
+            .s
+            .scheme_offers
             .iter()
+            .filter_map(|id| pack.schemes.iter().find(|s| &s.id == id))
             .map(|s| SchemeView {
                 id: s.id.clone(),
                 name: s.name.clone(),
@@ -393,8 +397,7 @@ impl Engine {
                     h.push(chip(format!("{}% audit", s.audit_chance), "bad"));
                     h
                 },
-                available: !self.s.schemes_today.contains(&s.id) && self.s.day >= s.min_day,
-                min_day: s.min_day,
+                tier: s.tier,
             })
             .collect();
         let stories = self
@@ -425,6 +428,7 @@ impl Engine {
             header,
             tickets,
             schemes,
+            schemes_left: self.s.scheme_ladder.len() as u32,
             stories,
             board: self.board(),
             chat: self.s.chat.clone(),

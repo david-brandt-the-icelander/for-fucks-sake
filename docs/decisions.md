@@ -104,3 +104,18 @@ themselves. Before: the clever bot never retired (max $20.7k against the $25k go
 - **Balance targets changed:** clever bot retires 25-65% of runs (measured: about 45%, median 9 days); the
   ">= 70% meltdowns" target is replaced. Lazy <= 6 days and random never retiring are unchanged. Without the
   cover action the clever bot retires 0.2% of the time, so cooling off is what makes retirement reachable.
+
+## Schemes are a one-use ladder (2026-11-17)
+
+David: more schemes; each available once, replaced by a new one when taken; escalating gain and risk.
+
+- 21 schemes in 7 tiers (`tier` in `schemes.toml`), from petty (tier 1: $200-700, +2-3 susp, 5% audit, 60 min)
+  to legendary (tier 7: $6,000-11,000, +25-27 susp, 35% audit, 240 min). Tier 5 and up summon the external
+  auditor (`audit = "sys_auditor_visit"`) instead of the CFO's audit scare.
+- Each run shuffles the schemes within each tier (engine RNG, so replays hold) and stacks the tiers in order.
+  Three are on offer (`SCHEME_SLOTS`); the taken one is replaced in its slot by the next on the ladder.
+  Each scheme runs once per run. This replaces "each scheme once per day", `min_day` and the 8%/day cash
+  growth: the ladder is now what makes schemes grow.
+- Errors: `SchemeUsedToday` and `SchemeLocked` are replaced by `SchemeNotOffered`.
+- Balance after retuning susp per tier: clever bot retires about 42% (median 8-9 days); lazy and random
+  unchanged (random never retires).

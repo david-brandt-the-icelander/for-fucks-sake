@@ -114,13 +114,15 @@ pub fn next_command(engine: &Engine, strat: Strategy, rng: &mut Xs) -> Command {
                 return Command::CoverTracks;
             }
             if st.susp < 25 {
-                for sc in &pack.schemes {
-                    if !st.schemes_today.contains(&sc.id)
-                        && engine.scheme_unlocked(&sc.id)
-                        && st.minute < DAY_MINUTES - 60
-                    {
-                        return Command::Scheme { id: sc.id.clone() };
-                    }
+                // the cheapest-risk offer first
+                let best = st
+                    .scheme_offers
+                    .iter()
+                    .filter_map(|id| pack.schemes.iter().find(|s| &s.id == id))
+                    .filter(|s| st.minute + s.minutes <= DAY_MINUTES)
+                    .min_by_key(|s| (s.susp, s.id.clone()));
+                if let Some(sc) = best {
+                    return Command::Scheme { id: sc.id.clone() };
                 }
             }
             if st.susp > 55 {

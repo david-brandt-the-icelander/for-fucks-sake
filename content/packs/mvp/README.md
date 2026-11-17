@@ -72,10 +72,16 @@ Each effect table sets ONE thing (or is a `chance`/`then` pair). Option rules:
   Spawn targets must exist. A system incident's options must not `spawn` themselves.
 
 ## `schemes.toml` (written by the engine author)
-Fields per scheme: `id`, `name`, `desc`, `minutes`, `cash = [lo, hi]` (grows 8%/day), `susp`,
-`audit_chance`, `story`, `story_value`, and optionally `min_day` (first day it can run),
-`jackpot_chance` (percent), `jackpot_mult = [lo, hi]` (cash multiplier, >= 2), `jackpot_susp`
-(extra suspicion on a jackpot) and `jackpot_line` (the toast). A jackpot's story is always worth 3.
+A ladder, not a menu. Each run shuffles the schemes within each `tier`, then stacks the tiers 1, 2, 3...
+Three are on offer at a time (the opening ones are tier 1). Each scheme can be run once per run; the one
+taken is replaced, in the same slot, by the next scheme up the ladder. When the ladder is empty the slots
+stay empty. Keep each tier bigger and riskier than the one below it: more cash, susp, audit_chance and minutes.
+
+Fields per scheme: `id`, `tier` (1 = petty), `name`, `desc` (<= 88 chars), `minutes`, `cash = [lo, hi]`,
+`susp`, `audit_chance`, `story`, `story_value`, and optionally `audit` (the incident an audit spawns,
+default `sys_audit_scare`; tier 5 and up use `sys_auditor_visit`), `jackpot_chance` (percent),
+`jackpot_mult = [lo, hi]` (cash multiplier, >= 2), `jackpot_susp` (extra suspicion on a jackpot) and
+`jackpot_line` (the toast). A jackpot's story is always worth 3.
 
 ## `quips.toml`
 `cover` holds the openers for "cover your tracks" toasts (at least 6); the engine appends the numbers.

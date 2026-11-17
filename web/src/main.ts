@@ -312,7 +312,7 @@ function pickOverlay(): boolean {
   if (!view) return true;
   if (ui.overlay === "scheme") {
     const s = view.schemes[ui.cursor];
-    if (s && s.available) {
+    if (s) {
       ui.overlay = null;
       send({ type: "Scheme", id: s.id });
     }

@@ -136,7 +136,12 @@ pub struct State {
     pub chat: Vec<ChatLine>,
     pub np_log: Vec<NpEntry>,
     pub fucks_history: Vec<i32>,
-    pub schemes_today: BTreeSet<String>,
+    /// Scheme ids on offer right now (one per slot).
+    pub scheme_offers: Vec<String>,
+    /// The rest of this run's scheme ladder, next one first.
+    pub scheme_ladder: Vec<String>,
+    /// Schemes run so far this run.
+    pub schemes_run: u32,
     pub rants_today: u32,
     pub coffees_today: u32,
     pub covers_today: u32,

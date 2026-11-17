@@ -1,12 +1,12 @@
 {
-  "hash": "692358466517d74f4fd123a94e631cb3204ba99aff64b463891b430c36dc5258",
+  "hash": "b931e6e71c7cf20faed9470fda88fb62afd9d3a2b729ca7f645c143a2530a92d",
   "log": [
     {
-      "id": "phantom_licences",
+      "id": "toner_futures",
       "type": "Scheme"
     },
     {
-      "id": "consulting",
+      "id": "cable_surplus",
       "type": "Scheme"
     },
     {
@@ -14,17 +14,7 @@
       "type": "Scheme"
     },
     {
-      "option": 1,
-      "ticket": 4,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 5,
-      "type": "Resolve"
-    },
-    {
-      "id": "phantom_licences",
+      "id": "overtime_daemon",
       "type": "Scheme"
     },
     {
@@ -32,46 +22,40 @@
       "type": "Scheme"
     },
     {
-      "option": 1,
-      "ticket": 2,
-      "type": "Resolve"
+      "id": "training_budget",
+      "type": "Scheme"
     },
     {
       "option": 1,
-      "ticket": 3,
+      "ticket": 6,
       "type": "Resolve"
+    },
+    {
+      "id": "ghost_contractor",
+      "type": "Scheme"
+    },
+    {
+      "id": "phantom_licences",
+      "type": "Scheme"
     },
     {
       "type": "CoverTracks"
     },
     {
-      "id": "phantom_licences",
+      "option": 2,
+      "ticket": 7,
+      "type": "Resolve"
+    },
+    {
+      "id": "warranty_loop",
       "type": "Scheme"
+    },
+    {
+      "type": "CoverTracks"
     },
     {
       "option": 1,
       "ticket": 8,
-      "type": "Resolve"
-    },
-    {
-      "type": "CoverTracks"
-    },
-    {
-      "id": "consulting",
-      "type": "Scheme"
-    },
-    {
-      "option": 1,
-      "ticket": 10,
-      "type": "Resolve"
-    },
-    {
-      "id": "phantom_licences",
-      "type": "Scheme"
-    },
-    {
-      "option": 2,
-      "ticket": 9,
       "type": "Resolve"
     },
     {
@@ -80,92 +64,29 @@
       "type": "Resolve"
     },
     {
-      "type": "CoverTracks"
-    },
-    {
-      "option": 1,
-      "ticket": 11,
-      "type": "Resolve"
-    },
-    {
-      "id": "phantom_licences",
+      "id": "cloud_migration",
       "type": "Scheme"
     },
     {
       "type": "CoverTracks"
     },
     {
-      "ticket": 14,
-      "type": "UseDirt"
-    },
-    {
-      "option": 3,
-      "ticket": 13,
-      "type": "Resolve"
-    },
-    {
-      "option": 3,
-      "ticket": 15,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 16,
-      "type": "Resolve"
-    },
-    {
-      "id": "phantom_licences",
+      "id": "security_theatre",
       "type": "Scheme"
     },
     {
-      "type": "CoverTracks"
-    },
-    {
       "option": 1,
-      "ticket": 17,
+      "ticket": 2,
       "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 18,
-      "type": "Resolve"
-    },
-    {
-      "send": false,
-      "type": "Rant"
     },
     {
       "type": "Coffee"
     },
     {
-      "id": "phantom_licences",
-      "type": "Scheme"
-    },
-    {
       "type": "CoverTracks"
     },
     {
-      "ticket": 21,
-      "type": "UseDirt"
-    },
-    {
-      "option": 1,
-      "ticket": 20,
-      "type": "Resolve"
-    },
-    {
-      "send": false,
-      "type": "Rant"
-    },
-    {
-      "send": false,
-      "type": "Rant"
-    },
-    {
-      "type": "Coffee"
-    },
-    {
-      "id": "phantom_licences",
+      "id": "vendor_kickback",
       "type": "Scheme"
     },
     {
