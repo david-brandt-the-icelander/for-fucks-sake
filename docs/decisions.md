@@ -119,3 +119,11 @@ David: more schemes; each available once, replaced by a new one when taken; esca
 - Errors: `SchemeUsedToday` and `SchemeLocked` are replaced by `SchemeNotOffered`.
 - Balance after retuning susp per tier: clever bot retires about 42% (median 8-9 days); lazy and random
   unchanged (random never retires).
+
+## Web host: GitHub Pages (2026-11-17)
+
+David asked for a publishing step and a host. GitHub Pages: the repository is public, it costs nothing, and it needs
+no account, API token or secret (the workflow deploys with its own short-lived token). A `v*` tag push runs
+`.github/workflows/release.yml`, which re-runs `cargo test` and the web unit tests before publishing, and stamps the
+tag into the title bar (`FFS_VERSION`, "dev" for local builds). Manual runs can republish or roll back to any tag.
+A custom domain can be added later without changing the workflow.

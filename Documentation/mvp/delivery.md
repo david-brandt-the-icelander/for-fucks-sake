@@ -31,7 +31,14 @@ Skipped: Firefox/WebKit matrix, nightly balance runs, model checks.
 
 ## Deploy
 
-Static site (GitHub Pages or similar). Tag `v0.x` -> CI builds and publishes. Rollback = redeploy the previous tag.
+Static site on **GitHub Pages**: <https://david-brandt-the-icelander.github.io/for-fucks-sake/>.
+`.github/workflows/release.yml` runs on every `v*` tag push: `cargo test` (replays included), WASM build, web tests,
+`vite build` with `FFS_VERSION` set to the tag (shown in the title bar), then publish. Local builds say `dev`.
+
+- **Release:** tag `main` and push the tag (`git tag -a v0.3.0 -m ... && git push origin v0.3.0`).
+- **Republish / roll back:** Actions > release > Run workflow. Leave the tag blank for the newest `v*` tag,
+  or name an older tag to put that version back up. Minutes either way.
+- **One-time setup:** repository Settings > Pages > Source: "GitHub Actions".
 Saves are keyed by content hash so a content change starts a fresh save rather than corrupting an old one.
 
-No secrets, no server, no database, no on-call. If content generation needs an API key, it lives only on the developer's machine.
+No secrets (Pages publishes with the workflow's own short-lived token), no server, no database, no on-call. If content generation needs an API key, it lives only on the developer's machine.
