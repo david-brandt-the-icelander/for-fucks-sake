@@ -109,9 +109,16 @@ pub fn next_command(engine: &Engine, strat: Strategy, rng: &mut Xs) -> Command {
                     return Command::Boast { story: sc.id };
                 }
             }
-            if st.susp < 20 {
+            // cool off before scheming again, while the first cover of the day is worth it
+            if st.susp >= 30 && st.covers_today == 0 && st.fucks > 30 {
+                return Command::CoverTracks;
+            }
+            if st.susp < 25 {
                 for sc in &pack.schemes {
-                    if !st.schemes_today.contains(&sc.id) && st.minute < DAY_MINUTES - 60 {
+                    if !st.schemes_today.contains(&sc.id)
+                        && engine.scheme_unlocked(&sc.id)
+                        && st.minute < DAY_MINUTES - 60
+                    {
                         return Command::Scheme { id: sc.id.clone() };
                     }
                 }

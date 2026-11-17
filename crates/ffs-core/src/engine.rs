@@ -23,6 +23,8 @@ pub enum CommandError {
     NoSuchScheme,
     #[error("you already ran that scheme today")]
     SchemeUsedToday,
+    #[error("that scheme is not available yet")]
+    SchemeLocked,
     #[error("no such story")]
     NoSuchStory,
 }
@@ -70,6 +72,7 @@ impl Engine {
             schemes_today: BTreeSet::new(),
             rants_today: 0,
             coffees_today: 0,
+            covers_today: 0,
             boasts_today: 0,
             resolved: 0,
             toast: String::new(),
@@ -212,6 +215,7 @@ impl Engine {
             Command::UseDirt { ticket } => self.do_use_dirt(ticket),
             Command::Rant { send } => self.do_rant(send),
             Command::Coffee => self.do_coffee(),
+            Command::CoverTracks => self.do_cover(),
             Command::Scheme { id } => self.do_scheme(&id),
             Command::Boast { story } => self.do_boast(story),
             Command::HelpOpened => self.do_help(),
@@ -262,6 +266,9 @@ impl Engine {
                 }
                 if self.s.schemes_today.contains(id) {
                     return Err(CommandError::SchemeUsedToday);
+                }
+                if !self.scheme_unlocked(id) {
+                    return Err(CommandError::SchemeLocked);
                 }
             }
             Command::Boast { story } if !self.s.stories.iter().any(|s| s.id == *story) => {
@@ -450,6 +457,39 @@ impl Engine {
         self.after_action(COFFEE_MINUTES);
     }
 
+    /// Whether a scheme's `min_day` has been reached.
+    pub fn scheme_unlocked(&self, id: &str) -> bool {
+        self.pack
+            .schemes
+            .iter()
+            .find(|s| s.id == id)
+            .is_some_and(|s| self.s.day >= s.min_day)
+    }
+
+    /// Suspicion the next "cover your tracks" today would remove.
+    pub fn cover_gain(&self) -> i32 {
+        COVER_SUSP[(self.s.covers_today as usize).min(COVER_SUSP.len() - 1)]
+    }
+
+    fn do_cover(&mut self) {
+        let pack = self.pack.clone();
+        let want = self.cover_gain();
+        let before = self.s.susp;
+        self.s.covers_today += 1;
+        self.add_susp(-want);
+        self.add_fucks(-COVER_FUCKS);
+        let got = before - self.s.susp;
+        let lines = &pack.quips.cover;
+        let line = lines
+            .get(self.pick("cover_line", lines.len()))
+            .cloned()
+            .unwrap_or_else(|| "You tidy the logs.".to_string());
+        self.toast(format!(
+            "{line} Suspicion -{got}. -{COVER_FUCKS} fucks (it was tedious)."
+        ));
+        self.after_action(COVER_MINUTES);
+    }
+
     fn do_scheme(&mut self, id: &str) {
         let pack = self.pack.clone();
         let Some(sc) = pack.schemes.iter().find(|s| s.id == id) else {
@@ -457,11 +497,26 @@ impl Engine {
         };
         self.s.schemes_today.insert(sc.id.clone());
         let base = self.range("scheme_cash", sc.cash[0], sc.cash[1]);
-        let scaled = base * (100 + 8 * (self.s.day as i64 - 1)) / 100;
+        let mut scaled = base * (100 + SCHEME_GROWTH_PCT * (self.s.day as i64 - 1)) / 100;
+        let jackpot = sc.jackpot_chance > 0 && self.pct("jackpot", sc.jackpot_chance);
+        let mut susp = sc.susp;
+        if jackpot {
+            let m = self.range("jackpot_mult", sc.jackpot_mult[0], sc.jackpot_mult[1]);
+            scaled *= m;
+            susp += sc.jackpot_susp;
+        }
         self.s.cash = (self.s.cash as i64 + scaled).clamp(0, i32::MAX as i64) as i32;
-        self.add_susp(sc.susp);
-        self.add_story(sc.story.clone(), sc.story_value, true);
-        self.toast(format!("{}: +${scaled}. Suspicion +{}.", sc.name, sc.susp));
+        self.add_susp(susp);
+        let value = if jackpot { 3 } else { sc.story_value };
+        self.add_story(sc.story.clone(), value, true);
+        if jackpot {
+            self.toast(format!(
+                "JACKPOT! {} +${scaled}. Suspicion +{susp}.",
+                sc.jackpot_line
+            ));
+        } else {
+            self.toast(format!("{}: +${scaled}. Suspicion +{susp}.", sc.name));
+        }
         if self.pct("audit", sc.audit_chance) {
             self.spawn_incident("sys_audit_scare");
         }
@@ -592,10 +647,13 @@ impl Engine {
             .unwrap_or_default();
         let day = self.s.day;
         self.ev.push(Event::DayEnded { day, quip });
+        let cooled = self.s.susp.min(SUSP_DECAY_PER_DAY);
         if penalty > 0 {
             self.toast(format!(
-                "{waiting} tickets left waiting overnight: -{penalty} fucks."
+                "{waiting} tickets left waiting overnight: -{penalty} fucks. Suspicion cooled -{cooled}."
             ));
+        } else if cooled > 0 {
+            self.toast(format!("Overnight, Suspicion cooled -{cooled}."));
         }
         if self.s.fucks <= 0 {
             self.s.last_cause = "death by a thousand unanswered tickets.".to_string();
@@ -619,6 +677,7 @@ impl Engine {
         self.s.schemes_today.clear();
         self.s.rants_today = 0;
         self.s.coffees_today = 0;
+        self.s.covers_today = 0;
         self.s.boasts_today = 0;
         if self.s.day > 1 {
             let d = self.s.day as i32;

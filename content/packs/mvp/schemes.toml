@@ -1,14 +1,21 @@
 # Schemes: each can be run once per day. cash is a range (inclusive); it grows with the day.
+# A scheme may hit a jackpot: jackpot_chance percent of runs multiply the cash by a roll in
+# jackpot_mult (inclusive) and add jackpot_susp on top of susp. Big money gets noticed.
+# min_day: the first day a scheme can be run.
 [[scheme]]
 id = "phantom_licences"
 name = "Phantom software licences"
 desc = "Invoice the company for licences of software that doesn't exist."
 minutes = 120
 cash = [900, 2400]
-susp = 7
+susp = 9
 audit_chance = 18
 story = "invoiced the company for 400 licences of software that doesn't exist"
 story_value = 3
+jackpot_chance = 8
+jackpot_mult = [3, 5]
+jackpot_susp = 6
+jackpot_line = "Finance renewed the phantom licences for three years, upfront."
 
 [[scheme]]
 id = "consulting"
@@ -16,10 +23,14 @@ name = "Consulting on the side"
 desc = "Bill the company, via your own consultancy, for advising yourself."
 minutes = 90
 cash = [500, 1400]
-susp = 4
+susp = 6
 audit_chance = 10
 story = "billed the company, via my own consultancy, for advising myself"
 story_value = 2
+jackpot_chance = 7
+jackpot_mult = [3, 6]
+jackpot_susp = 4
+jackpot_line = "The board loved your consultancy's report and ordered the 'premium tier'."
 
 [[scheme]]
 id = "creative_expenses"
@@ -27,7 +38,27 @@ name = "Creative expenses"
 desc = "Reclassify the pub as 'team infrastructure review'."
 minutes = 60
 cash = [250, 800]
-susp = 2
+susp = 3
 audit_chance = 6
 story = "expensed a pub crawl as a 'distributed systems offsite'"
 story_value = 1
+jackpot_chance = 6
+jackpot_mult = [4, 8]
+jackpot_susp = 3
+jackpot_line = "Accounts approved the 'offsite' as an annual programme, backdated."
+
+[[scheme]]
+id = "server_sale"
+name = "Decommission sale"
+desc = "Sell the 'decommissioned' servers. Some of them were still running."
+minutes = 180
+min_day = 4
+cash = [2500, 6000]
+susp = 18
+audit_chance = 35
+story = "sold the 'decommissioned' servers while three of them were still serving payroll"
+story_value = 3
+jackpot_chance = 10
+jackpot_mult = [2, 4]
+jackpot_susp = 8
+jackpot_line = "A collector paid triple for the 'vintage' rack. It was from last year."

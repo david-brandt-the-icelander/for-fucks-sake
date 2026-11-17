@@ -86,4 +86,21 @@ MVP implementation decisions (all easy to change):
 - **TS types** are generated from Rust by `ts-rs` into `web/src/gen/` (`cargo test` regenerates; CI checks they are committed).
 - **E2E tests** live in `web/e2e/` (not top-level `e2e/`) so they resolve the web package's Playwright.
 - **Balance targets (MVP, asserted by `ffs bot --assert`):** lazy bot median <= 6 days, clever bot median 8-16 days and
-  >= 70% meltdowns, random bot essentially never retires. Humans land between the lazy and clever bots.
+  >= 70% meltdowns (replaced 2026-11-17 by "retires 25-65%", see below), random bot essentially never retires. Humans land between the lazy and clever bots.
+
+## Bigger schemes, cooling off, chattier rivals (2026-11-17)
+
+David: retirement was out of reach, Suspicion only ever went up in practice, and the rivals repeated
+themselves. Before: the clever bot never retired (max $20.7k against the $25k goal) and died around day 14.
+
+- **Jackpots:** each scheme has a small `jackpot_chance` (6-10%) that multiplies its cash (x2 to x8 depending
+  on the scheme) and adds a little extra Suspicion. Shown as a chip ("8% x3-5") so the hints stay honest.
+- **Decommission sale:** a fourth, big scheme from day 4: $2,500-6,000, +18 Suspicion, 35% audit, 180 minutes.
+- **Cover your tracks** (`Command::CoverTracks`, key T, CLI `t`): 120 minutes and -4 fucks for -6 Suspicion,
+  then -3, then -1 the same day (resets daily). Toast openers live in `quips.toml` (`cover`). The overnight
+  cool-down (-8/day, unchanged) is now shown in the day-end toast.
+- **Rivals:** each has 25 idle lines, 20 boasts, 10 of each reaction and 8 help-mocks; the validator enforces
+  20/16/8/6 minimums.
+- **Balance targets changed:** clever bot retires 25-65% of runs (measured: about 45%, median 9 days); the
+  ">= 70% meltdowns" target is replaced. Lazy <= 6 days and random never retiring are unchanged. Without the
+  cover action the clever bot retires 0.2% of the time, so cooling off is what makes retirement reachable.

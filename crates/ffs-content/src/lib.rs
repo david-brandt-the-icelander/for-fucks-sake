@@ -125,6 +125,25 @@ pub struct Scheme {
     pub audit_chance: u32,
     pub story: String,
     pub story_value: u8,
+    /// Percent chance that a run of this scheme hits big.
+    #[serde(default)]
+    pub jackpot_chance: u32,
+    /// Cash multiplier range (inclusive) on a jackpot.
+    #[serde(default = "one_one")]
+    pub jackpot_mult: [i64; 2],
+    /// Extra suspicion on a jackpot (big money gets noticed).
+    #[serde(default)]
+    pub jackpot_susp: i32,
+    /// Toast shown on a jackpot.
+    #[serde(default)]
+    pub jackpot_line: String,
+    /// First day the scheme can be run (default 1).
+    #[serde(default)]
+    pub min_day: u32,
+}
+
+fn one_one() -> [i64; 2] {
+    [1, 1]
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -176,6 +195,9 @@ pub struct Title {
 pub struct Quips {
     #[serde(default)]
     pub day_end: Vec<String>,
+    /// Toast openers for "cover your tracks".
+    #[serde(default)]
+    pub cover: Vec<String>,
     #[serde(default)]
     pub mood_serene: Vec<String>,
     #[serde(default)]
@@ -432,9 +454,34 @@ impl Pack {
                 errs.push(format!("dirt: unknown employee {}", d.who));
             }
         }
+        for sc in &self.schemes {
+            if sc.jackpot_chance > 100 {
+                errs.push(format!("scheme {}: jackpot_chance must be 0-100", sc.id));
+            }
+            if sc.jackpot_chance > 0
+                && (sc.jackpot_mult[0] < 2
+                    || sc.jackpot_mult[1] < sc.jackpot_mult[0]
+                    || sc.jackpot_line.is_empty())
+            {
+                errs.push(format!(
+                    "scheme {}: a jackpot needs jackpot_mult >= 2 and a jackpot_line",
+                    sc.id
+                ));
+            }
+        }
         for r in &self.rivals {
-            if r.boast.len() < 4 || r.idle.len() < 3 {
-                errs.push(format!("rival {}: too few lines", r.id));
+            // enough canned lines that a ten-minute run rarely repeats one
+            if r.idle.len() < 20
+                || r.boast.len() < 16
+                || r.react_high.len() < 8
+                || r.react_even.len() < 8
+                || r.react_low.len() < 8
+                || r.mock_help.len() < 6
+            {
+                errs.push(format!(
+                    "rival {}: too few lines (need idle 20, boast 16, each react 8, mock_help 6)",
+                    r.id
+                ));
             }
             if !(1..=3).contains(&r.ego) {
                 errs.push(format!("rival {}: ego must be 1-3", r.id));
@@ -444,6 +491,9 @@ impl Pack {
             if !self.endings.iter().any(|e| e.kind == k) {
                 errs.push(format!("no ending of kind {k}"));
             }
+        }
+        if self.quips.cover.len() < 6 {
+            errs.push("quips: need at least 6 cover lines".into());
         }
         if self.quips.titles.is_empty() {
             errs.push("quips: titles missing".into());

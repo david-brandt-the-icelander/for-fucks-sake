@@ -60,6 +60,8 @@ pub struct SchemeView {
     pub minutes: u32,
     pub hint: Vec<Chip>,
     pub available: bool,
+    /// First day it can be run (0 or 1 = from the start).
+    pub min_day: u32,
 }
 
 #[derive(Debug, Clone, Serialize, TS)]
@@ -129,7 +131,12 @@ pub struct Header {
 pub struct Today {
     pub rants: u32,
     pub coffees: u32,
+    pub covers: u32,
     pub boasts: u32,
+    /// Suspicion the next "cover your tracks" today would remove.
+    pub cover_gain: i32,
+    /// Fucks a "cover your tracks" costs.
+    pub cover_fucks: i32,
 }
 
 #[derive(Debug, Clone, Serialize, TS)]
@@ -371,12 +378,23 @@ impl Engine {
                 name: s.name.clone(),
                 desc: s.desc.clone(),
                 minutes: s.minutes,
-                hint: vec![
-                    chip(format!("+${}-{}", s.cash[0], s.cash[1]), "good"),
-                    chip(format!("+{} susp", s.susp), "bad"),
-                    chip(format!("{}% audit", s.audit_chance), "bad"),
-                ],
-                available: !self.s.schemes_today.contains(&s.id),
+                hint: {
+                    let mut h = vec![chip(format!("+${}-{}", s.cash[0], s.cash[1]), "good")];
+                    if s.jackpot_chance > 0 {
+                        h.push(chip(
+                            format!(
+                                "{}% x{}-{}",
+                                s.jackpot_chance, s.jackpot_mult[0], s.jackpot_mult[1]
+                            ),
+                            "good",
+                        ));
+                    }
+                    h.push(chip(format!("+{} susp", s.susp), "bad"));
+                    h.push(chip(format!("{}% audit", s.audit_chance), "bad"));
+                    h
+                },
+                available: !self.s.schemes_today.contains(&s.id) && self.s.day >= s.min_day,
+                min_day: s.min_day,
             })
             .collect();
         let stories = self
@@ -415,7 +433,10 @@ impl Engine {
             today: Today {
                 rants: self.s.rants_today,
                 coffees: self.s.coffees_today,
+                covers: self.s.covers_today,
                 boasts: self.s.boasts_today,
+                cover_gain: self.cover_gain(),
+                cover_fucks: crate::consts::COVER_FUCKS,
             },
             ended,
             logo: pack.art.logo.clone(),

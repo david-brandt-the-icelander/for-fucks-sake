@@ -3,7 +3,7 @@ import { expect, test, type Page } from "@playwright/test";
 // Keyboard-only: the only "interaction" besides keys is page.goto.
 declare global {
   interface Window {
-    __ffs: { text(): string; view(): { header: { np: number; fucks: number; day: number }; tickets: unknown[]; ended: unknown; hash: string } | null; keymap(): Record<string, string> };
+    __ffs: { text(): string; view(): { header: { np: number; fucks: number; day: number; susp: number }; today: { cover_gain: number }; tickets: unknown[]; ended: unknown; hash: string } | null; keymap(): Record<string, string> };
   }
 }
 
@@ -138,6 +138,29 @@ test("scheme then boast in the war-room earns nerd power", async ({ page }) => {
   await page.keyboard.press("Enter");
   const t = await text(page);
   expect(t).toContain("<you> I ");
+});
+
+test("T covers your tracks: a scheme's suspicion comes back down", async ({ page }) => {
+  await start(page);
+  expect(await text(page)).toContain("cover tracks [T]");
+  await page.keyboard.press("s");
+  await page.keyboard.press("1");
+  const hot = (await view(page))?.header.susp ?? 0;
+  expect(hot).toBeGreaterThan(0);
+  const gain = (await view(page))?.today.cover_gain ?? 0;
+  await page.keyboard.press("t");
+  const v = await view(page);
+  expect(v?.header.susp).toBe(Math.max(0, hot - gain));
+  expect(v?.today.cover_gain).toBeLessThan(gain);
+  expect(await text(page)).toContain("Suspicion -");
+});
+
+test("the scheme list numbers every scheme", async ({ page }) => {
+  await start(page);
+  await page.keyboard.press("s");
+  const t = await text(page);
+  expect(t).toContain("Decommission sale");
+  expect(t).toContain("[1-4] or [Enter] run it");
 });
 
 test("F10 then Y ends the run; Enter starts a new one", async ({ page }) => {

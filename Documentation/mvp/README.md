@@ -22,7 +22,8 @@ Nerd Power and stash as flavour. Hit F10 with enough stash and you retire legend
 2. **Resolve incidents** (1-4 to pick, Enter to confirm). Each option has visible hints and real effects on
    Fucks, Suspicion, Stash, and sometimes Dirt on someone.
 3. **Optional side actions** (each costs a turn): rant (unsent email, restores Fucks), coffee (restores
-   Fucks, costs time), a scheme (Stash up, Suspicion up), brag in the war-room.
+   Fucks, costs time), a scheme (Stash up, Suspicion up, sometimes a jackpot), cover your tracks (Suspicion
+   down, costs time and a few Fucks, less each time a day), brag in the war-room.
 4. **War-room.** Rivals post scripted boasts. You can one-up with a story from something you really did
    today (Nerd Power up). Overuse of the same story, or boasting about a scheme, bumps Suspicion.
 5. **Day ends.** Summary quip, scores, next day.
@@ -36,9 +37,9 @@ Nerd Power and stash as flavour. Hit F10 with enough stash and you retire legend
 | UI | Thin TS, text grid, **2 desktops**: Helpdesk (F3) and War-room (F4). F1 help, F9 keymap, F10 retire. Keyboard only. |
 | Meters | Remaining Fucks (visible), Suspicion, Stash ($). Hidden stress/meltdown rules simplified to: Fucks <= 0 triggers meltdown. |
 | Incidents | 1 corp, ~40 incidents in 3 tiers, ~8 repeat chains, 3-4 options each, hints honest. |
-| Schemes | 3 (simple: pay cost in time, gain Stash, gain Suspicion, some risk of audit incident). |
+| Schemes | 4 (simple: pay cost in time, gain Stash, gain Suspicion, some risk of audit incident, a small chance of a jackpot; the biggest unlocks on day 4). Cover your tracks (T) brings Suspicion back down. |
 | Dirt | A tiny version of kompromat: some options give you "dirt" on a named coworker; spend it once to auto-win a later incident involving them. No sharing, no rival interaction. |
-| Rivals | 4 scripted bots with personalities. They post boasts on a schedule from a content table; Nerd Power rank vs them is the leaderboard. |
+| Rivals | 4 scripted bots with personalities, about 70 canned lines each. They post boasts on a schedule from a content table; Nerd Power rank vs them is the leaderboard. |
 | Nerd Power | Earned by clever options, bragging, F2 log. F1 still costs 1 NP (keep the joke). |
 | Endings | 3 meltdown scenes, 1 fired, 1 retire scene, GAME OVER card with share text. |
 | Persistence | Autosave + local best scores in browser storage. |

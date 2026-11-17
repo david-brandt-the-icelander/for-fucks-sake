@@ -1,5 +1,5 @@
 {
-  "hash": "d23e64f3e8be582a7ad9823f84fa17408616064f859e0682e59171e801cf66e4",
+  "hash": "f8b72743a7ec2a96a03878937c609b9b35d2de017ae30b8f10441a88fd5ab788",
   "log": [
     {
       "id": "phantom_licences",
@@ -20,7 +20,7 @@
     },
     {
       "option": 1,
-      "ticket": 2,
+      "ticket": 1,
       "type": "Resolve"
     },
     {
@@ -28,16 +28,8 @@
       "type": "Scheme"
     },
     {
-      "id": "consulting",
-      "type": "Scheme"
-    },
-    {
-      "id": "creative_expenses",
-      "type": "Scheme"
-    },
-    {
       "option": 1,
-      "ticket": 1,
+      "ticket": 5,
       "type": "Resolve"
     },
     {
@@ -46,23 +38,11 @@
       "type": "Resolve"
     },
     {
+      "type": "CoverTracks"
+    },
+    {
       "id": "phantom_licences",
       "type": "Scheme"
-    },
-    {
-      "option": 1,
-      "ticket": 10,
-      "type": "Resolve"
-    },
-    {
-      "option": 2,
-      "ticket": 8,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 7,
-      "type": "Resolve"
     },
     {
       "option": 1,
@@ -70,13 +50,46 @@
       "type": "Resolve"
     },
     {
+      "type": "CoverTracks"
+    },
+    {
+      "id": "consulting",
+      "type": "Scheme"
+    },
+    {
       "option": 1,
       "ticket": 11,
       "type": "Resolve"
     },
     {
+      "id": "phantom_licences",
+      "type": "Scheme"
+    },
+    {
       "option": 1,
-      "ticket": 5,
+      "ticket": 12,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 10,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
+      "ticket": 13,
+      "type": "Resolve"
+    },
+    {
+      "id": "phantom_licences",
+      "type": "Scheme"
+    },
+    {
+      "type": "CoverTracks"
+    },
+    {
+      "option": 1,
+      "ticket": 2,
       "type": "Resolve"
     },
     {
@@ -86,18 +99,16 @@
     },
     {
       "option": 2,
+      "ticket": 15,
+      "type": "Resolve"
+    },
+    {
+      "option": 1,
       "ticket": 14,
       "type": "Resolve"
     },
     {
-      "option": 1,
-      "ticket": 12,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 15,
-      "type": "Resolve"
+      "type": "CoverTracks"
     },
     {
       "option": 1,
@@ -105,34 +116,22 @@
       "type": "Resolve"
     },
     {
-      "option": 1,
-      "ticket": 16,
-      "type": "Resolve"
+      "send": false,
+      "type": "Rant"
     },
     {
-      "option": 0,
-      "ticket": 13,
-      "type": "Resolve"
+      "type": "Coffee"
     },
     {
-      "option": 3,
-      "ticket": 19,
-      "type": "Resolve"
+      "id": "phantom_licences",
+      "type": "Scheme"
     },
     {
-      "option": 2,
-      "ticket": 22,
-      "type": "Resolve"
+      "type": "CoverTracks"
     },
     {
-      "option": 1,
-      "ticket": 18,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 20,
-      "type": "Resolve"
+      "id": "consulting",
+      "type": "Scheme"
     },
     {
       "option": 1,
@@ -140,214 +139,6 @@
       "type": "Resolve"
     },
     {
-      "option": 1,
-      "ticket": 23,
-      "type": "Resolve"
-    },
-    {
-      "option": 3,
-      "ticket": 24,
-      "type": "Resolve"
-    },
-    {
-      "option": 2,
-      "ticket": 25,
-      "type": "Resolve"
-    },
-    {
-      "option": 2,
-      "ticket": 29,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 26,
-      "type": "Resolve"
-    },
-    {
-      "option": 2,
-      "ticket": 31,
-      "type": "Resolve"
-    },
-    {
-      "ticket": 32,
-      "type": "UseDirt"
-    },
-    {
-      "option": 1,
-      "ticket": 33,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 28,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 27,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 35,
-      "type": "Resolve"
-    },
-    {
-      "ticket": 34,
-      "type": "UseDirt"
-    },
-    {
-      "option": 2,
-      "ticket": 39,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 37,
-      "type": "Resolve"
-    },
-    {
-      "option": 2,
-      "ticket": 36,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 38,
-      "type": "Resolve"
-    },
-    {
-      "option": 0,
-      "ticket": 30,
-      "type": "Resolve"
-    },
-    {
-      "option": 3,
-      "ticket": 40,
-      "type": "Resolve"
-    },
-    {
-      "option": 2,
-      "ticket": 41,
-      "type": "Resolve"
-    },
-    {
-      "option": 0,
-      "ticket": 42,
-      "type": "Resolve"
-    },
-    {
-      "type": "Coffee"
-    },
-    {
-      "ticket": 43,
-      "type": "UseDirt"
-    },
-    {
-      "ticket": 44,
-      "type": "UseDirt"
-    },
-    {
-      "ticket": 45,
-      "type": "UseDirt"
-    },
-    {
-      "option": 2,
-      "ticket": 46,
-      "type": "Resolve"
-    },
-    {
-      "option": 2,
-      "ticket": 47,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 51,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 52,
-      "type": "Resolve"
-    },
-    {
-      "type": "Coffee"
-    },
-    {
-      "ticket": 50,
-      "type": "UseDirt"
-    },
-    {
-      "ticket": 53,
-      "type": "UseDirt"
-    },
-    {
-      "ticket": 55,
-      "type": "UseDirt"
-    },
-    {
-      "ticket": 56,
-      "type": "UseDirt"
-    },
-    {
-      "option": 2,
-      "ticket": 54,
-      "type": "Resolve"
-    },
-    {
-      "option": 2,
-      "ticket": 58,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 49,
-      "type": "Resolve"
-    },
-    {
-      "option": 2,
-      "ticket": 48,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 59,
-      "type": "Resolve"
-    },
-    {
-      "type": "Coffee"
-    },
-    {
-      "ticket": 60,
-      "type": "UseDirt"
-    },
-    {
-      "option": 1,
-      "ticket": 63,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 62,
-      "type": "Resolve"
-    },
-    {
-      "option": 2,
-      "ticket": 65,
-      "type": "Resolve"
-    },
-    {
-      "ticket": 66,
-      "type": "UseDirt"
-    },
-    {
-      "option": 1,
-      "ticket": 57,
-      "type": "Resolve"
-    },
-    {
       "send": false,
       "type": "Rant"
     },
@@ -359,23 +150,11 @@
       "type": "Coffee"
     },
     {
-      "option": 2,
-      "ticket": 68,
-      "type": "Resolve"
+      "id": "phantom_licences",
+      "type": "Scheme"
     },
     {
-      "ticket": 71,
-      "type": "UseDirt"
-    },
-    {
-      "option": 1,
-      "ticket": 69,
-      "type": "Resolve"
-    },
-    {
-      "option": 1,
-      "ticket": 67,
-      "type": "Resolve"
+      "type": "Retire"
     }
   ],
   "seed": 1

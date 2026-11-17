@@ -359,6 +359,10 @@ function doAction(a: string): boolean {
       ui.overlay = null;
       send({ type: "Coffee" });
       return true;
+    case "cover":
+      ui.overlay = null;
+      send({ type: "CoverTracks" });
+      return true;
     case "rant":
       ui.rantText = "";
       return open("rant");
