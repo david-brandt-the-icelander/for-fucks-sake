@@ -22,6 +22,8 @@ pub enum Command {
         send: bool,
     },
     Coffee,
+    /// Cover your tracks: tidy logs and paperwork to bring Suspicion down.
+    CoverTracks,
     Scheme {
         id: String,
     },
@@ -137,6 +139,7 @@ pub struct State {
     pub schemes_today: BTreeSet<String>,
     pub rants_today: u32,
     pub coffees_today: u32,
+    pub covers_today: u32,
     pub boasts_today: u32,
     pub resolved: u32,
     pub toast: String,

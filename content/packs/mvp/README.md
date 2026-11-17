@@ -72,5 +72,17 @@ Each effect table sets ONE thing (or is a `chance`/`then` pair). Option rules:
   Spawn targets must exist. A system incident's options must not `spawn` themselves.
 
 ## `schemes.toml` (written by the engine author)
-## `rivals.toml`, `dirt.toml`, `scenes.toml`, `quips.toml`, `art.toml`
+Fields per scheme: `id`, `name`, `desc`, `minutes`, `cash = [lo, hi]` (grows 8%/day), `susp`,
+`audit_chance`, `story`, `story_value`, and optionally `min_day` (first day it can run),
+`jackpot_chance` (percent), `jackpot_mult = [lo, hi]` (cash multiplier, >= 2), `jackpot_susp`
+(extra suspicion on a jackpot) and `jackpot_line` (the toast). A jackpot's story is always worth 3.
+
+## `quips.toml`
+`cover` holds the openers for "cover your tracks" toasts (at least 6); the engine appends the numbers.
+
+## `rivals.toml`
+Each rival needs at least 20 `idle`, 16 `boast`, 8 of each `react_*` and 6 `mock_help` lines, so a
+ten-minute run rarely repeats one. Keep each rival's voice.
+
+## `dirt.toml`, `scenes.toml`, `quips.toml`, `art.toml`
 See the headers of each file.

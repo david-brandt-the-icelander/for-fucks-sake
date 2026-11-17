@@ -123,7 +123,7 @@ fn show(e: &Engine) {
             .collect::<Vec<_>>()
             .join(" | ")
     );
-    println!("commands: <ticket> <option> | d <ticket> | r | rs | c | s<n> | b<id> | h | e | q(retire) | x(quit)");
+    println!("commands: <ticket> <option> | d <ticket> | r | rs | c | t(cover tracks) | s<n> | b<id> | h | e | q(retire) | x(quit)");
 }
 
 fn play(seed: u64) {
@@ -152,6 +152,7 @@ fn play(seed: u64) {
             ["r"] => Some(Command::Rant { send: false }),
             ["rs"] => Some(Command::Rant { send: true }),
             ["c"] => Some(Command::Coffee),
+            ["t"] => Some(Command::CoverTracks),
             ["h"] => Some(Command::HelpOpened),
             ["e"] => Some(Command::EndDay),
             ["q"] => Some(Command::Retire),
@@ -254,8 +255,8 @@ fn bot_report(args: &[String]) {
             "clever" if !(8..=16).contains(&med) => {
                 problems.push(format!("clever median {med} days should be 8-16"))
             }
-            "clever" if pc(melt) < 70.0 => {
-                problems.push("clever meltdown rate should be >= 70%".to_string())
+            "clever" if !(25.0..=65.0).contains(&pc(ret)) => {
+                problems.push("clever retire rate should be 25-65%".to_string())
             }
             "random" if pc(ret) > 1.0 => problems.push("random retires too often".to_string()),
             _ => {}

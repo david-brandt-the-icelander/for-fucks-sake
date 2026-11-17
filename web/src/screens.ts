@@ -107,7 +107,7 @@ export function drawHelpdesk(g: Grid, v: View, ui: UI, km: Keymap): void {
   if (!t) {
     g.put(4, 4, "INBOX ZERO", "b");
     g.put(4, 6, "Nobody needs you right now. It will not last.", "n");
-    g.put(4, 8, `Skim a scheme [${combo(km, "scheme")}], rant [${combo(km, "rant")}], brag [${combo(km, "desk_warroom")}], or go home [${combo(km, "end_day")}].`, "d");
+    g.put(4, 8, `Skim a scheme [${combo(km, "scheme")}], cover your tracks [${combo(km, "cover")}], rant [${combo(km, "rant")}], brag [${combo(km, "desk_warroom")}], or go home [${combo(km, "end_day")}].`, "d");
   } else {
     const nth = t.nth > 1 ? ` (${ordinal(t.nth)} time)` : "";
     g.put(4, 2, `INCIDENT #${t.id}  ${t.title}`, "b");
@@ -133,7 +133,7 @@ export function drawHelpdesk(g: Grid, v: View, ui: UI, km: Keymap): void {
       g.right(3, y, 107, "+10 fucks  +2 NP", "b");
       y += 2;
     }
-    g.put(4, 38, `[${combo(km, "next")}/${combo(km, "prev")}] other ticket  [${combo(km, "rant")}] rant  [${combo(km, "coffee")}] coffee  [${combo(km, "scheme")}] scheme  [${combo(km, "end_day")}] go home  [${combo(km, "run")}] run for it`, "d");
+    g.put(4, 38, `[${combo(km, "next")}/${combo(km, "prev")}] other ticket  [${combo(km, "rant")}] rant  [${combo(km, "coffee")}] coffee  [${combo(km, "scheme")}] scheme  [${combo(km, "cover")}] cover tracks  [${combo(km, "end_day")}] go home  [${combo(km, "run")}] run`, "d");
   }
   // right column
   g.box(114, 1, 46, 10, `QUEUE · ${v.tickets.length} waiting`);
@@ -149,6 +149,7 @@ export function drawHelpdesk(g: Grid, v: View, ui: UI, km: Keymap): void {
   g.put(116, 14, `suspicion ${meter(h.susp, 100, 14)} ${h.susp}%`, h.susp >= 60 ? "x" : "n");
   g.put(116, 16, `day ends 17:00 (${h.minutes_left} min left)`, "d");
   g.put(116, 17, `rank #${h.rank}: ${h.title}`, "d");
+  g.put(116, 15, `cover tracks [${combo(km, "cover")}]: -${v.today.cover_gain} susp, -${v.today.cover_fucks} fucks`, "d");
   g.put(116, 18, h.can_retire ? "F10 would be a LEGENDARY retirement" : "retire needs goal cash + susp < 60", h.can_retire ? "b" : "d");
   g.box(114, 20, 46, 8, `DIRT · ${v.dirt.length}`);
   if (!v.dirt.length) g.put(116, 21, "Nothing on anyone. Yet.", "d");
@@ -205,10 +206,10 @@ export function drawOverlay(g: Grid, v: View, ui: UI, km: Keymap): void {
         "",
         "Pick a ticket option with 1-4 and press Enter. The chips show what it does (honest).",
         "Spite is tempting and costs Suspicion. At 100% Suspicion you are fired.",
-        "Schemes make money (and Suspicion). Dirt on a coworker beats one of their tickets.",
+        "Schemes make money (and Suspicion), and sometimes hit a jackpot. Dirt beats a coworker's ticket.",
+        "Cover your tracks to bring Suspicion down: it costs time and a few fucks, less each time a day.",
         "Stories from your best moves can be bragged about in the war-room for Nerd Power.",
         "Retire with enough cash and low Suspicion for the legendary ending. F10 any time to run.",
-        "",
       ];
       lines.forEach((l, i) => g.put(x + 3, y + 2 + i, l, "n"));
       ACTIONS.forEach((a, i) => {
@@ -271,11 +272,11 @@ export function drawOverlay(g: Grid, v: View, ui: UI, km: Keymap): void {
         const sel = i === ui.cursor;
         const yy = y + 2 + i * 3;
         if (sel) g.fill(x + 2, yy, 96, "s");
-        g.put(x + 3, yy, `[${i + 1}] ${s.name}${s.available ? "" : "  (done today)"}`, sel ? "s" : s.available ? "n" : "d");
+        g.put(x + 3, yy, `[${i + 1}] ${s.name}${s.available ? "" : v.header.day < s.min_day ? `  (from day ${s.min_day})` : "  (done today)"}`, sel ? "s" : s.available ? "n" : "d");
         g.put(x + 7, yy + 1, s.desc, sel ? "s" : "d");
         drawChips(g, x + 97, yy, s.hint, sel);
       });
-      g.put(x + 3, y + 3 + v.schemes.length * 3, "[1-3] or [Enter] run it   [Esc] back", "d");
+      g.put(x + 3, y + 3 + v.schemes.length * 3, `[1-${v.schemes.length}] or [Enter] run it   [Esc] back`, "d");
       break;
     }
     case "boast": {

@@ -3,4 +3,4 @@
 /**
  * Player commands. The log of these plus the seed is the whole save game.
  */
-export type Command = { "type": "Resolve", ticket: number, option: number, } | { "type": "UseDirt", ticket: number, } | { "type": "Rant", send: boolean, } | { "type": "Coffee" } | { "type": "Scheme", id: string, } | { "type": "Boast", story: number, } | { "type": "HelpOpened" } | { "type": "EndDay" } | { "type": "Retire" };
+export type Command = { "type": "Resolve", ticket: number, option: number, } | { "type": "UseDirt", ticket: number, } | { "type": "Rant", send: boolean, } | { "type": "Coffee" } | { "type": "CoverTracks" } | { "type": "Scheme", id: string, } | { "type": "Boast", story: number, } | { "type": "HelpOpened" } | { "type": "EndDay" } | { "type": "Retire" };

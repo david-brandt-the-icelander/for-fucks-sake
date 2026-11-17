@@ -28,5 +28,12 @@ pub mod consts {
     pub const COFFEE_MINUTES: u32 = 60;
     pub const BOAST_MINUTES: u32 = 60;
     pub const DIRT_MINUTES: u32 = 60;
+    pub const COVER_MINUTES: u32 = 120;
+    /// Suspicion removed by the 1st, 2nd and later "cover your tracks" of a day.
+    pub const COVER_SUSP: [i32; 3] = [6, 3, 1];
+    /// Fucks it costs (shredding paperwork is tedious).
+    pub const COVER_FUCKS: i32 = 4;
+    /// Scheme cash grows by this many percent per day after the first.
+    pub const SCHEME_GROWTH_PCT: i64 = 8;
     pub const START_CASH: i32 = 1_200;
 }

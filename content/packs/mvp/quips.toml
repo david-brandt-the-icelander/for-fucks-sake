@@ -22,6 +22,21 @@ day_end = [
   "Day done. You are, technically, still employed. Technically.",
   "Fucks given: few. Fucks remaining: also few. Balance is key.",
 ]
+# Openers for "cover your tracks" (the engine appends the numbers).
+cover = [
+  "You file a spotless change request for something you did in March.",
+  "You rename 'phantom_vendor_invoices.xlsx' to 'q3_compliance_review.xlsx'.",
+  "You volunteer to 'own the audit trail'. Nobody else wanted it.",
+  "You send a cheerful all-staff email about password hygiene. Very trustworthy.",
+  "You print forty pages of policy and leave them on Margaret's desk. Diligent.",
+  "You reconcile the expense reports until the numbers look bored.",
+  "You CC the auditor on a ticket where you were genuinely helpful.",
+  "You laminate the backup schedule. Nothing says honest like lamination.",
+  "You attend a compliance webinar with your camera on. Nodding.",
+  "You reorganise the asset register so thoroughly it no longer has opinions.",
+  "You thank Ingrid for her 'important work' within earshot of three people.",
+  "You put a padlock on the server room. The key is in your pocket. Reassuring.",
+]
 mood_serene = [
   "Inner peace. Suspicious, but nice.",
   "The kettle is hot. All is well.",

@@ -19,6 +19,7 @@ export const ACTIONS: ActionDef[] = [
   { id: "prev", label: "Previous ticket", def: "P" },
   { id: "rant", label: "Rant (unsent email)", def: "R" },
   { id: "scheme", label: "Schemes", def: "S" },
+  { id: "cover", label: "Cover your tracks (-susp)", def: "T" },
   { id: "dirt", label: "Play dirt", def: "D" },
   { id: "boast", label: "Boast (war-room)", def: "B" },
   { id: "end_day", label: "Go home (end day)", def: "E" },

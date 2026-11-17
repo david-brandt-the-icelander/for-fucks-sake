@@ -31,8 +31,9 @@ fn drive(seed: u64, steps: usize) -> Engine {
             break;
         }
         let st = e.state().clone();
-        let cmd = match next() % 9 {
+        let cmd = match next() % 10 {
             0 => Command::Coffee,
+            9 => Command::CoverTracks,
             1 => Command::Rant {
                 send: next() % 2 == 0,
             },
@@ -41,7 +42,12 @@ fn drive(seed: u64, steps: usize) -> Engine {
                 story: st.stories.first().map(|s| s.id).unwrap_or(999),
             },
             4 => Command::Scheme {
-                id: ["phantom_licences", "consulting", "creative_expenses"][(next() % 3) as usize]
+                id: [
+                    "phantom_licences",
+                    "consulting",
+                    "creative_expenses",
+                    "server_sale",
+                ][(next() % 4) as usize]
                     .to_string(),
             },
             _ => match st.queue.first() {
@@ -216,4 +222,85 @@ fn view_serialises_and_hints_are_honest() {
             assert!(!o.hint.is_empty(), "option {} has no hint", o.text);
         }
     }
+}
+
+#[test]
+fn covering_tracks_lowers_suspicion_less_each_time() {
+    use ffs_core::consts::{COVER_FUCKS, COVER_SUSP};
+    let mut e = Engine::new(pack(), 4);
+    e.apply(Command::Scheme {
+        id: "phantom_licences".into(),
+    })
+    .expect("scheme");
+    e.apply(Command::Scheme {
+        id: "consulting".into(),
+    })
+    .expect("scheme");
+    let day = e.state().day;
+    let mut gains = vec![];
+    for _ in 0..2 {
+        let (s0, f0) = (e.state().susp, e.state().fucks);
+        assert_eq!(e.view().today.cover_gain, COVER_SUSP[gains.len()]);
+        e.apply(Command::CoverTracks).expect("cover");
+        assert_eq!(e.state().day, day, "still the same day");
+        gains.push(s0 - e.state().susp);
+        assert!(
+            e.state().fucks <= f0 - COVER_FUCKS + 4,
+            "covering is tedious"
+        );
+    }
+    assert_eq!(gains, vec![COVER_SUSP[0], COVER_SUSP[1]]);
+    // a new day resets the diminishing returns
+    e.apply(Command::EndDay).expect("end day");
+    if !e.is_over() {
+        assert_eq!(e.view().today.cover_gain, COVER_SUSP[0]);
+    }
+}
+
+#[test]
+fn covering_tracks_never_goes_below_zero() {
+    let mut e = Engine::new(pack(), 6);
+    assert_eq!(e.state().susp, 0);
+    e.apply(Command::CoverTracks).expect("cover");
+    assert_eq!(e.state().susp, 0);
+}
+
+#[test]
+fn big_scheme_is_locked_until_its_day() {
+    let mut e = Engine::new(pack(), 9);
+    assert_eq!(
+        e.apply(Command::Scheme {
+            id: "server_sale".into()
+        }),
+        Err(CommandError::SchemeLocked)
+    );
+    assert!(!e
+        .view()
+        .schemes
+        .iter()
+        .any(|s| s.id == "server_sale" && s.available));
+}
+
+#[test]
+fn schemes_sometimes_hit_a_jackpot() {
+    // Run creative expenses on day 1 across many seeds: base cash is at most $800,
+    // so anything above that is a jackpot, and jackpots must happen but stay rare.
+    let mut jackpots = 0;
+    let runs = 400;
+    for seed in 0..runs {
+        let mut e = Engine::new(pack(), seed);
+        let c0 = e.state().cash;
+        e.apply(Command::Scheme {
+            id: "creative_expenses".into(),
+        })
+        .expect("scheme");
+        let got = e.state().cash - c0;
+        assert!((250..=800 * 8).contains(&got), "seed {seed}: {got}");
+        if got > 800 {
+            jackpots += 1;
+            assert!(e.state().toast.starts_with("JACKPOT!"));
+        }
+    }
+    assert!(jackpots > 0, "no jackpot in {runs} runs");
+    assert!(jackpots < runs / 5, "too many jackpots: {jackpots}");
 }
