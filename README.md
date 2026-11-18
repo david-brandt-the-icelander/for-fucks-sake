@@ -26,6 +26,9 @@ Project paperwork (business plan, risks, deployment, ops, contacts): [Documentat
 
 ## Play it
 
+Online: **<https://forfuckssake.today>**.
+
+
 ```
 make wasm                 # build the engine to WASM (needs wasm-bindgen-cli 0.2.130)
 cd web && npm install && npm run dev

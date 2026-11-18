@@ -63,6 +63,7 @@ make wasm       # build crates/ffs-wasm into web/src/wasm (cargo + wasm-bindgen-
 make content    # ffs content validate
 make balance    # ffs bot report + assertions
 make replays    # regenerate tests/replays after an intentional rules/content change
+make deploy     # build and deploy the web game to forfuckssake.today (needs CLOUDFLARE_API_TOKEN; normally release.yml on a v* tag)
 cargo run -p ffs-cli -- play --seed 42
 cargo run -p ffs-cli -- jsonl --seed 42 --gm mock
 ```

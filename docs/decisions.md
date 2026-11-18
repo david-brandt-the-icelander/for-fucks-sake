@@ -119,3 +119,13 @@ David: more schemes; each available once, replaced by a new one when taken; esca
 - Errors: `SchemeUsedToday` and `SchemeLocked` are replaced by `SchemeNotOffered`.
 - Balance after retuning susp per tier: clever bot retires about 42% (median 8-9 days); lazy and random
   unchanged (random never retires).
+
+## Host: forfuckssake.today (2026-11-18)
+
+David bought `forfuckssake.today` (DNS on Cloudflare) for the game. It is served there, public with no sign-in (the
+MVP has no accounts), by its own Cloudflare Worker with static assets (`wrangler.jsonc`, `worker/index.js` for the
+`www` redirect). A `v*` tag deploys it (`.github/workflows/release.yml`, secret `CLOUDFLARE_API_TOKEN`); CI stamps
+the version into the build (`FFS_VERSION` from the tag, "dev" locally). The registrar's parking `A` records and the
+`www` CNAME were removed so the Worker custom domains could take both names. icelander.net keeps its signed-in copy
+at `/games/ffs/`, updated by hand (its `docs/ffs.md`). This supersedes the icelander.net-only hosting note of
+2026-11-17 (never merged).

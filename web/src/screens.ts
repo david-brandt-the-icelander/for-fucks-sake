@@ -51,7 +51,7 @@ function combo(km: Keymap, id: string): string {
 export function drawTop(g: Grid, v: View, ui: UI, km: Keymap): void {
   g.fill(0, 0, COLS, "i");
   const h = v.header;
-  g.put(1, 0, `FFS! v0.1 > ${h.corp.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-+$/, "")} > sysop@${ui.desk}`, "i");
+  g.put(1, 0, `FFS! ${__FFS_VERSION__} > ${h.corp.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-+$/, "")} > sysop@${ui.desk}`, "i");
   const t1 = `[${combo(km, "desk_helpdesk")} HELPDESK]`;
   const t2 = `[${combo(km, "desk_warroom")} WAR-ROOM]`;
   g.put(52, 0, t1, ui.desk === "helpdesk" ? "n" : "j");
@@ -301,7 +301,7 @@ export function drawOverlay(g: Grid, v: View, ui: UI, km: Keymap): void {
 
 export function drawTitle(g: Grid, v: { logo: string } | null, ui: UI, km: Keymap): void {
   g.fill(0, 0, COLS, "i");
-  g.put(1, 0, "FFS! v0.1", "i");
+  g.put(1, 0, `FFS! ${__FFS_VERSION__}`, "i");
   const logo = v?.logo ?? "";
   const lines = logo.replace(/\n$/, "").split("\n");
   lines.forEach((l, i) => g.put(60, 4 + i, l, "b"));
