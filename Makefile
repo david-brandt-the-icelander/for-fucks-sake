@@ -1,4 +1,4 @@
-.PHONY: dev test wasm content balance replays web-test e2e build types
+.PHONY: dev test wasm content balance replays web-test e2e build types deploy
 
 wasm:
 	cargo build -p ffs-wasm --target wasm32-unknown-unknown --release
@@ -31,6 +31,12 @@ e2e: wasm
 
 build: wasm
 	cd web && npm run build
+
+# Deploy the web game to https://forfuckssake.today (wrangler.jsonc). Needs CLOUDFLARE_API_TOKEN.
+# Normally .github/workflows/release.yml does this on a v* tag; this is the by-hand path.
+deploy: wasm
+	cd web && FFS_VERSION="$$(git describe --tags --always)" npm run build
+	npx --yes wrangler@4.156.0 deploy
 
 test: wasm
 	cargo fmt --check

@@ -120,9 +120,12 @@ David: more schemes; each available once, replaced by a new one when taken; esca
 - Balance after retuning susp per tier: clever bot retires about 42% (median 8-9 days); lazy and random
   unchanged (random never retires).
 
-## Host: icelander.net (2026-11-17)
+## Host: forfuckssake.today (2026-11-18)
 
-The web game is served by icelander.net at `/games/ffs/` (signed-in players), as committed static files in that
-repository (`site/ffs-game/`, runbook `docs/ffs.md` there). Not GitHub Pages. A release here is a tag; CI stamps the
-version into the build (`FFS_VERSION` from `git describe --tags`, "dev" locally) and the `ffs-web` artifact is
-copied into icelander.net by pull request.
+David bought `forfuckssake.today` (DNS on Cloudflare) for the game. It is served there, public with no sign-in (the
+MVP has no accounts), by its own Cloudflare Worker with static assets (`wrangler.jsonc`, `worker/index.js` for the
+`www` redirect). A `v*` tag deploys it (`.github/workflows/release.yml`, secret `CLOUDFLARE_API_TOKEN`); CI stamps
+the version into the build (`FFS_VERSION` from the tag, "dev" locally). The registrar's parking `A` records and the
+`www` CNAME were removed so the Worker custom domains could take both names. icelander.net keeps its signed-in copy
+at `/games/ffs/`, updated by hand (its `docs/ffs.md`). This supersedes the icelander.net-only hosting note of
+2026-11-17 (never merged).

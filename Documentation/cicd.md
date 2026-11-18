@@ -24,7 +24,7 @@ Build the static site and deploy it to a preview URL (once a host is chosen). Ni
 
 ## On release
 
-Tag `vX.Y.Z` -> CI's `ffs-web` artifact carries that version; it is published by copying it into the icelander.net repository (`docs/ffs.md` there). Server image build is manual until it's annoying.
+Tag `vX.Y.Z` -> `.github/workflows/release.yml` tests, builds and deploys the web game to https://forfuckssake.today (secret `CLOUDFLARE_API_TOKEN`). Server image build is manual until it's annoying.
 
 ## Branch protection
 

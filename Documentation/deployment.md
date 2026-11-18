@@ -2,14 +2,14 @@
 
 **Source of truth:** here, until real pipeline config exists; then the pipeline files win and this says what they do.
 
-The single-player web game is live on icelander.net (see `mvp/delivery.md`); everything else here is still the plan.
+The single-player web game is live at https://forfuckssake.today (see `mvp/delivery.md`); everything else here is still the plan.
 
 ## Environments
 
 | Environment | Where | Deployed by | Data |
 | --- | --- | --- | --- |
 | Local | dev machine (`make dev`) | you | fixtures / seeds |
-| Single-player | icelander.net, <https://icelander.net/games/ffs/> (signed-in players) | a pull request in the icelander.net repository (its `docs/ffs.md`) | none (browser storage only) |
+| Single-player | <https://forfuckssake.today> (Cloudflare Worker `for-fucks-sake`, `wrangler.jsonc`) | `.github/workflows/release.yml` on a `v*` tag | none (browser storage only) |
 | Multiplayer staging | optional, a cheap VPS or just local Docker | manual | synthetic |
 | Multiplayer prod | one container (`ffs-server`) + Postgres on a small VPS (TBD) | manual `docker compose pull && up -d` at first, CI later | real handles/runs |
 
@@ -36,6 +36,7 @@ Anyone with repo write access (just David for now) may deploy. No change windows
 | `GM_API_KEY`, `GM_BASE_URL` | server-side LLM provider | host env |
 | `CONTENTGEN_API_KEY` | offline content generation | developer's local env only |
 | `MODEL_HOST_URL` | where players download local model weights from | build-time config |
+| `CLOUDFLARE_API_TOKEN` | deploys the web game (`release.yml`, `make deploy`) | GitHub repository secret; developer's env for `make deploy` |
 
 Never commit values. Missing `DATABASE_URL` = server refuses to start; missing GM key = server runs with the deterministic fallback.
 
@@ -46,6 +47,8 @@ Never commit values. Missing `DATABASE_URL` = server refuses to start; missing G
 
 ## Infrastructure
 
-- **Web host:** icelander.net (David's site, a Cloudflare Worker with static assets). It serves the built game at
-  `/games/ffs/` behind its sign-in. No secrets or accounts live in this repository for it.
-- A domain of the game's own: TBD (branding is an open question).
+- **Domain:** `forfuckssake.today`, registered by David, DNS on Cloudflare (same account as icelander.net,
+  `ab026008f5aa2bef2dca4cfccd0f70ef`). The bare domain and `www` are Worker custom domains of `for-fucks-sake`;
+  Cloudflare manages their DNS records. The zone also keeps a `_dmarc` record and the registrar's `_domainconnect`.
+- **Web host:** Cloudflare Workers (static assets), Free plan. Owner: David.
+- icelander.net keeps a signed-in copy at `/games/ffs/` (its own repository, `docs/ffs.md` there).

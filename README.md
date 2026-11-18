@@ -26,7 +26,7 @@ Project paperwork (business plan, risks, deployment, ops, contacts): [Documentat
 
 ## Play it
 
-Online, signed in: <https://icelander.net/games/ffs/>.
+Online: **<https://forfuckssake.today>**.
 
 
 ```
