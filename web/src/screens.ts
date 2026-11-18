@@ -51,11 +51,14 @@ function combo(km: Keymap, id: string): string {
 export function drawTop(g: Grid, v: View, ui: UI, km: Keymap): void {
   g.fill(0, 0, COLS, "i");
   const h = v.header;
-  g.put(1, 0, `FFS! ${__FFS_VERSION__} > ${h.corp.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-+$/, "")} > sysop@${ui.desk}`, "i");
+  // the version is as long as the build says (e.g. "v0.2.0-4-gf98b0de"), so the tabs follow the prompt
+  const prompt = clip(`FFS! ${__FFS_VERSION__} > ${h.corp.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-+$/, "")} > sysop@${ui.desk}`, 72);
+  g.put(1, 0, prompt, "i");
   const t1 = `[${combo(km, "desk_helpdesk")} HELPDESK]`;
   const t2 = `[${combo(km, "desk_warroom")} WAR-ROOM]`;
-  g.put(52, 0, t1, ui.desk === "helpdesk" ? "n" : "j");
-  g.put(52 + t1.length + 1, 0, t2, ui.desk === "warroom" ? "n" : "j");
+  const tx = Math.max(52, 1 + prompt.length + 2);
+  g.put(tx, 0, t1, ui.desk === "helpdesk" ? "n" : "j");
+  g.put(tx + t1.length + 1, 0, t2, ui.desk === "warroom" ? "n" : "j");
   const right = `DAY ${String(h.day).padStart(2, "0")} ${h.clock} | ${money(h.cash)} | SUSP ${h.susp}% | NP ${h.np} | #${h.rank}`;
   g.right(0, 0, COLS - 1, right, "i");
   if (h.susp >= 60) {
