@@ -11,5 +11,6 @@ Full list: `../risk-assessment.md`. Most big risks (LLM, multiplayer abuse, host
 | M5 | Key capture fails on some browsers/OS. | MV0 spike; every binding rebindable. |
 | M6 | Scope creep back toward the full spec. | `cut/README.md` is the bouncer: anything cut returns only via a note there and a decision in `docs/decisions.md`. |
 | M7 | Solo dev burnout. | Short milestones, ship the static site early, playtest with friends. |
+| M8 | icelander.net's login service is down: nobody can sign in, so nobody can start the game. | Accepted (fails closed); the game has no data of its own to lose. The scripts and WASM stay public, so a later change to an optional sign-in is a Worker edit. |
 
 Parked risks (LLM, multiplayer, hosting spend, store rating) are in `cut/risks-parked.md`.

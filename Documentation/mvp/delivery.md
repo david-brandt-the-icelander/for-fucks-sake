@@ -31,9 +31,11 @@ Skipped: Firefox/WebKit matrix, nightly balance runs, model checks.
 
 ## Deploy
 
-Live at **<https://forfuckssake.today>**, public (no sign-in). A Cloudflare Worker with static assets
-(`wrangler.jsonc`, worker `for-fucks-sake`) serves `web/dist/`; `worker/index.js` only sends `www.` to the bare
-domain. Security and cache headers are in `web/public/_headers`, the 404 page in `web/public/404.html`.
+Live at **<https://forfuckssake.today>**, **sign-in required** (icelander.net's login service; no rank is asked, the game is unranked). A Cloudflare Worker with static assets
+(`wrangler.jsonc`, worker `for-fucks-sake`) serves `web/dist/`; `worker/index.js` sends `www.` to the bare
+domain, answers `/auth/*` (the login service's sign-in, through the vendored `worker/vendor/icelander-auth/`, never
+edited here: change it in icelander.net's `packages/icelander-auth` and copy it with `sync.sh`) and asks a visitor
+who is not signed in to sign in before the page. Scripts, styles and WASM stay public. Security and cache headers are in `web/public/_headers`, the 404 page in `web/public/404.html`.
 
 - **Release:** tag `main` (`v0.x.y`) and push the tag. `.github/workflows/release.yml` runs `cargo test` (replays
   included) and the web tests, builds with the tag in the title bar, and deploys. Local builds say `dev`.
@@ -46,4 +48,4 @@ domain. Security and cache headers are in `web/public/_headers`, the 404 page in
   hand from CI's `ffs-web` artifact.
 Saves are keyed by content hash so a content change starts a fresh save rather than corrupting an old one.
 
-One secret (`CLOUDFLARE_API_TOKEN`, above), no server of our own, no database, no on-call. If content generation needs an API key, it lives only on the developer's machine.
+One secret (`CLOUDFLARE_API_TOKEN`, above), no server of our own, no database, no on-call. **One external service: icelander.net's login service** (a service binding `ACCOUNTS` to the Worker `accounts` in the same Cloudflare account, its public keys in `ACCOUNTS_JWKS` in `wrangler.jsonc`, and the app `ffs` with the callback `https://forfuckssake.today/auth/callback` registered in its `APPS`); no new secret. If that service is down, nobody can sign in, so nobody can start the game (it fails closed). If content generation needs an API key, it lives only on the developer's machine.
