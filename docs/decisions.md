@@ -129,3 +129,14 @@ the version into the build (`FFS_VERSION` from the tag, "dev" locally). The regi
 `www` CNAME were removed so the Worker custom domains could take both names. icelander.net keeps its signed-in copy
 at `/games/ffs/`, updated by hand (its `docs/ffs.md`). This supersedes the icelander.net-only hosting note of
 2026-11-17 (never merged).
+
+## Sign-in through icelander.net (2026-11-21)
+
+David decided (icelander.net `docs/identity-app-plan.md`, D9) that forfuckssake.today requires sign-in, with no rank
+and no limits: the game stays unranked. The Worker (`worker/index.js`) uses the shared library vendored in
+`worker/vendor/icelander-auth/` (app `ffs`, cookie `ffs_session`, host-only) and the service binding `ACCOUNTS` (same
+Cloudflare account). A page navigation without a session goes to icelander.net's sign-in and back; assets stay public.
+This supersedes "public with no sign-in" above. The game itself (WASM, saves, scoring) is unchanged and learns nothing
+about the person; the cookie is the Worker's only. The `ffs` registration with the callback
+`https://forfuckssake.today/auth/callback` must be deployed in icelander.net's `accounts/wrangler.jsonc` before this
+release, or sign-in answers an error.
