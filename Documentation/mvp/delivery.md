@@ -41,6 +41,9 @@ who is not signed in to sign in before the page. Scripts, styles and WASM stay p
   included) and the web tests, builds with the tag in the title bar, and deploys. Local builds say `dev`.
 - **Redeploy / roll back:** Actions > release > Run workflow. Blank deploys the newest `v*` tag; an older tag
   rolls back to it (that tag's game, today's Worker config). Minutes.
+- **Moving to zizd:** the same checks, build and deploy as step containers for zazzle's builders and deployers are in
+  `.zazzle/zizd/` (its README.md). There a release is the branch `release`, not a tag, and a rollback redeploys an older
+  commit's stored artifacts. The workflows stay until the cutover.
 - **By hand:** `make deploy` with `CLOUDFLARE_API_TOKEN` set (builds the current checkout, `git describe` version).
 - **Secret:** the repository secret `CLOUDFLARE_API_TOKEN` (Workers Scripts: Edit on the account; Workers Routes
   and DNS: Edit on the `forfuckssake.today` zone). Without it the release workflow fails before deploying.
